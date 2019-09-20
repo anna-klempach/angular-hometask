@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserEntity } from '../user-entity.model';
 
 @Component({
   selector: 'app-logo',
