@@ -1,0 +1,9 @@
+@import '../../app.component.scss';
+
+:host {
+    background-color: map-get($colors, primary-color);
+    
+    button {
+        @include button();
+    }
+}

@@ -7,3 +7,12 @@ $colors: (
     dark-font:  rgb(24, 33, 63),
     light-font: rgb(248, 244, 226)
 );
+
+@mixin button($width: 10em, $height: 5em, $background-color: map-get($colors, button-background)) {
+    outline: none;
+    width: $width;
+    height: $height;
+    color: map-get($colors, light-font);
+    background-color: $background-color;
+    border-radius: 3px;
+}
