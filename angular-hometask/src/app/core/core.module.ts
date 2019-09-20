@@ -10,7 +10,12 @@ import { LogoComponent } from './logo/logo.component';
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, BreadcrumbsComponent, LogoComponent],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+  ],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    BreadcrumbsComponent
+  ],
 })
 export class CoreModule { }

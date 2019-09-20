@@ -9,7 +9,10 @@ import { CoursesListItemComponent } from './courses-list-item/courses-list-item.
 @NgModule({
   declarations: [SearchBarComponent, CoursesListComponent, CoursesListItemComponent],
   imports: [
-    CommonModule
+    CommonModule,
+  ],
+  exports: [
+    CoursesListComponent,
   ]
 })
 export class CoursesPageModule { }
