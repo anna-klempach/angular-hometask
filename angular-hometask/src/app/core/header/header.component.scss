@@ -1,0 +1,15 @@
+@import '../../app.component.scss';
+
+:host {
+    display: flex;
+    flex-direction: column;
+    
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        color: map-get($colors, light-font);
+        background-color: map-get($colors, header-background);
+    }
+
+}
