@@ -1,0 +1,10 @@
+@import "../../../styles.scss";
+
+:host {
+  display: flex;
+  margin: 0 5rem;
+  p {
+      margin: 0.5rem 0 0;
+      color: map-get($colors, secondary);
+  }
+}

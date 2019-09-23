@@ -1,0 +1,45 @@
+@import "../../../styles.scss";
+
+:host {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns: 5fr repeat(3, 3fr) 5fr;
+  grid-template-areas: "img title title title bs" "img descr descr descr bs" "img date dur . bs";
+  width: 70vw;
+  
+
+  .course {
+    &-video-icon {
+      grid-area: img;
+      height: 100%;
+    }
+
+    &-heading {
+      grid-area: title;
+    }
+
+    &-description {
+      grid-area: descr;
+    }
+
+    &-duration {
+      grid-area: dur;
+    }
+
+    &-creation {
+      grid-area: date;
+    }
+
+    &-button-set {
+      grid-area: bs;
+      display: none;
+
+      :hover {
+        grid-area: bs;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+    }
+  }
+}

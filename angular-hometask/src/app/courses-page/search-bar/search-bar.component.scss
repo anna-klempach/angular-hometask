@@ -1,0 +1,33 @@
+@import "../../../styles.scss";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 6rem 5rem 0.5rem;
+  color: map-get($colors, light-font);
+  background: linear-gradient(to right, map-get($colors, dark-background), map-get($colors, secondary));
+
+  .heading {
+      margin: 0 0 0.5rem;
+      padding: 0;
+  }
+
+  .form {
+    display: flex;
+    align-items: center;
+    input {
+      width: 50vw;
+      height: 2rem;
+      margin-right: 2rem;
+      padding-left: 0.5rem;
+      border: 1px solid map-get($colors, dark-background);
+      border-radius: 0.3rem;
+    }
+
+    button {
+      @include button();
+    }
+  }
+}

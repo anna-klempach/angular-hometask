@@ -1,13 +1,13 @@
-<div>
-    <h2>{{course.id}}.{{course.title}}</h2>
-    <p>{{course.description}}</p>
-    <p>{{course.duration}}</p>
-    <p>{{course.creationDate}}</p>
+<img class="course-video-icon" src="../../../assets/video.jpg" alt="video">
+<h2 class="course-heading">{{course.id}}.{{course.title}}</h2>
+<p class="course-description">{{course.description}}</p>
+<p class="course-duration">{{course.duration}}</p>
+<p class="course-creatin">{{course.creationDate}}</p>
+<div class="course-button-set">
+    <button>
+        <i class="material-icons">create</i>
+    </button>
+    <button (click)="hanleDeleteClick()">
+        <i class="material-icons">delete</i>
+    </button>
 </div>
-
-<button>
-    <i class="material-icons">create</i>
-</button>
-<button (click)="hanleDeleteClick()">
-    <i class="material-icons">delete</i>
-</button>
