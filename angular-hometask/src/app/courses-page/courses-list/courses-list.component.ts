@@ -10,9 +10,14 @@ import { CoursesListEntry } from '../courses-list-entry';
 export class CoursesListComponent implements OnInit {
   courses: CoursesListEntry[];
   searchValue = '';
+  delete = 'false';
   constructor(private coursesService: CoursesService) { }
 
   ngOnInit() {
     this.courses = this.coursesService.getCourses();
+  }
+
+  deleteItem(id: number) {
+    console.log(`Item to delete is ${id}.`);
   }
 }
