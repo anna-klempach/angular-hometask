@@ -1,0 +1,11 @@
+@import "../../app.component.scss";
+:host {
+    position: absolute;
+    top: 20vh;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    border: 1px solid map-get($colors, hover);
+    background-color: map-get($colors, primary);
+}
