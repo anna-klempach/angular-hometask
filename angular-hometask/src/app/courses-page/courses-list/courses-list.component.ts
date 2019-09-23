@@ -9,6 +9,7 @@ import { CoursesListEntry } from '../courses-list-entry';
 })
 export class CoursesListComponent implements OnInit {
   courses: CoursesListEntry[];
+  searchValue = '';
   constructor(private coursesService: CoursesService) { }
 
   ngOnInit() {

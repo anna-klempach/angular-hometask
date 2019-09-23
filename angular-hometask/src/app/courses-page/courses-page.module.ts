@@ -5,11 +5,10 @@ import { CoursesListComponent } from './courses-list/courses-list.component';
 import { CoursesListItemComponent } from './courses-list-item/courses-list-item.component';
 
 
-
 @NgModule({
   declarations: [SearchBarComponent, CoursesListComponent, CoursesListItemComponent],
   imports: [
-    CommonModule,
+    CommonModule
   ],
   exports: [
     CoursesListComponent,

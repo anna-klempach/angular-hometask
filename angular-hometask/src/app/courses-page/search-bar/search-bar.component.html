@@ -1,1 +1,2 @@
-<input type="text">
+<input #searchBar (keyup)="onKey(searchBar.value)" (keyup.enter)="showInput(); searchBar.value = ''">
+<button (click)="showInput()">Search</button>
