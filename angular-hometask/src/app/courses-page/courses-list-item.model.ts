@@ -3,6 +3,6 @@ export interface CoursesListItem {
     title: string;
     creationDate: Date;
     duration: number;
-    descriprion: string;
+    description: string;
 }
 
