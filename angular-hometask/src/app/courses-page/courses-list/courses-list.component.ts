@@ -20,4 +20,8 @@ export class CoursesListComponent implements OnInit {
   deleteItem(id: number) {
     console.log(`Item to delete is ${id}.`);
   }
+
+  handleLoad() {
+    console.log('The "Load more" button has been clicked.');
+  }
 }

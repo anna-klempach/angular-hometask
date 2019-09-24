@@ -1,9 +1,15 @@
 <app-search-bar [(searchValue)]="searchValue"></app-search-bar>
-<p>Current search value taken from parent component due to two-way binding is {{searchValue}}</p>
-<button class="courses-list__button">
-    <i class="material-icons">add</i>
-    Add course</button>
-<div>
-    <app-courses-list-item *ngFor="let course of courses" [course]="course" (deleteRequest)="deleteItem($event)"></app-courses-list-item>
+<p class="binding-checker">Current search value taken from parent component due to two-way binding is {{searchValue}}
+</p>
+<div class="add-button-container">
+    <button class="add-course-button">
+        <i class="material-icons">add</i>
+        Add course
+    </button>
 </div>
-<button class="courses-list__button">LOAD MORE</button>
+
+<div class="list">
+    <app-courses-list-item *ngFor="let course of courses" [course]="course" (deleteRequest)="deleteItem($event)">
+    </app-courses-list-item>
+</div>
+<button class="load-more-button" (click)="handleLoad()">LOAD MORE</button>

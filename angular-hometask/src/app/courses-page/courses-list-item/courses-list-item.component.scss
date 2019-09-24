@@ -2,16 +2,24 @@
 
 :host {
   display: grid;
-  grid-template-rows: repeat(3, auto);
-  grid-template-columns: 5fr repeat(3, 3fr) 5fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr) 7rem;
   grid-template-areas: "img title title title bs" "img descr descr descr bs" "img date dur . bs";
-  width: 70vw;
-  
+  justify-items: center;
+  align-items: center;
+  width: 80vw;
+  height: 12rem;
+  margin: 1rem 0;
+  border: 1px solid map-get($colors, button-background);
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px map-get($colors, dark-background);
 
   .course {
     &-video-icon {
       grid-area: img;
-      height: 100%;
+      justify-self: start;
+      width: 20rem;
+      height: 12rem;;
     }
 
     &-heading {
@@ -20,26 +28,59 @@
 
     &-description {
       grid-area: descr;
+      justify-self: start;
+      margin-left: 1rem;
     }
 
     &-duration {
       grid-area: dur;
     }
 
+    &-icon {
+      margin-right: 0.5rem;
+      color: map-get($colors, button-background);
+    }
+
     &-creation {
       grid-area: date;
     }
 
+    &-duration, &-creation {
+      display: flex;
+      align-items: center;
+      p {
+        margin: 0;
+        padding: 0;
+        span {
+          color: map-get($colors, secondary);
+          font-weight: bold;
+        }
+      }
+    }
+
     &-button-set {
       grid-area: bs;
-      display: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      opacity: 0; // will fix later
+      transition: opacity 0.5s ease-in;
 
-      :hover {
-        grid-area: bs;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+      button {
+        @include button($width: 3rem, $height: 3rem);
+        margin: 1rem 0;
+        &:hover {
+          cursor: pointer;
+          background-color: map-get($colors, hover);
+        }
       }
+    }
+  }
+
+  &:hover {
+    .course-button-set {
+      opacity: 1;
+      transition: opacity 0.5s ease-in;
     }
   }
 }

@@ -19,4 +19,8 @@ export class CoursesListItemComponent implements OnInit{
     this.deleteRequest.emit(this.course.id);
   }
 
+  handleEditClick() {
+    console.log('Someone is trying to edit the video');
+  }
+
 }
