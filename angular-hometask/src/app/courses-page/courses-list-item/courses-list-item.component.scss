@@ -3,12 +3,12 @@
 :host {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(4, 1fr) 7rem;
-  grid-template-areas: "img title title title bs" "img descr descr descr bs" "img date dur . bs";
+  grid-template-columns: repeat(3, 1fr) 7rem;
+  grid-template-areas: "img title title  bs" "img descr descr bs" "img date dur bs";
   justify-items: center;
   align-items: center;
   width: 80vw;
-  height: 12rem;
+  height: 20vh;
   margin: 1rem 0;
   border: 1px solid map-get($colors, button-background);
   border-radius: 5px;
@@ -18,18 +18,21 @@
     &-video-icon {
       grid-area: img;
       justify-self: start;
-      width: 20rem;
-      height: 12rem;;
+      width: 20vw;
+      height: 20vh;;
     }
 
     &-heading {
       grid-area: title;
+      margin: 0;
+      padding: 0;
     }
 
     &-description {
       grid-area: descr;
       justify-self: start;
-      margin-left: 1rem;
+      margin: 0 0 0 1rem;
+      padding: 0;
     }
 
     &-duration {
@@ -38,16 +41,21 @@
 
     &-icon {
       margin-right: 0.5rem;
+      padding: 0;
       color: map-get($colors, button-background);
+      
     }
 
     &-creation {
       grid-area: date;
+      
     }
 
     &-duration, &-creation {
       display: flex;
       align-items: center;
+      margin: 0;
+      padding: 0;
       p {
         margin: 0;
         padding: 0;

@@ -10,7 +10,7 @@
 <div class="course-creation">
     <i class="material-icons course-icon">date_range</i>
     <p>
-        <span>Date: </span>{{course.creationDate.toUTCString()}}
+        <span>Date: </span>{{course.creationDate.toLocaleString("ru-RU", { year: 'numeric', month: 'numeric', day: 'numeric' })}}
     </p>
 
 </div>
