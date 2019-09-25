@@ -37,6 +37,6 @@ describe('AppComponent', () => {
     app.deleteItem();
     fixture.detectChanges();
     expect(app.pickABooActive).toBeFalsy();
-    expect(fixture.debugElement.query(By.css('.pab'))).toBeFalsy();
+    expect(fixture.debugElement.query(By.css('.pab'))).toBeNull();
   });
 });
