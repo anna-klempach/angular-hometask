@@ -29,14 +29,14 @@ describe('CoursesListComponent', () => {
           description: 'A very uninteresting video',
         }
       ],
-      getCourses: () => this.courses,
+      getCourses() { return this.courses; },
     };
     TestBed.configureTestingModule({
-      declarations: [ CoursesListComponent ],
-      providers:    [ {provide: CoursesService, useValue: coursesServiceStub } ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      declarations: [CoursesListComponent],
+      providers: [{ provide: CoursesService, useValue: coursesServiceStub }],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -49,5 +49,9 @@ describe('CoursesListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should have two items in a list', () => {
+    const list = element.querySelector('.list');
+    expect(list.children.length).toEqual(2);
   });
 });
