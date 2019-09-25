@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-pick-a-boo *ngIf="pickABooActive" (deleteRequest)="deleteItem($event)"></app-pick-a-boo>
+<app-pick-a-boo class="pab" *ngIf="pickABooActive" (deleteRequest)="deleteItem($event)"></app-pick-a-boo>
 <div class="container">
     <router-outlet></router-outlet>
     <!-- <app-courses-list></app-courses-list> -->
