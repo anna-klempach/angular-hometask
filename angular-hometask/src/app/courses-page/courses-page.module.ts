@@ -4,7 +4,8 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { CoursesListComponent } from './courses-list/courses-list.component';
 import { CoursesListItemComponent } from './courses-list-item/courses-list-item.component';
 import { CoursePlateBorderDirective } from './course-plate-border.directive';
-import { DurationDisplayPipe } from '../duration-display.pipe';
+import { DurationDisplayPipe } from '../pipes/duration-display.pipe';
+import { OrderByPipe } from '../pipes/order-by.pipe';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { DurationDisplayPipe } from '../duration-display.pipe';
     CoursesListComponent,
     CoursesListItemComponent,
     CoursePlateBorderDirective,
-    DurationDisplayPipe
+    DurationDisplayPipe,
+    OrderByPipe
   ],
   imports: [
     CommonModule
