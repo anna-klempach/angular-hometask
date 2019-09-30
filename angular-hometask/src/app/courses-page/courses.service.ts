@@ -20,7 +20,7 @@ const COURSES: CoursesListEntry[] = [
   providedIn: 'root'
 })
 export class CoursesService {
-  public courses = COURSES;
+  public courses = [];
   constructor() { }
 
   getCourses(): CoursesListEntry[] {

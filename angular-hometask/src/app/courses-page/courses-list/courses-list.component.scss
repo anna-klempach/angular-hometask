@@ -42,3 +42,7 @@
     align-self: center;
     margin-bottom: 5rem;
 }
+
+.no-data-message {
+  border: 1px solid map-get($colors, dark-background);
+}

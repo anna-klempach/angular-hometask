@@ -7,8 +7,8 @@
         Add course
     </button>
 </div>
-
-<div class="list">
+<p *ngIf="courses.length === 0" class="no-data-message">NO DATA, FEEL FREE TO ADD A NEW COURSE</p>
+<div *ngIf="courses.length > 0" class="list">
     <app-courses-list-item class="courses-list-item" *ngFor="let course of courses" [course]="course" (deleteRequest)="deleteItem($event)"
     [appCoursePlateBorder]="course">
     </app-courses-list-item>
