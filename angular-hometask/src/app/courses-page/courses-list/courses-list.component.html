@@ -1,4 +1,4 @@
-<app-search-bar [(searchValue)]="searchValue"></app-search-bar>
+<app-search-bar [(searchValue)]="searchValue" (searchValueChange)="updateSearchValue($event)"></app-search-bar>
 <p class="binding-checker">Current search value taken from parent component due to two-way binding is {{searchValue}}
 </p>
 <div class="add-button-container">
@@ -9,8 +9,9 @@
 </div>
 <p *ngIf="courses.length === 0" class="no-data-message">NO DATA, FEEL FREE TO ADD A NEW COURSE</p>
 <div *ngIf="courses.length > 0" class="list">
-    <app-courses-list-item [ngClass]="{'top-background-color': course.topRated}"class="courses-list-item" *ngFor="let course of (courses | orderBy)" [course]="course" (deleteRequest)="deleteItem($event)"
-    [appCoursePlateBorder]="course">
+    <app-courses-list-item [ngClass]="{'top-background-color': course.topRated}" class="courses-list-item"
+        *ngFor="let course of (courses | sortBy: searchValue | orderBy)" [course]="course" (deleteRequest)="deleteItem($event)"
+        [appCoursePlateBorder]="course">
     </app-courses-list-item>
 </div>
 <button class="load-more-button" (click)="handleLoad()">LOAD MORE</button>

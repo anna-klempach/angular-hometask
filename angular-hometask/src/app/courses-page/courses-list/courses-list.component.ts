@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { CoursesService } from '../courses.service';
-import { CoursesListEntry } from '../courses-list-entry';
 import { CoursesListItem } from '../courses-list-item.model';
 
 @Component({
@@ -16,6 +15,11 @@ export class CoursesListComponent implements OnInit {
 
   ngOnInit() {
     this.courses = this.coursesService.getCourses();
+  }
+
+  updateSearchValue(value: string) { // quite unnecessary at the moment, might use later
+    this.searchValue = value;
+    console.log(this.searchValue);
   }
 
   deleteItem(id: number) {

@@ -21,7 +21,6 @@ export class SearchBarComponent implements OnInit {
 
   onKey(value: string) {
     this.searchValue = value;
-    this.searchValueChange.emit(this.searchValue);
   }
 
 }

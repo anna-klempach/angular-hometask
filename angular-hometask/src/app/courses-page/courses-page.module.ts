@@ -6,6 +6,7 @@ import { CoursesListItemComponent } from './courses-list-item/courses-list-item.
 import { CoursePlateBorderDirective } from './course-plate-border.directive';
 import { DurationDisplayPipe } from '../pipes/duration-display.pipe';
 import { OrderByPipe } from '../pipes/order-by.pipe';
+import { SortByPipe } from '../pipes/sort-by.pipe';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { OrderByPipe } from '../pipes/order-by.pipe';
     CoursesListItemComponent,
     CoursePlateBorderDirective,
     DurationDisplayPipe,
-    OrderByPipe
+    OrderByPipe,
+    SortByPipe,
   ],
   imports: [
     CommonModule
