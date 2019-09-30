@@ -6,7 +6,8 @@ $colors: (
     hover: #F76C6C,
     dark-font:  rgb(24, 33, 63),
     light-font: rgb(248, 244, 226),
-    light-opaque-background: rgba(248, 244, 226, 0.2)
+    light-opaque-background: rgba(248, 244, 226, 0.2),
+    highlight: rgb(245, 216, 75)
 );
 
 @mixin button($width: 10rem, $height: 2rem, $background-color: map-get($colors, button-background)) {
