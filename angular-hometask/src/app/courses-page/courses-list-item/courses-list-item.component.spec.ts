@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CoursesListItemComponent } from './courses-list-item.component';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser';
+import { NO_ERRORS_SCHEMA, DebugElement } from '@angular/core';
 import { CoursesListEntry } from '../courses-list-entry';
+import { DurationDisplayPipe } from 'src/app/pipes/duration-display.pipe';
 
 describe('CoursesListItemComponent', () => {
   let component: CoursesListItemComponent;
@@ -14,7 +14,7 @@ describe('CoursesListItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CoursesListItemComponent],
+      declarations: [CoursesListItemComponent, DurationDisplayPipe],
       schemas: [NO_ERRORS_SCHEMA]
     })
       .compileComponents();
@@ -31,6 +31,7 @@ describe('CoursesListItemComponent', () => {
       creationDate: new Date('December 17, 2017 03:24:00'),
       duration: 30,
       description: 'A very interesting video',
+      topRated: false,
     };
     component.course = expectedCourse;
     fixture.detectChanges();
@@ -41,11 +42,11 @@ describe('CoursesListItemComponent', () => {
   });
   it('should contain an id and title in heading', () => {
     const heading = courseEl.querySelector('.course-heading');
-    expect(heading.textContent).toContain('3.Good morning!');
+    expect(heading.textContent).toContain('3.GOOD MORNING!');
   });
   it('should contain date in creation field', () => {
     const heading = courseEl.querySelector('.course-creation');
-    expect(heading.textContent).toContain('17.12.2017');
+    expect(heading.textContent).toContain('17 Dec, 2017');
   });
   it('should contain description in description field', () => {
     const heading = courseEl.querySelector('.course-description');

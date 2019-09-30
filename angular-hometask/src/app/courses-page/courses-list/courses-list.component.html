@@ -11,7 +11,7 @@
     class="list">
     <app-courses-list-item [ngClass]="{'top-background-color': course.topRated}" class="courses-list-item"
         *ngFor="let course of (courses | sortBy: searchValue | orderBy)" [course]="course"
-        (deleteRequest)="deleteItem($event)" [appCoursePlateBorder]="course">
+        (deleteRequest)="deleteItem($event)" [appCoursePlateBorder]="course.creationDate">
     </app-courses-list-item>
 </div>
 <button class="load-more-button" (click)="handleLoad()">LOAD MORE</button>

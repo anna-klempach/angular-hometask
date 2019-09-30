@@ -5,6 +5,9 @@ import { CoursesService } from '../courses.service';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CoursesListItemComponent } from '../courses-list-item/courses-list-item.component';
 import { By } from '@angular/platform-browser';
+import { SortByPipe } from 'src/app/pipes/sort-by.pipe';
+import { OrderByPipe } from 'src/app/pipes/order-by.pipe';
+import { DurationDisplayPipe } from 'src/app/pipes/duration-display.pipe';
 
 describe('CoursesListComponent', () => {
   let component: CoursesListComponent;
@@ -22,6 +25,7 @@ describe('CoursesListComponent', () => {
           creationDate: new Date(),
           duration: 30,
           description: 'A very interesting video',
+          topRated: true,
         },
         {
           id: 2,
@@ -29,12 +33,18 @@ describe('CoursesListComponent', () => {
           creationDate: new Date(),
           duration: 40,
           description: 'A very uninteresting video',
+          topRated: false,
         }
       ],
       getCourses() { return this.courses; },
     };
     TestBed.configureTestingModule({
-      declarations: [CoursesListComponent, CoursesListItemComponent],
+      declarations: [
+        CoursesListComponent,
+        CoursesListItemComponent,
+        SortByPipe,
+        OrderByPipe,
+        DurationDisplayPipe],
       providers: [{ provide: CoursesService, useValue: coursesServiceStub }],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
