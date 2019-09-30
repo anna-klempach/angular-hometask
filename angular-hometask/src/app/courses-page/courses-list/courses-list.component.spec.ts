@@ -83,4 +83,22 @@ describe('CoursesListComponent', () => {
     component.deleteItem(1);
     expect(component.deleteItem).toHaveBeenCalledWith(1);
   });
+
+  it('should sort element according to the keyword', () => {
+    component.searchValue = 'hello';
+    fixture.detectChanges();
+    const list = element.querySelector('.list');
+    expect(list.children.length).toEqual(1);
+  });
+  it('should not display list if keyword does not match', () => {
+    component.searchValue = 'three';
+    fixture.detectChanges();
+    let list = element.querySelector('.list');
+    expect(list).toBeFalsy();
+    component.searchValue = 'o';
+    fixture.detectChanges();
+    list = element.querySelector('.list');
+    expect(list).toBeTruthy();
+    expect(list.children.length).toBe(2);
+  });
 });

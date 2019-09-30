@@ -96,4 +96,14 @@ describe('CoursesListItemComponent', () => {
     button.click();
     expect(selectedCourseId).toBe(expectedCourse.id);
   });
+  it('should display a star if a component is top rated', () => {
+    component.course.topRated = true;
+    fixture.detectChanges();
+    let icon: HTMLElement = courseEl.querySelector('.course-rating');
+    expect(icon).toBeTruthy();
+    component.course.topRated = false;
+    fixture.detectChanges();
+    icon = courseEl.querySelector('.course-rating');
+    expect(icon).toBeFalsy();
+  });
 });
