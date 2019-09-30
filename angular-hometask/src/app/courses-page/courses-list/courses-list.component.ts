@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CoursesService } from '../courses.service';
 import { CoursesListEntry } from '../courses-list-entry';
+import { CoursesListItem } from '../courses-list-item.model';
 
 @Component({
   selector: 'app-courses-list',
@@ -8,7 +9,7 @@ import { CoursesListEntry } from '../courses-list-entry';
   styleUrls: ['./courses-list.component.scss']
 })
 export class CoursesListComponent implements OnInit {
-  courses: CoursesListEntry[];
+  courses: CoursesListItem[];
   searchValue = '';
   delete = 'false';
   constructor(private coursesService: CoursesService) { }
@@ -24,4 +25,5 @@ export class CoursesListComponent implements OnInit {
   handleLoad() {
     console.log('The "Load more" button has been clicked.');
   }
+
 }

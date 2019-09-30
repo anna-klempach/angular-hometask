@@ -10,6 +10,10 @@ const COURSES: CoursesListEntry[] = [
     15, 'Not a very interesting video but the topic is extremely important and you have to watch it, thanks God it is quite short.'),
   new CoursesListEntry(4, 'Video Four', new Date('August 30, 2019 14:24:00'),
     50, 'An absolutely useless video, if you do not want you may not watch it.'),
+  new CoursesListEntry(5, 'Video Five', new Date('September 29, 2019 14:24:00'),
+    50, 'A video that has been published recently.'),
+  new CoursesListEntry(6, 'Video Six', new Date('October 20, 2019 14:24:00'),
+    50, 'A video yet to come.'),
 ];
 
 @Injectable({

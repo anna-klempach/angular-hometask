@@ -9,7 +9,8 @@
 </div>
 
 <div class="list">
-    <app-courses-list-item class="courses-list-item" *ngFor="let course of courses" [course]="course" (deleteRequest)="deleteItem($event)">
+    <app-courses-list-item class="courses-list-item" *ngFor="let course of courses" [course]="course" (deleteRequest)="deleteItem($event)"
+    [appCoursePlateBorder]="course">
     </app-courses-list-item>
 </div>
 <button class="load-more-button" (click)="handleLoad()">LOAD MORE</button>
