@@ -44,9 +44,21 @@ describe('CoursesListItemComponent', () => {
     const heading = courseEl.querySelector('.course-heading');
     expect(heading.textContent).toContain('3.GOOD MORNING!');
   });
+  it('should capitalize the title in heading', () => {
+    component.course.title = 'Video number three';
+    fixture.detectChanges();
+    const heading = courseEl.querySelector('.course-heading');
+    expect(heading.textContent).toContain('VIDEO NUMBER THREE');
+  });
   it('should contain date in creation field', () => {
     const heading = courseEl.querySelector('.course-creation');
     expect(heading.textContent).toContain('17 Dec, 2017');
+  });
+  it('should display date according to the template', () => {
+    component.course.creationDate = new Date('March 25, 2019 03:24:00');
+    fixture.detectChanges();
+    const heading = courseEl.querySelector('.course-creation');
+    expect(heading.textContent).toContain('25 Mar, 2019');
   });
   it('should contain description in description field', () => {
     const heading = courseEl.querySelector('.course-description');
@@ -55,6 +67,27 @@ describe('CoursesListItemComponent', () => {
   it('should contain duration in duration field', () => {
     const heading = courseEl.querySelector('.course-duration');
     expect(heading.textContent).toContain('30');
+  });
+  it('should display duration in minutes as "mm min"', () => {
+    component.course.duration = 1;
+    fixture.detectChanges();
+    const heading = courseEl.querySelector('.course-duration');
+    expect(heading.textContent).toContain('01 min');
+  });
+  it('should display duration in full hours as "h h 00 min"', () => {
+    component.course.duration = 60;
+    fixture.detectChanges();
+    const heading = courseEl.querySelector('.course-duration');
+    expect(heading.textContent).toContain('1 h 00 min');
+  });
+  it('should display duration in hours and minutes as "h h mm min"', () => {
+    component.course.duration = 83;
+    fixture.detectChanges();
+    const heading = courseEl.querySelector('.course-duration');
+    expect(heading.textContent).toContain('1 h 23 min');
+    component.course.duration = 125;
+    fixture.detectChanges();
+    expect(heading.textContent).toContain('2 h 05 min');
   });
   it('should raise the event on delete button click and pass element id as property', () => {
     let selectedCourseId: number;

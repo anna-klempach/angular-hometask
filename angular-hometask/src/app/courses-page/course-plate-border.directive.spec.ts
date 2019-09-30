@@ -14,7 +14,7 @@ import { CoursesListItem } from './courses-list-item.model';
 class TestComponent {
   public dateBefore = new Date('June 12, 2018 02:24:00');
   public dateRecent = new Date('September 29, 2019 14:24:00');
-  public dateAfter = new Date('October 30, 2019 14:24:00');
+  public dateAfter = new Date('October 30, 2100 14:24:00');
 }
 
 const fixture = TestBed.configureTestingModule({ // Why when i do it 'before each' all the other tests fail?
