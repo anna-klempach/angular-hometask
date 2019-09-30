@@ -86,9 +86,9 @@
 
     &-rating {
       grid-area: cr;
-      font-size: 2em;
+      font-size: 2.3em;
       color: map-get($colors, highlight);
-      text-shadow: 1px 1px 3px map-get($colors, primary);
+      text-shadow: 0 0 3px map-get($colors, button-background);
     }
   }
 

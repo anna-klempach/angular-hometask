@@ -46,3 +46,7 @@
 .no-data-message {
   border: 1px solid map-get($colors, dark-background);
 }
+
+.top-background-color {
+  background-color: map-get($colors, light-font);
+}
