@@ -1,5 +1,5 @@
 <img class="course-video-icon" src="../../../assets/video.jpg" alt="video">
-<h2 class="course-heading">{{course.id}}.{{course.title}}</h2>
+<h2 class="course-heading">{{course.id}}.{{course.title | uppercase}}</h2>
 <p class="course-description">{{course.description}}</p>
 <div class="course-duration">
     <i class="material-icons course-icon">schedule</i>
@@ -10,7 +10,7 @@
 <div class="course-creation">
     <i class="material-icons course-icon">date_range</i>
     <p>
-        <span>Date: </span>{{course.creationDate.toLocaleString("ru-RU", { year: 'numeric', month: 'numeric', day: 'numeric' })}}
+        <span>Date: </span>{{course.creationDate | date}}
     </p>
 
 </div>
@@ -18,7 +18,7 @@
     <button class="edit-button" (click)="handleEditClick()">
         <i class="material-icons">create</i>
     </button>
-    <button class="delete-button" (click)="hanleDeleteClick()">
+    <button class="delete-button" (click)="handleDeleteClick()">
         <i class="material-icons">delete</i>
     </button>
 </div>
