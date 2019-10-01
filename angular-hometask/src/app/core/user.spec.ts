@@ -1,6 +1,5 @@
 import { User } from './user';
 import { UserEntity } from './user-entity.model';
-import { CoursesListItem } from '../courses-page/courses-list-item.model';
 
 describe('User', () => {
   it('should create an instance', () => {
