@@ -7,6 +7,7 @@ import { CoursePlateBorderDirective } from './course-plate-border.directive';
 import { DurationDisplayPipe } from '../pipes/duration-display.pipe';
 import { OrderByPipe } from '../pipes/order-by.pipe';
 import { SortByPipe } from '../pipes/sort-by.pipe';
+import { ModalDialogComponent } from './modal-dialog/modal-dialog.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { SortByPipe } from '../pipes/sort-by.pipe';
     DurationDisplayPipe,
     OrderByPipe,
     SortByPipe,
+    ModalDialogComponent,
   ],
   imports: [
     CommonModule

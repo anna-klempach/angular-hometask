@@ -6,8 +6,9 @@ import { CoursesListEntry } from '../courses-list-entry';
   templateUrl: './courses-list-item.component.html',
   styleUrls: ['./courses-list-item.component.scss']
 })
-export class CoursesListItemComponent implements OnInit{
+export class CoursesListItemComponent implements OnInit {
   @Input() course: CoursesListEntry;
+  @Input() locked: boolean;
   @Output() deleteRequest: EventEmitter<number> = new EventEmitter<number>();
   constructor() { }
 
@@ -15,7 +16,9 @@ export class CoursesListItemComponent implements OnInit{
   }
 
   handleDeleteClick() {
-    this.deleteRequest.emit(this.course.id);
+    if (!this.locked) {
+      this.deleteRequest.emit(this.course.id);
+    }
   }
 
   handleEditClick() {

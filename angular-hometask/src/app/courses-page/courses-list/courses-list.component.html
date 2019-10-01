@@ -1,4 +1,4 @@
-<app-search-bar [(searchValue)]="searchValue" (searchValueChange)="updateSearchValue($event)"></app-search-bar>
+<app-search-bar [(searchValue)]="searchValue" (searchValueChange)="updateSearchValue($event)" [fieldDisabled]="windowLocked"></app-search-bar>
 <div class="add-button-container">
     <button class="add-course-button">
         <i class="material-icons">add</i>
@@ -15,3 +15,4 @@
     </app-courses-list-item>
 </div>
 <button class="load-more-button" (click)="handleLoad()">LOAD MORE</button>
+<app-modal-dialog *ngIf="deleteModalOpened" (deleteItem)="handleDeleteItem($event)"></app-modal-dialog>
