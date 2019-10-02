@@ -7,5 +7,5 @@
     <input #passwordBar id="password"
         (keyup.enter)="handlePasswordInput(passwordBar.value)" placeholder="Enter password"
         required>
-    <button class="login-page__button" (click)="handleLogin(); handlePasswordInput(passwordBar.value); handleEmailInput(emailBar.value)">Login</button>
+    <button class="login-page__button" (click)="handlePasswordInput(passwordBar.value); handleEmailInput(emailBar.value); handleLogin(); ">Login</button>
 </div>
