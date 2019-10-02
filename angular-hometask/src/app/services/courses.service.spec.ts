@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { CoursesService } from './courses.service';
-import { CoursesListEntry } from '../courses-list-entry';
+import { CoursesListEntry } from '../courses-page/courses-list-entry';
 
 const COURSES: CoursesListEntry[] = [
   new CoursesListEntry(1, 'Video One', new Date('June 12, 2018 02:24:00'),

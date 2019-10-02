@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserEntity } from '../user-entity.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-logo',
@@ -8,7 +8,7 @@ import { UserEntity } from '../user-entity.model';
 })
 export class LogoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { CoursesService } from '../services/courses.service';
+import { CoursesService } from '../../services/courses.service';
 import { CoursesListItem } from '../courses-list-item.model';
 
 

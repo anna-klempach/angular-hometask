@@ -8,7 +8,7 @@ import { By } from '@angular/platform-browser';
 import { SortByPipe } from 'src/app/pipes/sort-by.pipe';
 import { OrderByPipe } from 'src/app/pipes/order-by.pipe';
 import { DurationDisplayPipe } from 'src/app/pipes/duration-display.pipe';
-import { CoursesService } from '../services/courses.service';
+import { CoursesService } from '../../services/courses.service';
 
 describe('CoursesListComponent', () => {
   let component: CoursesListComponent;

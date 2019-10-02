@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { COURSES } from '../courses';
-import { CoursesListItem } from '../courses-list-item.model';
-import { CoursesListEntry } from '../courses-list-entry';
+import { COURSES } from '../courses-page/courses';
+import { CoursesListItem } from '../courses-page/courses-list-item.model';
+import { CoursesListEntry } from '../courses-page/courses-list-entry';
 
 
 @Injectable({
