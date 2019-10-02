@@ -1,0 +1,11 @@
+<div class="login-page">
+    <h2 class="login-page__heading">Login</h2>
+    <label for="#email">E-mail:</label>
+    <input #emailBar id="email"
+        (keyup.enter)="handleEmailInput(emailBar.value); emailBar.value = ''" placeholder="Enter your e-mail" required>
+    <label for="#password">Password:</label>
+    <input #passwordBar id="password"
+        (keyup.enter)="handlePasswordInput(passwordBar.value); passwordBar.value = ''" placeholder="Enter password"
+        required>
+    <button class="login-page__button">Login</button>
+</div>

@@ -9,23 +9,18 @@ export interface UserInfo {
   providedIn: 'root'
 })
 export class AuthService {
-  login = 'hello';
-  token = '12345';
 
   constructor() { }
-  public logIn(login: string = this.login, token: string = this.token): void {
+  public logIn(login: string = '', token: string = ''): string {
     window.localStorage.setItem('userInfo', JSON.stringify({ login, token }));
-    this.login = login;
-    this.token = token;
+    return login;
   }
 
   public logOut(): void {
     window.localStorage.setItem('userInfo', JSON.stringify({ login: '', token: '' }));
-    this.login = '';
-    this.token = '';
   }
 
-  private isAuthenticated(): boolean {
+  public isAuthenticated(): boolean {
     const currentUserLogin: string | undefined = this.getUserInfo();
     if (currentUserLogin) {
       return true;
