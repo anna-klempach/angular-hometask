@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginPageComponent implements OnInit {
   emailValue = '';
   passwordValue = '';
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -21,6 +22,11 @@ export class LoginPageComponent implements OnInit {
   handlePasswordInput(value: string) {
     this.passwordValue = value;
     console.log('Password', this.passwordValue);
+  }
+
+  handleLogin() {
+    this.authService.logIn(this.emailValue, this.passwordValue);
+    console.log('Logged in successfully');
   }
 
 }
