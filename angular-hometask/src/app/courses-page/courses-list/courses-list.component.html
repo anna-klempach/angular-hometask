@@ -16,3 +16,4 @@
 </div>
 <button class="load-more-button" (click)="handleLoad()">LOAD MORE</button>
 <app-modal-dialog *ngIf="deleteModalOpened" (deleteItem)="handleDeleteItem($event)"></app-modal-dialog>
+<div class="blocking-window" *ngIf="deleteModalOpened"></div>

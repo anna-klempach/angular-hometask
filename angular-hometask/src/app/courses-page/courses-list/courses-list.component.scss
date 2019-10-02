@@ -50,3 +50,13 @@
 .top-background-color {
   background-color: map-get($colors, light-font);
 }
+
+.blocking-window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: map-get($colors, light-opaque-background);
+}

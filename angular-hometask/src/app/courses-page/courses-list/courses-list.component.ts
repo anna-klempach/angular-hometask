@@ -14,8 +14,6 @@ export class CoursesListComponent implements OnInit {
   delete = 'false';
   deleteModalOpened = false;
   itemToDelete: number | null = null;
-  windowLocked = false;
-  @Output() lockWindow = new EventEmitter<boolean>(); // will need later for communication
 
   constructor(private coursesService: CoursesService) { }
 
@@ -30,8 +28,6 @@ export class CoursesListComponent implements OnInit {
 
   deleteItem(id: number) {
     this.deleteModalOpened = true;
-    this.windowLocked = true;
-    this.lockWindow.emit(true);
     this.itemToDelete = id;
   }
 
@@ -42,8 +38,6 @@ export class CoursesListComponent implements OnInit {
     }
     this.itemToDelete = null;
     this.deleteModalOpened = false;
-    this.lockWindow.emit(false);
-    this.windowLocked = false;
   }
 
   handleLoad() {
