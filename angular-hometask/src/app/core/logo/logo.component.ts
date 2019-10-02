@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -7,16 +7,16 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./logo.component.scss']
 })
 export class LogoComponent implements OnInit {
-
-  constructor(private authService: AuthService) { }
+  @Input() authService: AuthService;
+  @Input() login: string;
+  @Output() logOut = new EventEmitter();
+  constructor() { }
 
   ngOnInit() {
-    this.authService.logIn();
   }
 
   handleLogout(): void {
-    this.authService.logOut();
-    console.log('User has logged out');
+    this.logOut.emit();
   }
 
 }

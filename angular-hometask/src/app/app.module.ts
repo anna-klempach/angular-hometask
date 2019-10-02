@@ -7,6 +7,8 @@ import { CoreModule } from './core/core.module';
 import { CoursesPageModule } from './courses-page/courses-page.module';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from 'src/app.routes';
+import { LoginPageModule } from './login-page/login-page.module';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -17,9 +19,10 @@ import { ROUTES } from 'src/app.routes';
     AppRoutingModule,
     CoreModule,
     CoursesPageModule,
+    LoginPageModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [{provide: AuthService, useClass: AuthService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

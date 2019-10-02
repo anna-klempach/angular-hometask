@@ -1,5 +1,5 @@
-<div class="header">
+<div class="header" [ngClass]="{'log-in-header': !isAuthenticated}">
     <h1>VIDEO COURSE</h1>
-    <app-logo></app-logo>
+    <app-logo *ngIf="isAuthenticated" (logOut)="handleLogOut()" [login]="login"></app-logo>
 </div>
-<app-breadcrumbs></app-breadcrumbs>
+<app-breadcrumbs *ngIf="isAuthenticated"></app-breadcrumbs>

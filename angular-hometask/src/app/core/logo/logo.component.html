@@ -1,9 +1,12 @@
-<div class="user-login">
+<a href="/log-in" class="user-login" *ngIf="!login">
+    <i class="material-icons">exit_to_app</i>
+    Log In
+</a>
+<div class="user-login" *ngIf="login">
     <i class="material-icons">face</i>
-    <p>User login</p>
+    <p>{{login}}</p>
 </div>
 <button class="user-logoff" (click)="handleLogout()">
-    <i class="material-icons">exit_to_app</i>
-    Log off
+    <i class="material-icons">launch</i>
+    Log Out
 </button>
-
