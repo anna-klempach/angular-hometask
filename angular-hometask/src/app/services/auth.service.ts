@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { userInfo } from 'os';
 
 export interface UserInfo {
   login: string;
@@ -10,11 +9,11 @@ export interface UserInfo {
   providedIn: 'root'
 })
 export class AuthService {
-  login = '';
-  token = '';
+  login = 'hello';
+  token = '12345';
 
   constructor() { }
-  public logIn(login: string, token: string): void {
+  public logIn(login: string = this.login, token: string = this.token): void {
     window.localStorage.setItem('userInfo', JSON.stringify({ login, token }));
     this.login = login;
     this.token = token;

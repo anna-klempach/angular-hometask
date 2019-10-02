@@ -11,6 +11,12 @@ export class LogoComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.logIn();
+  }
+
+  handleLogout(): void {
+    this.authService.logOut();
+    console.log('User has logged out');
   }
 
 }
