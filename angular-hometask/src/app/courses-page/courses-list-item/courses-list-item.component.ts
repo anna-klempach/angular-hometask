@@ -1,14 +1,14 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { CoursesListEntry } from '../courses-list-entry';
 
 @Component({
   selector: 'app-courses-list-item',
   templateUrl: './courses-list-item.component.html',
-  styleUrls: ['./courses-list-item.component.scss']
+  styleUrls: ['./courses-list-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CoursesListItemComponent implements OnInit {
   @Input() course: CoursesListEntry;
-  @Input() locked: boolean;
   @Output() deleteRequest: EventEmitter<number> = new EventEmitter<number>();
   constructor() { }
 
@@ -16,9 +16,7 @@ export class CoursesListItemComponent implements OnInit {
   }
 
   handleDeleteClick() {
-    if (!this.locked) {
-      this.deleteRequest.emit(this.course.id);
-    }
+    this.deleteRequest.emit(this.course.id);
   }
 
   handleEditClick() {

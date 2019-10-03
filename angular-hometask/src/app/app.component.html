@@ -1,7 +1,7 @@
 
 <div class="container">
         <app-header></app-header>
-        <app-pick-a-boo class="pab" *ngIf="pickABooActive" (deleteRequest)="deleteItem($event)"></app-pick-a-boo>
+        <app-pick-a-boo class="pab" *ngIf="pickABooActive" (deleteRequest)="deleteItem()"></app-pick-a-boo>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
 </div>

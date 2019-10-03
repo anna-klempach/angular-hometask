@@ -22,7 +22,7 @@ import { AuthService } from './services/auth.service';
     LoginPageModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [{provide: AuthService, useClass: AuthService}],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
