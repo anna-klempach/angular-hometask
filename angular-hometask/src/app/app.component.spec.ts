@@ -33,9 +33,9 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     fixture.detectChanges();
-    expect(fixture.debugElement.query(By.css('.pab'))).toBeTruthy();
+    /* expect(fixture.debugElement.query(By.css('.pab'))).toBeTruthy();
     app.deleteItem();
-    fixture.detectChanges();
+    fixture.detectChanges(); */
     expect(app.pickABooActive).toBeFalsy();
     expect(fixture.debugElement.query(By.css('.pab'))).toBeNull();
   });

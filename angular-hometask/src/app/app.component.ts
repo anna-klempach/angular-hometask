@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-hometask';
-  pickABooActive = true;
+  pickABooActive = false;
 
   deleteItem() {
     this.pickABooActive = false;
