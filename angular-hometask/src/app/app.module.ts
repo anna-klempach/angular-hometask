@@ -9,10 +9,11 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from 'src/app.routes';
 import { LoginPageModule } from './login-page/login-page.module';
 import { AuthService } from './services/auth.service';
+import { AddCoursePageModule } from './add-course-page/add-course-page.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -20,6 +21,7 @@ import { AuthService } from './services/auth.service';
     CoreModule,
     CoursesPageModule,
     LoginPageModule,
+    AddCoursePageModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [AuthService],

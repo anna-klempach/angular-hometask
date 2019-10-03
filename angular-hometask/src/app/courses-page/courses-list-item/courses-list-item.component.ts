@@ -1,11 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { CoursesListEntry } from '../courses-list-entry';
+import { DurationDisplayPipe } from 'src/app/pipes/duration-display.pipe';
 
 @Component({
   selector: 'app-courses-list-item',
   templateUrl: './courses-list-item.component.html',
   styleUrls: ['./courses-list-item.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoursesListItemComponent implements OnInit {
   @Input() course: CoursesListEntry;

@@ -1,0 +1,19 @@
+<div class="add-course-page">
+    <h2 class="add-course-page__heading">Add course</h2>
+    <label for="#title">Title:</label>
+    <input #title id="title" (keyup.enter)="handleTitleInput(title.value)" placeholder="Course title" required>
+    <label for="#description">Description:</label>
+    <textarea #description id="description" (keyup.enter)="handleDescriptionInput(description.value)" placeholder="Course description..."></textarea>
+    <label for="#date">Date:</label>
+    <input #date id="date" (keyup.enter)="handleDateInput(date.value)" placeholder="Course creation date" required>
+
+    <label for="#duration">Duration:</label>
+    <div class="duration-container">
+        <input #durationBar id="durationBar" (keyup.enter)="handleDurationInput(durationBar.value)" placeholder="Course duration" required>
+        <p class="duration-eval" *ngIf="duration >= 0">{{duration | durationDisplay}}</p>
+    </div>
+    <div class="add-course-page__buttons-block">
+        <button class="add-course-page__button" (click)="handleSave()">Save</button>
+        <button class="add-course-page__button" (click)="handleCancel()">Cancel</button>
+    </div>
+</div>
