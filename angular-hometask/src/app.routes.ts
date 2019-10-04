@@ -4,11 +4,12 @@ import { LoginPageComponent } from './app/login-page/login-page/login-page.compo
 import { AddCoursePageComponent } from './app/add-course-page/add-course-page/add-course-page.component';
 import { PageNotFoundComponent } from './app/core/page-not-found/page-not-found.component';
 import { CourseComponent } from './app/courses-page/course/course.component';
+import { AuthGuard } from './app/auth/auth.guard';
 
 export const ROUTES: Route[] = [
-    { path: 'courses', component: CoursesListComponent },
-    { path: 'courses/new', component: AddCoursePageComponent },
-    { path: 'courses/:id', component: CourseComponent },
+    { path: 'courses', component: CoursesListComponent, canActivate: [AuthGuard] },
+    { path: 'courses/new', component: AddCoursePageComponent, canActivate: [AuthGuard] },
+    { path: 'courses/:id', component: CourseComponent, canActivate: [AuthGuard] },
     { path: 'log-in', component: LoginPageComponent },
     { path: '', redirectTo: 'courses', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
