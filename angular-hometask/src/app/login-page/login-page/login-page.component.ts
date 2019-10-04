@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -9,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginPageComponent implements OnInit {
   emailValue = '';
   passwordValue = '';
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -26,7 +27,7 @@ export class LoginPageComponent implements OnInit {
 
   handleLogin() {
     this.authService.logIn(this.emailValue, this.passwordValue);
-    console.log('Logged in successfully');
+    this.router.navigate(['courses']);
   }
 
 }

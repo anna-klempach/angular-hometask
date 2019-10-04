@@ -8,6 +8,7 @@ import { OrderByPipe } from '../pipes/order-by.pipe';
 import { SortByPipe } from '../pipes/sort-by.pipe';
 import { ModalDialogComponent } from './modal-dialog/modal-dialog.component';
 import { SharedModule } from '../shared/shared.module';
+import { CourseComponent } from './course/course.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { SharedModule } from '../shared/shared.module';
     CoursePlateBorderDirective,
     OrderByPipe,
     SortByPipe,
-    ModalDialogComponent
+    ModalDialogComponent,
+    CourseComponent
   ],
   imports: [
     CommonModule,

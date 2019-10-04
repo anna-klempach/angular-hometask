@@ -7,7 +7,6 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./logo.component.scss']
 })
 export class LogoComponent implements OnInit {
-  @Input() authService: AuthService;
   @Input() login: string;
   @Output() logOut = new EventEmitter();
   constructor() { }

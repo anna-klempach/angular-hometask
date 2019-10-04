@@ -28,7 +28,7 @@ export class AuthService {
     return false;
   }
 
-  private getUserInfo(): string {
+  public getUserInfo(): string {
     const currentUserInfo: UserInfo = JSON.parse(window.localStorage.getItem('userInfo'));
     return currentUserInfo.login;
   }
