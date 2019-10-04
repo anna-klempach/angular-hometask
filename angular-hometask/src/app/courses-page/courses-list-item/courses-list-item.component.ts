@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { CoursesListEntry } from '../courses-list-entry';
 import { DurationDisplayPipe } from 'src/app/pipes/duration-display.pipe';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses-list-item',
@@ -11,7 +12,7 @@ import { DurationDisplayPipe } from 'src/app/pipes/duration-display.pipe';
 export class CoursesListItemComponent implements OnInit {
   @Input() course: CoursesListEntry;
   @Output() deleteRequest: EventEmitter<number> = new EventEmitter<number>();
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -21,7 +22,7 @@ export class CoursesListItemComponent implements OnInit {
   }
 
   handleEditClick() {
-    console.log('Someone is trying to edit the video');
+    this.router.navigate(['courses', this.course.id]);
   }
 
 }

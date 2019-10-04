@@ -7,9 +7,9 @@ import { CourseComponent } from './app/courses-page/course/course.component';
 
 export const ROUTES: Route[] = [
     { path: 'courses', component: CoursesListComponent },
+    { path: 'courses/new', component: AddCoursePageComponent },
     { path: 'courses/:id', component: CourseComponent },
     { path: 'log-in', component: LoginPageComponent },
-    { path: 'courses/new', component: AddCoursePageComponent },
     { path: '', redirectTo: 'courses', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
 ];

@@ -1,0 +1,28 @@
+<div class="course-container">
+    <h2 class="edit-course-page__heading">Edit course</h2>
+    <label for="#title">Title:</label>
+    <input #title id="title" (input)="editCourse('title', title.value)" placeholder="Course title"
+        value="{{course.title | uppercase}}" required>
+    <label for="#description">Description:</label>
+    <textarea #description id="description" (input)="editCourse('description', description.value)"
+        placeholder="Course description..." value="{{course.description}}"></textarea>
+    <label for="#date">Date:</label>
+    <input #date id="date" type="date" (input)="editCourseDate(date.value)" placeholder="Course creation date"
+        value="{{course.creationDate | date: 'yyyy-MM-dd'}}" required>
+    <label for=" #duration">Duration:</label>
+    <div class="duration-container">
+        <input #durationBar id="durationBar" type="number" (input)="editCourse('duration', +durationBar.value)"
+            placeholder="Course duration" required>
+        <p class="duration-eval" *ngIf="+durationBar.value >= 0">{{+durationBar.value | durationDisplay}}</p>
+    </div>
+    <div class="course-button-set">
+        <button class="course-button" (click)="handleSaveClick()">
+            <i class="material-icons">save</i>
+            Save
+        </button>
+        <button class="course-button" (click)="handleCancelClick()">
+            <i class="material-icons">cancel</i>
+            Cancel
+        </button>
+    </div>
+</div>

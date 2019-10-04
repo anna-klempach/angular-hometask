@@ -1,6 +1,6 @@
 <app-search-bar [(searchValue)]="searchValue" (searchValueChange)="updateSearchValue($event)"></app-search-bar>
 <div class="add-button-container">
-    <button class="add-course-button">
+    <button class="add-course-button" (click)="handleAddCourse()">
         <i class="material-icons">add</i>
         Add course
     </button>
@@ -10,7 +10,7 @@
 <div *ngIf="(searchValue.length > 0 && (courses | sortBy: searchValue).length > 0) || (searchValue==='' && courses.length > 0)"
     class="list">
     <app-courses-list-item [ngClass]="{'top-background-color': course.topRated}" class="courses-list-item"
-        *ngFor="let course of (courses | sortBy: searchValue | orderBy)" [course]="course"
+        *ngFor="let course of (this.coursesService.getCourses() | sortBy: searchValue | orderBy)" [course]="course"
         (deleteRequest)="deleteItem($event)" [appCoursePlateBorder]="course.creationDate">
     </app-courses-list-item>
 </div>

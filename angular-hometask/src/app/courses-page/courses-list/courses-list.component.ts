@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CoursesService } from '../../services/courses.service';
 import { CoursesListItem } from '../courses-list-item.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class CoursesListComponent implements OnInit {
   deleteModalOpened = false;
   itemToDelete: number | null = null;
 
-  constructor(private coursesService: CoursesService) { }
+  constructor(private coursesService: CoursesService, private router: Router) { }
 
   ngOnInit() {
     this.courses = this.coursesService.getCourses();
@@ -42,6 +43,10 @@ export class CoursesListComponent implements OnInit {
 
   handleLoad() {
     console.log('The "Load more" button has been clicked.');
+  }
+
+  handleAddCourse() {
+    this.router.navigate(['courses/new']);
   }
 
 }

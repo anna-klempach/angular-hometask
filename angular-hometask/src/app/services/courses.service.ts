@@ -8,7 +8,7 @@ import { CoursesListEntry } from '../courses-page/courses-list-entry';
   providedIn: 'root'
 })
 export class CoursesService {
-  public courses = COURSES;
+  public courses: CoursesListItem[] = COURSES;
   constructor() { }
 
   public getCourses(): CoursesListItem[] {
@@ -28,7 +28,15 @@ export class CoursesService {
       : null;
   }
 
-  public updateItem() {
+  public updateItem(courseItem: CoursesListItem) {
+    const changedCourses: CoursesListItem[] = this.courses.map<CoursesListItem>((item: CoursesListItem): CoursesListItem => {
+      if (item.id === courseItem.id) {
+        return courseItem;
+      }
+      return item;
+    });
+    this.courses = changedCourses;
+    console.log(this.courses);
   }
 
   public removeItem(id: number) {
