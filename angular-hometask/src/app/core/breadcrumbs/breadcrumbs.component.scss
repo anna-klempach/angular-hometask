@@ -2,9 +2,39 @@
 
 :host {
   display: flex;
-  margin: 0 5rem;
-  p {
-      margin: 0.5rem 0 0;
+  margin:0 5rem;
+  .breadcrumb-container {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    .breadcrumb {
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
       color: map-get($colors, secondary);
+      &:hover {
+        color: map-get($colors, hover);
+      }
+      &:active {
+        color: map-get($colors, hover);
+      }
+    }
+
+    .breadcrumb-list-item {
+      font-size: 18px;
+      font-weight: bold;
+      color: map-get($colors, secondary);
+    }
+    .breadcrumb-list-item:after {
+      content: "/";
+      margin: 0 0.5em;
+      font-size: 18px;
+      font-weight: bold;
+      color: map-get($colors, secondary);
+    }
+    .breadcrumb-list-item:last-child:after {
+      content: "";
+    }
   }
 }

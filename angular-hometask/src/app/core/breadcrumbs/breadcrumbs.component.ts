@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, ActivatedRoute, PRIMARY_OUTLET, Params } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute, PRIMARY_OUTLET, Params, UrlSegment } from '@angular/router';
 interface Breadcrumb {
   label: string;
   params: Params;
@@ -25,25 +25,33 @@ export class BreadcrumbsComponent implements OnInit {
   }
 
   private getBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: Breadcrumb[] = []): Breadcrumb[] {
-    const ROUTE_DATA_BREADCRUMB = 'course';
+    const ROUTE_DATA_BREADCRUMB = 'breadcrumb';
     const children: ActivatedRoute[] = route.children;
     if (children.length === 0) {
       return breadcrumbs;
     }
     for (const child of children) {
-      if (child.outlet !== PRIMARY_OUTLET) {
+      if (child.outlet !== 'primary') {
         continue;
       }
       if (!child.snapshot.data.hasOwnProperty(ROUTE_DATA_BREADCRUMB)) {
         return this.getBreadcrumbs(child, url, breadcrumbs);
       }
 
-      const routeURL: string = child.snapshot.url.map(segment => segment.path).join('/');
-      url += `/${routeURL}`;
+      const routeURL: string = child.snapshot.url.slice(-1).pop().path;
+      const fullURL: string = child.snapshot.url.map(segment => segment.path).join('/');
+      url += `/${fullURL}`;
+      let finalURL: string;
+
+      if (routeURL === 'new') {
+        finalURL = 'New video course';
+      } else {
+        finalURL = `Video Course ${routeURL}`;
+      }
 
       const breadcrumb: Breadcrumb = {
-        label: child.snapshot.data[ROUTE_DATA_BREADCRUMB],
-        params: child.snapshot.params,
+        label: finalURL, // don't need this stuff now but maybe need later
+        params: child.snapshot.params, // don't need this stuff now but maybe need later
         url
       };
       breadcrumbs.push(breadcrumb);

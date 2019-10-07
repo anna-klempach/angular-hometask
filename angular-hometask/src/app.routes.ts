@@ -7,9 +7,10 @@ import { CourseComponent } from './app/courses-page/course/course.component';
 import { AuthGuard } from './app/auth/auth.guard';
 
 export const ROUTES: Route[] = [
-    { path: 'courses', component: CoursesListComponent, canActivate: [AuthGuard] },
-    { path: 'courses/new', component: AddCoursePageComponent, canActivate: [AuthGuard] },
-    { path: 'courses/:id', component: CourseComponent, canActivate: [AuthGuard] },
+    { path: 'courses', component: CoursesListComponent,
+    canActivate: [AuthGuard]},
+    { path: 'courses/new', component: AddCoursePageComponent, canActivate: [AuthGuard], data: { breadcrumb: 'new' } },
+    { path: 'courses/:id', component: CourseComponent, canActivate: [AuthGuard], data: { breadcrumb: 'id' } },
     { path: 'log-in', component: LoginPageComponent },
     { path: '', redirectTo: 'courses', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
