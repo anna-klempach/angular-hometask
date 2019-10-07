@@ -10,14 +10,21 @@ import { ROUTES } from 'src/app.routes';
 import { LoginPageModule } from './login-page/login-page.module';
 import { AuthService } from './services/auth.service';
 import { AddCoursePageModule } from './add-course-page/add-course-page.module';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './services/in-memory-data.service';
+import { ConfigComponent } from './config/config/config.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ConfigComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
     CoreModule,
     CoursesPageModule,
     LoginPageModule,
