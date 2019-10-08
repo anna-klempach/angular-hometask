@@ -11,13 +11,19 @@ import { CoursesListEntry } from '../courses-list-entry';
 })
 export class CourseComponent implements OnInit {
   public course: CoursesListItem;
+  public loaded = false;
   private editedCourse: CoursesListEntry;
 
   constructor(private route: ActivatedRoute, private router: Router, private service: CoursesService) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.course = this.service.getItem(+id);
+    this.loaded = false;
+    this.service.getItem(+id)
+    .subscribe(courses => {
+      this.loaded = true;
+      this.course = courses[0];
+    });
     this.editedCourse = {...this.course};
   }
 

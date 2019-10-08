@@ -1,4 +1,4 @@
-<div class="course-container">
+<div class="course-container" *ngIf="loaded">
     <h2 class="edit-course-page__heading">Edit course</h2>
     <label for="#title">Title:</label>
     <input #title id="title" (input)="editCourse('title', title.value)" placeholder="Course title"
@@ -26,3 +26,4 @@
         </button>
     </div>
 </div>
+<app-preloader *ngIf="!loaded"></app-preloader>

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CoursesListComponent implements OnInit {
   courses: CoursesListItem[];
+  loaded = false;
   searchValue = '';
   delete = 'false';
   deleteModalOpened = false;
@@ -19,7 +20,16 @@ export class CoursesListComponent implements OnInit {
   constructor(private coursesService: CoursesService, private router: Router) { }
 
   ngOnInit() {
-    this.courses = this.coursesService.getCourses();
+    this.loaded = false;
+    this.getCourses();
+  }
+
+  getCourses() {
+    this.coursesService.getCourses()
+      .subscribe(courses => {
+        this.loaded = true;
+        this.courses = courses;
+      });
   }
 
   updateSearchValue(value: string) { // quite unnecessary at the moment, might use later
@@ -34,8 +44,10 @@ export class CoursesListComponent implements OnInit {
 
   handleDeleteItem(value: boolean) {
     if (value) {
-      this.coursesService.removeItem(this.itemToDelete);
-      this.courses = this.coursesService.getCourses();
+      this.courses = this.courses.filter(c => c.id !== this.itemToDelete);
+      this.coursesService
+        .removeItem(this.itemToDelete)
+        .subscribe();
     }
     this.itemToDelete = null;
     this.deleteModalOpened = false;

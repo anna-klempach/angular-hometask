@@ -13,7 +13,7 @@ export class CoursePlateBorderDirective implements OnChanges {
 
   ngOnChanges() {
     const currentDate = Date.now() / 1000 / 60 / 60 / 24;
-    const currCreationDate = this.creationDate.valueOf() / 1000 / 60 / 60 / 24;
+    const currCreationDate = new Date(this.creationDate).valueOf() / 1000 / 60 / 60 / 24;
     if (currCreationDate < currentDate && currCreationDate >= currentDate - 14) {
       this.el.nativeElement.style.border = '5px solid green';
     } else if (currCreationDate > currentDate) {

@@ -30,8 +30,8 @@ export class CoursesService {
   constructor(
     private http: HttpClient,
     httpErrorHandler: HttpErrorHandler) {
-      this.handleError = httpErrorHandler.createHandleError('CoursesService');
-     }
+    this.handleError = httpErrorHandler.createHandleError('CoursesService');
+  }
 
   public getCourses(): Observable<CoursesListItem[]> {
     return this.http.get<CoursesListItem[]>(this.coursesUrl)
@@ -54,16 +54,12 @@ export class CoursesService {
   }
 
   public getItem(id: number): Observable<CoursesListItem[]> {
-    const url = `${this.coursesUrl}/${id}`; // DELETE api/heroes/42
-    return this.http.get<CoursesListItem[]>(this.coursesUrl)
+    const options = id ?
+      { params: new HttpParams().set('id', id.toString()) } : {};
+    return this.http.get<CoursesListItem[]>(this.coursesUrl, options)
       .pipe(
-        filter<CoursesListItem[]>(item => item.id === id), // WTF??
-        catchError(this.handleError('getCourses', []))
+        catchError(this.handleError<CoursesListItem[]>('getItem', []))
       );
-    /* const filteredCourses = this.courses.filter((item) => item.id === id);
-    return filteredCourses.length > 0
-      ? filteredCourses[0]
-      : null; */
   }
 
   public updateItem(courseItem: CoursesListItem): Observable<CoursesListItem> {
