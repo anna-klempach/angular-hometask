@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CoursesListItem } from 'src/app/courses-page/courses-list-item.model';
+import { CoursesListEntry } from 'src/app/courses-page/courses-list-entry';
+import { CoursesService } from 'src/app/services/courses.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-course-page',
@@ -7,47 +11,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddCoursePageComponent implements OnInit {
   // consider creating an instance of CourseListItem, think it over later
-  public title: string; // need to make checks on the input data
-  public description: string;
+  // public title: string; // need to make checks on the input data
+  /* public description: string;
   public duration: number;
-  public date: string;
-  constructor() { }
+  public date: string; */
+  public editCourse: CoursesListItem;
+  constructor(private service: CoursesService, private router: Router) { }
 
   ngOnInit() {
+    this.editCourse = new CoursesListEntry(new Date().valueOf(), '', undefined, 0, '', false); // we'll make id a current date
   }
 
   handleTitleInput(value: string): void {
-    this.title = value;
-    console.log(this.title);
+    this.editCourse.title = value;
   }
 
   handleDescriptionInput(value: string): void {
-    this.description = value;
-    console.log(this.description);
+    this.editCourse.description = value;
   }
 
   handleDateInput(value: string): void { // string for now
-    this.date = value;
+    this.editCourse.creationDate = new Date(value);
   }
 
   handleDurationInput(value: string): void {
     const inputDuration = +value;
     if (inputDuration && typeof inputDuration === 'number' && inputDuration >= 0) {
-      this.duration = inputDuration;
-      console.log(this.duration);
+      this.editCourse.duration = inputDuration;
     }
   }
 
   handleSave() {
-    console.log(`Current data input is ${this.title}, ${this.description}, ${this.duration}, ${this.date}`);
+    this.service.createCourse(this.editCourse)
+    .subscribe(() => {});
+    this.router.navigate(['courses']);
   }
 
   handleCancel() {
-    this.title = '';
-    this.description = '';
-    this.duration = 0;
-    this.date = '';
-    console.log('Cancel has been clicked.');
+    this.editCourse = undefined;
+    this.router.navigate(['courses']);
   }
 
 }

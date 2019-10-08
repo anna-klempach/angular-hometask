@@ -17,12 +17,10 @@ export class LoginPageComponent implements OnInit {
 
   handleEmailInput(value: string) {
     this.emailValue = value;
-    console.log('Email', this.emailValue);
   }
 
   handlePasswordInput(value: string) {
     this.passwordValue = value;
-    console.log('Password', this.passwordValue);
   }
 
   handleLogin() {

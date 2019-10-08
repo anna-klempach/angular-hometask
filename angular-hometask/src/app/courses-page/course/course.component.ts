@@ -36,11 +36,10 @@ export class CourseComponent implements OnInit {
 
   handleCancelClick() {
     this.router.navigate(['courses']);
+    this.editedCourse = undefined;
   }
 
   handleSaveClick() {
-    /* this.course = this.editedCourse;
-    console.log(this.course); */
     this.service.updateItem(this.editedCourse)
       .subscribe((course) => {
         this.course = course;

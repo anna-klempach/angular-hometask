@@ -36,10 +36,8 @@ export class CoursesService {
       );
   }
 
-  public createCourse(
-    id: number, title: string, creationDate: Date, duration: number = 0, description: string = '', topRated: boolean = false
-  ): Observable<CoursesListItem> {
-    const course = new CoursesListEntry(id, title, creationDate, duration, description, topRated);
+  public createCourse(createdCourse: CoursesListItem): Observable<CoursesListItem> {
+    const course: CoursesListItem = {...createdCourse};
     return this.http.post<CoursesListItem>(
       this.coursesUrl,
       course,
