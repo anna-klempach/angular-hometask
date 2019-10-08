@@ -20,11 +20,11 @@ export class CourseComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.loaded = false;
     this.service.getItem(+id)
-    .subscribe(courses => {
-      this.loaded = true;
-      this.course = courses[0];
-    });
-    this.editedCourse = {...this.course};
+      .subscribe(courses => {
+        this.loaded = true;
+        this.course = courses[0];
+        this.editedCourse = { ...this.course };
+      });
   }
 
   editCourse(key: string, value: string | number): void {
@@ -39,10 +39,13 @@ export class CourseComponent implements OnInit {
   }
 
   handleSaveClick() {
-    this.course = this.editedCourse;
-    console.log(this.course);
-    this.service.updateItem(this.course);
-    this.router.navigate(['courses']);
-  }
+    /* this.course = this.editedCourse;
+    console.log(this.course); */
+    this.service.updateItem(this.editedCourse)
+      .subscribe((course) => {
+        this.course = course;
+        this.router.navigate(['courses']);
+      });
+}
 
 }

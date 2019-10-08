@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { COURSES } from '../courses-page/courses';
 import { CoursesListItem } from '../courses-page/courses-list-item.model';
 import { CoursesListEntry } from '../courses-page/courses-list-entry';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
-import { filter } from 'rxjs/operators';
 
 
 import { Observable } from 'rxjs';
@@ -19,12 +17,10 @@ const httpOptions = {
   })
 };
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
-  // public courses: CoursesListItem[] = COURSES;
   coursesUrl = 'api/courses';
   private handleError: HandleError;
   constructor(
@@ -65,27 +61,17 @@ export class CoursesService {
   public updateItem(courseItem: CoursesListItem): Observable<CoursesListItem> {
     httpOptions.headers =
       httpOptions.headers.set('Authorization', 'my-new-auth-token');
-
     return this.http.put<CoursesListItem>(this.coursesUrl, courseItem, httpOptions)
       .pipe(
         catchError(this.handleError('updateItem', courseItem))
       );
-    /* const changedCourses: CoursesListItem[] = this.courses.map<CoursesListItem>((item: CoursesListItem): CoursesListItem => {
-      if (item.id === courseItem.id) {
-        return courseItem;
-      }
-      return item;
-    });
-    this.courses = changedCourses;
-    console.log(this.courses); */
   }
 
   public removeItem(id: number): Observable<{}> {
-    const url = `${this.coursesUrl}/${id}`; // DELETE api/heroes/42
+    const url = `${this.coursesUrl}/${id}`;
     return this.http.delete(url, httpOptions)
       .pipe(
         catchError(this.handleError('removeItem'))
       );
-    // this.courses = this.courses.filter((item) => item.id !== id);
   }
 }
