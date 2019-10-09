@@ -1,4 +1,8 @@
 {
+    "auth": {
+        "login": "",
+        "token": ""
+    },
     "courses": [
       {
         "creationDate": "2018-06-11T23:24:00.000Z",
