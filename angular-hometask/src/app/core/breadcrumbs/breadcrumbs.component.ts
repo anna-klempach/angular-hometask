@@ -50,9 +50,9 @@ export class BreadcrumbsComponent implements OnInit {
       }
 
       const breadcrumb: Breadcrumb = {
-        label: finalURL, // don't need this stuff now but maybe need later
+        label: finalURL,
         params: child.snapshot.params, // don't need this stuff now but maybe need later
-        url
+        url // don't need this stuff now but maybe need later
       };
       breadcrumbs.push(breadcrumb);
       return this.getBreadcrumbs(child, url, breadcrumbs);

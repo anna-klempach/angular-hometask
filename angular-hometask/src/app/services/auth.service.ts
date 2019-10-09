@@ -32,4 +32,8 @@ export class AuthService {
     const currentUserInfo: UserInfo = JSON.parse(window.localStorage.getItem('userInfo'));
     return currentUserInfo.login;
   }
+
+  public getAuthorizationToken() {
+    return 'some-auth-token';
+  }
 }

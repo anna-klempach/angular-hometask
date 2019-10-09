@@ -29,6 +29,7 @@ export class CoursesListComponent implements OnInit {
       .subscribe(courses => {
         this.loaded = true;
         this.courses = courses;
+        console.log(this.courses);
       });
   }
 

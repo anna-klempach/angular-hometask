@@ -10,10 +10,11 @@ import { ROUTES } from 'src/app.routes';
 import { LoginPageModule } from './login-page/login-page.module';
 import { AuthService } from './services/auth.service';
 import { AddCoursePageModule } from './add-course-page/add-course-page.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { ConfigComponent } from './config/config/config.component';
+import { AuthInterceptor } from './interceptors/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -24,14 +25,16 @@ import { ConfigComponent } from './config/config/config.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
     CoreModule,
     CoursesPageModule,
     LoginPageModule,
     AddCoursePageModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

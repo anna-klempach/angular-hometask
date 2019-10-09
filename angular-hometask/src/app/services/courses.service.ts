@@ -11,17 +11,14 @@ import { catchError } from 'rxjs/operators';
 import { HttpErrorHandler, HandleError } from './http-error-handler.service';
 
 const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    Authorization: 'my-auth-token'
-  })
+  headers: new HttpHeaders().set('Authorization', 'token').set('Hello', 'people')
 };
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
-  coursesUrl = 'api/courses';
+  coursesUrl = 'http://localhost:3000/courses';
   private handleError: HandleError;
   constructor(
     private http: HttpClient,
@@ -30,7 +27,7 @@ export class CoursesService {
   }
 
   public getCourses(): Observable<CoursesListItem[]> {
-    return this.http.get<CoursesListItem[]>(this.coursesUrl)
+    return this.http.get<CoursesListItem[]>(this.coursesUrl, httpOptions)
       .pipe(
         catchError(this.handleError('getCourses', []))
       );
@@ -57,12 +54,18 @@ export class CoursesService {
   }
 
   public updateItem(courseItem: CoursesListItem): Observable<CoursesListItem> {
-    httpOptions.headers =
-      httpOptions.headers.set('Authorization', 'my-new-auth-token');
-    return this.http.put<CoursesListItem>(this.coursesUrl, courseItem, httpOptions)
+    const url = `${this.coursesUrl}/${courseItem.id}`;
+    return this.http.put<CoursesListItem>(url, courseItem, httpOptions)
       .pipe(
         catchError(this.handleError('updateItem', courseItem))
       );
+    /* console.log(JSON.stringify(courseItem));
+    httpOptions.headers =
+      httpOptions.headers.set('Authorization', 'my-new-auth-token');
+    return this.http.put<CoursesListItem>(url, JSON.stringify(courseItem), httpOptions)
+      .pipe(
+        catchError(this.handleError('updateItem', courseItem))
+      ); */
   }
 
   public removeItem(id: number): Observable<{}> {

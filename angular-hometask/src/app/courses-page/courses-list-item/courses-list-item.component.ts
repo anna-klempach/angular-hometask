@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CoursesListItemComponent implements OnInit {
   @Input() course: CoursesListEntry;
+  @Input() index: number;
   @Output() deleteRequest: EventEmitter<number> = new EventEmitter<number>();
   constructor(private router: Router) { }
 

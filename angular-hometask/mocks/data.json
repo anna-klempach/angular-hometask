@@ -1,0 +1,68 @@
+{
+  "courses": [
+    {
+      "creationDate": "2018-06-11T23:24:00.000Z",
+      "description": "A very interesting video about a very importatnt topic.",
+      "duration": 20,
+      "id": 1,
+      "title": "Video One",
+      "topRated": true
+    },
+    {
+      "creationDate": "2019-08-30T11:24:00.000Z",
+      "description": "Another very interesting video about an even more interesting topic.",
+      "duration": 40,
+      "id": 2,
+      "title": "Video Two",
+      "topRated": true
+    },
+    {
+      "creationDate": "2017-12-17T00:24:00.000Z",
+      "description": "Not a very interesting video but the topic is extremely important and you have to watch it, thanks God it is quite short.",
+      "duration": 15,
+      "id": 3,
+      "title": "Video Three",
+      "topRated": false
+    },
+    {
+      "creationDate": "2018-02-18T02:24:00.000Z",
+      "description": "An absolutely useless video, if you do not want you may not watch it.",
+      "duration": 60,
+      "id": 4,
+      "title": "Video Four",
+      "topRated": false
+    },
+    {
+      "creationDate": "2019-09-29T11:24:00.000Z",
+      "description": "A video that has been published recently.",
+      "duration": 125,
+      "id": 5,
+      "title": "Video Five",
+      "topRated": true
+    },
+    {
+      "creationDate": "2019-12-29T11:24:00.000Z",
+      "description": "A video yet to come.",
+      "duration": 15,
+      "id": 6,
+      "title": "Hello",
+      "topRated": true
+    },
+    {
+      "id": 1570627353312,
+      "title": "Goodbye",
+      "duration": 23,
+      "description": "i have to go home",
+      "topRated": false,
+      "creationDate": "2019-10-09T00:00:00.000Z"
+    },
+    {
+      "id": 1570627360296,
+      "title": "GFHfhfg",
+      "creationDate": "2019-10-17T00:00:00.000Z",
+      "duration": 12,
+      "description": "fgfdgfdgf",
+      "topRated": false
+    }
+  ]
+}
