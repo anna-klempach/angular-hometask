@@ -2,43 +2,8 @@
   "users": [
     {
       "email": "123@gmail.com",
-      "password": "$2a$10$bj2sRljaF7XSiZNL9z7GsukxbgrmxyXPjd9sTQOJsHHV5y6/gR9y2",
+      "password": "$2a$10$95YCP0a.aFgfF0vZQ/B0D.DKnwa4Jval8Qq.jKPUMUKT7OYsX89bm",
       "id": 1
-    },
-    {
-      "email": "12345@gmail.com",
-      "password": "$2a$10$7/gO2NwsAHJRXD/NB/Ap2uvcs9Prs8UCEf576nWJtmQPgGOrimWDa",
-      "id": 2
-    },
-    {
-      "email": "1@gmail.com",
-      "password": "$2a$10$WsJPyWxXLtvwCR7lK8mOj.AR9u4PpbSKcPNdzkx2PG3gDZQBn/E2K",
-      "id": 3
-    },
-    {
-      "email": "1234567@gmail.com",
-      "password": "$2a$10$S5OAABBSz9KXTTbjzEPC0OJJneLmwSQR4FBbXVcF6M8jzoFNVP.ZK",
-      "id": 4
-    },
-    {
-      "email": "12321@gmail.com",
-      "password": "$2a$10$NY/RAaYEc5VI0Xfd6peGle2rDS603eQv905o7kQy3Q0bRowRGT5we",
-      "id": 5
-    },
-    {
-      "email": "1234543@gmail.com",
-      "password": "$2a$10$rWd0CwHLX6hCWTLofulV3OUwwISL7QCtWgDDrwIPrSxBA8PSRf0rC",
-      "id": 6
-    },
-    {
-      "email": "qwe@gmail.com",
-      "password": "$2a$10$4U8LxfDCsg7wrRFPg7S0h.K/4MxqhQ4TF3Y9/5wCUkw.J2XqPl2Su",
-      "id": 7
-    },
-    {
-      "email": "1234567654@gmail.com",
-      "password": "$2a$10$tbsHKc5HFCGnhs17QWifH.vASu4oeBcVnkM8ZFXeg6CGI4crSYOUq",
-      "id": 8
     }
   ],
   "courses": [
@@ -100,10 +65,74 @@
     },
     {
       "id": 1570627360296,
-      "title": "GFHfhfg",
+      "title": "One more video",
       "creationDate": "2019-10-17T00:00:00.000Z",
-      "duration": 12,
-      "description": "fgfdgfdgf",
+      "duration": 86,
+      "description": "A very interesting video",
+      "topRated": false
+    },
+    {
+      "id": 1570711667899,
+      "title": "another video",
+      "creationDate": "2019-10-06T00:00:00.000Z",
+      "duration": 189,
+      "description": "I have so many interesting videos",
+      "topRated": false
+    },
+    {
+      "id": 1570711708146,
+      "title": "I love videos",
+      "creationDate": "2019-10-01T00:00:00.000Z",
+      "duration": 785,
+      "description": "Videos, videos, videos",
+      "topRated": false
+    },
+    {
+      "id": 1570711751353,
+      "title": "And another one",
+      "creationDate": "2019-08-06T00:00:00.000Z",
+      "duration": 45,
+      "description": "I can't help falling in love with videos",
+      "topRated": false
+    },
+    {
+      "id": 1570711794314,
+      "title": "And one more",
+      "creationDate": "2019-05-27T00:00:00.000Z",
+      "duration": 89,
+      "description": "I can add as many videos as i want",
+      "topRated": false
+    },
+    {
+      "id": 1570711827882,
+      "title": "Sooo many",
+      "creationDate": "2019-10-10T00:00:00.000Z",
+      "duration": 855,
+      "description": "I am sick and tired of Angular",
+      "topRated": false
+    },
+    {
+      "id": 1570711853250,
+      "title": "Angluar is so cool",
+      "creationDate": "2019-10-01T00:00:00.000Z",
+      "duration": 45,
+      "description": "Not really",
+      "topRated": false
+    },
+    {
+      "id": 1570714014400,
+      "title": "Go away",
+      "creationDate": "2019-10-15T00:00:00.000Z",
+      "duration": 45,
+      "description": "Try to check the search stuff",
+      "topRated": false
+    },
+    {
+      "id": 1570714198289,
+      "title": "Video next",
+      "creationDate": "2019-10-09T00:00:00.000Z",
+      "duration": 458,
+      "description": "Searching for this word",
       "topRated": false
     }
   ]

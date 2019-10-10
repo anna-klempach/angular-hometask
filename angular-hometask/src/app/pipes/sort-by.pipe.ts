@@ -9,5 +9,4 @@ export class SortByPipe implements PipeTransform {
   transform(value: CoursesListItem[], key: string): CoursesListItem[] {
     return value.filter((val) => val.title.toUpperCase().includes(key.toUpperCase()));
   }
-
 }

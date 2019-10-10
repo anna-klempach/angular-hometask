@@ -24,13 +24,20 @@ export class LoginPageComponent implements OnInit {
   }
 
   handleLogin() {
-    this.authService.logIn(this.emailValue, this.passwordValue);
-    this.router.navigate(['courses']);
+    this.authService.logIn(this.emailValue, this.passwordValue)
+      .subscribe((res) => {
+        if (res.accessToken) {
+          this.router.navigate(['courses']);
+        }
+      });
   }
 
   handleRegister() {
-    this.authService.registerNewUser(this.emailValue, this.passwordValue);
-    this.router.navigate(['courses']);
+    this.authService.registerNewUser(this.emailValue, this.passwordValue)
+      .subscribe((res) => {
+        if (res.accessToken) {
+          this.router.navigate(['courses']);
+        }
+      });
   }
-
 }

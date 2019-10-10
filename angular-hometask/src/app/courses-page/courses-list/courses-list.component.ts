@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./courses-list.component.scss']
 })
 export class CoursesListComponent implements OnInit {
-  courses: CoursesListItem[];
+  courses: CoursesListItem[] = [];
   loaded = false;
   searchValue = '';
   delete = 'false';
@@ -24,18 +24,29 @@ export class CoursesListComponent implements OnInit {
     this.getCourses();
   }
 
-  getCourses() {
-    this.coursesService.getCourses()
+  searchCourses() {
+    this.coursesService.getCourses(this.searchValue)
       .subscribe(courses => {
-        this.loaded = true;
         this.courses = courses;
-        console.log(this.courses);
+        this.loaded = true;
+      });
+  }
+
+  getCourses() {
+    this.coursesService.getCourses(this.searchValue)
+      .subscribe(courses => {
+        this.courses = this.courses.concat(courses);
+        this.loaded = true;
       });
   }
 
   updateSearchValue(value: string) { // quite unnecessary at the moment, might use later
-    this.searchValue = value;
-    console.log(this.searchValue);
+    this.coursesService.getCourses(this.searchValue)
+      .subscribe(courses => {
+        this.courses = this.courses.concat(courses);
+        this.loaded = true;
+        console.log(this.courses);
+      });
   }
 
   deleteItem(id: number) {

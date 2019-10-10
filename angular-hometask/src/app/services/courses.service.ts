@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CoursesListItem } from '../courses-page/courses-list-item.model';
-import { CoursesListEntry } from '../courses-page/courses-list-entry';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 
@@ -10,24 +9,26 @@ import { catchError } from 'rxjs/operators';
 
 import { HttpErrorHandler, HandleError } from './http-error-handler.service';
 
-const httpOptions = {
-  headers: new HttpHeaders().set('Authorization', 'token').set('Hello', 'people')
-};
+const LIMIT = 5;
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
   coursesUrl = 'http://localhost:3000/courses';
+  loadedPages = 0;
   private handleError: HandleError;
+
   constructor(
     private http: HttpClient,
     httpErrorHandler: HttpErrorHandler) {
     this.handleError = httpErrorHandler.createHandleError('CoursesService');
   }
 
-  public getCourses(): Observable<CoursesListItem[]> {
-    return this.http.get<CoursesListItem[]>(this.coursesUrl, httpOptions)
+  public getCourses(searchValue: string): Observable<CoursesListItem[]> {
+    return this.http.get<CoursesListItem[]>(
+      `${this.coursesUrl}?q=${searchValue}&_sort=creationDate&_order=desc&_page=${this.loadedPages}&_limit=${LIMIT}`
+      )
       .pipe(
         catchError(this.handleError('getCourses', []))
       );
@@ -37,8 +38,8 @@ export class CoursesService {
     const course: CoursesListItem = {...createdCourse};
     return this.http.post<CoursesListItem>(
       this.coursesUrl,
-      course,
-      httpOptions)
+      course
+      )
       .pipe(
         catchError(this.handleError('createCourse', course))
       );
@@ -55,7 +56,7 @@ export class CoursesService {
 
   public updateItem(courseItem: CoursesListItem): Observable<CoursesListItem> {
     const url = `${this.coursesUrl}/${courseItem.id}`;
-    return this.http.put<CoursesListItem>(url, courseItem, httpOptions)
+    return this.http.put<CoursesListItem>(url, courseItem)
       .pipe(
         catchError(this.handleError('updateItem', courseItem))
       );
@@ -63,7 +64,7 @@ export class CoursesService {
 
   public removeItem(id: number): Observable<{}> {
     const url = `${this.coursesUrl}/${id}`;
-    return this.http.delete(url, httpOptions)
+    return this.http.delete(url)
       .pipe(
         catchError(this.handleError('removeItem'))
       );

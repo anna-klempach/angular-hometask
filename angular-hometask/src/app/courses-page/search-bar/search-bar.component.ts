@@ -15,7 +15,6 @@ export class SearchBarComponent implements OnInit {
   }
 
   showInput() {
-    console.log(`Current search value taken from event binding within the component is ${this.searchValue}.`);
     this.searchValueChange.emit(this.searchValue);
     this.searchValue = '';
   }

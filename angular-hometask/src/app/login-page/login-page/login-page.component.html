@@ -1,12 +1,14 @@
 <div class="login-page">
     <h2 class="login-page__heading">Login</h2>
     <label for="#email">E-mail:</label>
-    <input #emailBar id="email"
-        (input)="handleEmailInput(emailBar.value)" placeholder="Enter your e-mail" required>
+    <input #emailBar id="email" (input)="handleEmailInput(emailBar.value)" placeholder="Enter your e-mail" required>
     <label for="#password">Password:</label>
-    <input #passwordBar id="password"
-        (input)="handlePasswordInput(passwordBar.value)" placeholder="Enter password"
+    <input #passwordBar id="password" (input)="handlePasswordInput(passwordBar.value)" placeholder="Enter password"
         required>
-    <button class="login-page__button" (click)="handlePasswordInput(passwordBar.value); handleEmailInput(emailBar.value); handleLogin(); ">Login</button>
-    <button class="login-page__button" (click)="handlePasswordInput(passwordBar.value); handleEmailInput(emailBar.value); handleRegister(); ">Register</button>
+    <div class="login-page__buttonset">
+        <button class="login-page__button"
+            (click)="handlePasswordInput(passwordBar.value); handleEmailInput(emailBar.value); handleLogin(); ">Login</button>
+        <button class="login-page__button"
+            (click)="handlePasswordInput(passwordBar.value); handleEmailInput(emailBar.value); handleRegister(); ">Register</button>
+    </div>
 </div>

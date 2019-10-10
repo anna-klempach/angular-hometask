@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HandleError, HttpErrorHandler } from './http-error-handler.service';
 import { HttpClient } from '@angular/common/http';
-import { Observable, empty, from, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { catchError, retry, map } from 'rxjs/operators';
 
 
 export interface UserInfo {
@@ -19,51 +19,71 @@ export class AuthService {
   authUrl = 'http://localhost:3000';
   authToken = '';
   authentified = false;
-  ipAddress: string;
+  login = '';
   private handleError: HandleError;
+
   constructor(
     private http: HttpClient,
     httpErrorHandler: HttpErrorHandler) {
     this.handleError = httpErrorHandler.createHandleError('AuthService');
   }
-  public logIn(login: string = '', token: string = ''): Observable<string> {
-    return this.http.get<string>(this.authUrl);
+
+  public logIn(email: string = '', password: string = ''): Observable<UserInfo> {
+    const user = { email, password };
+    return this.http.post<UserInfo>(
+      `${this.authUrl}/login`,
+      user
+    ).pipe(
+      retry(3),
+      map((res: UserInfo) => {
+        if (res.accessToken) {
+          this.authToken = res.accessToken;
+          this.authentified = true;
+          this.login = /.+(?=@)/.exec(email)[0];
+        }
+        return res;
+      }),
+      catchError(this.handleError('logIn', user)) // show some message to the user, think about it later
+    );
   }
 
-  public registerNewUser(email: string = '', password: string = ''): void {
+  public registerNewUser(email: string = '', password: string = ''): Observable<UserInfo> {
     const user = { email, password };
-    this.http.post<UserInfo>(
+    return this.http.post<UserInfo>(
       `${this.authUrl}/register`,
       user
     ).pipe(
-      catchError(this.handleError('registerNewUser', user))
-    ).subscribe((res: UserInfo) => {
-      this.authToken = res.accessToken;
-      if (this.authToken) {
-        this.authentified = true;
-      }
-      return of(user);
+      retry(3),
+      map((res: UserInfo) => {
+        if (res.accessToken) {
+          this.authToken = res.accessToken;
+          this.authentified = true;
+          this.login = /.+(?=@)/.exec(email)[0];
+        }
+        return res;
+      }),
+      catchError(this.handleError('registerNewUser', user)) // show some message to the user, think about it later
+    );
+  }
+
+  public logOut(): Observable<any> {
+    return new Observable((observer) => {
+      this.authToken = '';
+      this.authentified = false;
+      observer.next();
+      return {unsubscribe() {}};
     });
   }
 
-  public logOut(): void {
-    window.localStorage.setItem('userInfo', JSON.stringify({ login: '', token: '' }));
-  }
-
   public isAuthenticated(): boolean {
-    /* this.http.get<IPData>('https://jsonip.com')
-    .subscribe( data => {
-      console.log('ip', data);
-      this.ipAddress = data.ip;
-    }); */
     return this.authentified;
   }
 
-  public getUserInfo(): Observable<string> {
-    return this.http.get<string>(this.authUrl);
+  public getUserInfo(): string {
+    return this.login;
   }
 
   public getAuthorizationToken() {
-    return 'some-auth-token';
+    return this.authToken;
   }
 }
