@@ -16,13 +16,22 @@ const LIMIT = 5;
 })
 export class CoursesService {
   coursesUrl = 'http://localhost:3000/courses';
-  loadedPages = 0;
+  loadedPages = 1;
   private handleError: HandleError;
 
   constructor(
     private http: HttpClient,
     httpErrorHandler: HttpErrorHandler) {
     this.handleError = httpErrorHandler.createHandleError('CoursesService');
+  }
+
+  public increasePagesNumber() {
+    this.loadedPages += 1;
+    console.log(this.loadedPages);
+  }
+
+  public discardPagesNumber() {
+    this.loadedPages = 1;
   }
 
   public getCourses(searchValue: string): Observable<CoursesListItem[]> {

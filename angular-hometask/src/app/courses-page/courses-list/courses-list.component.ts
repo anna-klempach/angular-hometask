@@ -25,6 +25,7 @@ export class CoursesListComponent implements OnInit {
   }
 
   searchCourses() {
+    this.coursesService.discardPagesNumber();
     this.coursesService.getCourses(this.searchValue)
       .subscribe(courses => {
         this.courses = courses;
@@ -32,20 +33,16 @@ export class CoursesListComponent implements OnInit {
       });
   }
 
+  getMoreCourses() {
+    this.coursesService.increasePagesNumber(); // add check on the number of courses
+    this.getCourses();
+  }
+
   getCourses() {
     this.coursesService.getCourses(this.searchValue)
       .subscribe(courses => {
         this.courses = this.courses.concat(courses);
         this.loaded = true;
-      });
-  }
-
-  updateSearchValue(value: string) { // quite unnecessary at the moment, might use later
-    this.coursesService.getCourses(this.searchValue)
-      .subscribe(courses => {
-        this.courses = this.courses.concat(courses);
-        this.loaded = true;
-        console.log(this.courses);
       });
   }
 
@@ -63,10 +60,6 @@ export class CoursesListComponent implements OnInit {
     }
     this.itemToDelete = null;
     this.deleteModalOpened = false;
-  }
-
-  handleLoad() {
-    console.log('The "Load more" button has been clicked.');
   }
 
   handleAddCourse() {
