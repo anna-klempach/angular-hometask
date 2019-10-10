@@ -59,13 +59,6 @@ export class CoursesService {
       .pipe(
         catchError(this.handleError('updateItem', courseItem))
       );
-    /* console.log(JSON.stringify(courseItem));
-    httpOptions.headers =
-      httpOptions.headers.set('Authorization', 'my-new-auth-token');
-    return this.http.put<CoursesListItem>(url, JSON.stringify(courseItem), httpOptions)
-      .pipe(
-        catchError(this.handleError('updateItem', courseItem))
-      ); */
   }
 
   public removeItem(id: number): Observable<{}> {

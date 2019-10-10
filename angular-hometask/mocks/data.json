@@ -1,72 +1,110 @@
 {
-    "auth": {
-        "login": "",
-        "token": ""
+  "users": [
+    {
+      "email": "123@gmail.com",
+      "password": "$2a$10$bj2sRljaF7XSiZNL9z7GsukxbgrmxyXPjd9sTQOJsHHV5y6/gR9y2",
+      "id": 1
     },
-    "courses": [
-        {
-            "creationDate": "2018-06-11T23:24:00.000Z",
-            "description": "A very interesting video about a very importatnt topic.",
-            "duration": 20,
-            "id": 1,
-            "title": "Video One",
-            "topRated": true
-        },
-        {
-            "creationDate": "2019-08-30T11:24:00.000Z",
-            "description": "Another very interesting video about an even more interesting topic.",
-            "duration": 40,
-            "id": 2,
-            "title": "Video Two",
-            "topRated": true
-        },
-        {
-            "creationDate": "2017-12-17T00:24:00.000Z",
-            "description": "Not a very interesting video but the topic is extremely important and you have to watch it, thanks God it is quite short.",
-            "duration": 15,
-            "id": 3,
-            "title": "Video Three",
-            "topRated": false
-        },
-        {
-            "creationDate": "2018-02-18T02:24:00.000Z",
-            "description": "An absolutely useless video, if you do not want you may not watch it.",
-            "duration": 60,
-            "id": 4,
-            "title": "Video Four",
-            "topRated": false
-        },
-        {
-            "creationDate": "2019-09-29T11:24:00.000Z",
-            "description": "A video that has been published recently.",
-            "duration": 125,
-            "id": 5,
-            "title": "Video Five",
-            "topRated": true
-        },
-        {
-            "creationDate": "2019-12-29T11:24:00.000Z",
-            "description": "A video yet to come.",
-            "duration": 15,
-            "id": 6,
-            "title": "Hello",
-            "topRated": true
-        },
-        {
-            "id": 1570627353312,
-            "title": "Goodbye",
-            "duration": 23,
-            "description": "i have to go home",
-            "topRated": false,
-            "creationDate": "2019-10-09T00:00:00.000Z"
-        },
-        {
-            "id": 1570627360296,
-            "title": "GFHfhfg",
-            "creationDate": "2019-10-17T00:00:00.000Z",
-            "duration": 12,
-            "description": "fgfdgfdgf",
-            "topRated": false
-        }
-    ]
+    {
+      "email": "12345@gmail.com",
+      "password": "$2a$10$7/gO2NwsAHJRXD/NB/Ap2uvcs9Prs8UCEf576nWJtmQPgGOrimWDa",
+      "id": 2
+    },
+    {
+      "email": "1@gmail.com",
+      "password": "$2a$10$WsJPyWxXLtvwCR7lK8mOj.AR9u4PpbSKcPNdzkx2PG3gDZQBn/E2K",
+      "id": 3
+    },
+    {
+      "email": "1234567@gmail.com",
+      "password": "$2a$10$S5OAABBSz9KXTTbjzEPC0OJJneLmwSQR4FBbXVcF6M8jzoFNVP.ZK",
+      "id": 4
+    },
+    {
+      "email": "12321@gmail.com",
+      "password": "$2a$10$NY/RAaYEc5VI0Xfd6peGle2rDS603eQv905o7kQy3Q0bRowRGT5we",
+      "id": 5
+    },
+    {
+      "email": "1234543@gmail.com",
+      "password": "$2a$10$rWd0CwHLX6hCWTLofulV3OUwwISL7QCtWgDDrwIPrSxBA8PSRf0rC",
+      "id": 6
+    },
+    {
+      "email": "qwe@gmail.com",
+      "password": "$2a$10$4U8LxfDCsg7wrRFPg7S0h.K/4MxqhQ4TF3Y9/5wCUkw.J2XqPl2Su",
+      "id": 7
+    },
+    {
+      "email": "1234567654@gmail.com",
+      "password": "$2a$10$tbsHKc5HFCGnhs17QWifH.vASu4oeBcVnkM8ZFXeg6CGI4crSYOUq",
+      "id": 8
+    }
+  ],
+  "courses": [
+    {
+      "creationDate": "2018-06-11T23:24:00.000Z",
+      "description": "A very interesting video about a very importatnt topic.",
+      "duration": 20,
+      "id": 1,
+      "title": "Video One",
+      "topRated": true
+    },
+    {
+      "creationDate": "2019-08-30T11:24:00.000Z",
+      "description": "Another very interesting video about an even more interesting topic.",
+      "duration": 40,
+      "id": 2,
+      "title": "Video Two",
+      "topRated": true
+    },
+    {
+      "creationDate": "2017-12-17T00:24:00.000Z",
+      "description": "Not a very interesting video but the topic is extremely important and you have to watch it, thanks God it is quite short.",
+      "duration": 15,
+      "id": 3,
+      "title": "Video Three",
+      "topRated": false
+    },
+    {
+      "creationDate": "2018-02-18T02:24:00.000Z",
+      "description": "An absolutely useless video, if you do not want you may not watch it.",
+      "duration": 60,
+      "id": 4,
+      "title": "Video Four",
+      "topRated": false
+    },
+    {
+      "creationDate": "2019-09-29T11:24:00.000Z",
+      "description": "A video that has been published recently.",
+      "duration": 125,
+      "id": 5,
+      "title": "Video Five",
+      "topRated": true
+    },
+    {
+      "creationDate": "2019-12-29T11:24:00.000Z",
+      "description": "A video yet to come.",
+      "duration": 15,
+      "id": 6,
+      "title": "Hello",
+      "topRated": true
+    },
+    {
+      "id": 1570627353312,
+      "title": "Goodbye",
+      "duration": 23,
+      "description": "i have to go home",
+      "topRated": false,
+      "creationDate": "2019-10-09T00:00:00.000Z"
+    },
+    {
+      "id": 1570627360296,
+      "title": "GFHfhfg",
+      "creationDate": "2019-10-17T00:00:00.000Z",
+      "duration": 12,
+      "description": "fgfdgfdgf",
+      "topRated": false
+    }
+  ]
 }

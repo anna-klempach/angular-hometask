@@ -28,4 +28,9 @@ export class LoginPageComponent implements OnInit {
     this.router.navigate(['courses']);
   }
 
+  handleRegister() {
+    this.authService.registerNewUser(this.emailValue, this.passwordValue);
+    this.router.navigate(['courses']);
+  }
+
 }
