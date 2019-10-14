@@ -23,6 +23,7 @@ export class AuthService {
   userInfo = new BehaviorSubject('');
   isAuthentified = new BehaviorSubject(false);
   private handleError: HandleError;
+  loading = new BehaviorSubject(false);
 
   constructor(
     private http: HttpClient,
@@ -31,6 +32,7 @@ export class AuthService {
   }
 
   public logIn(email: string = '', password: string = ''): Observable<UserInfo> {
+    this.loading.next(true);
     const user = { email, password };
     return this.http.post<UserInfo>(
       `${this.authUrl}/login`,
@@ -52,6 +54,7 @@ export class AuthService {
   }
 
   public registerNewUser(email: string = '', password: string = ''): Observable<UserInfo> {
+    this.loading.next(true);
     const user = { email, password };
     return this.http.post<UserInfo>(
       `${this.authUrl}/register`,
@@ -66,6 +69,7 @@ export class AuthService {
           this.userInfo.next(this.login);
           this.isAuthentified.next(this.authentified);
         }
+        this.loading.next(false);
         return res;
       }),
       catchError(this.handleError('registerNewUser', user)) // show some message to the user, think about it later
@@ -73,11 +77,13 @@ export class AuthService {
   }
 
   public logOut(): Observable<any> {
+    this.loading.next(true);
     return new Observable((observer) => {
       this.authToken = '';
       this.authentified = false;
       this.isAuthentified.next(this.authentified);
       observer.next();
+      this.loading.next(false);
       return {unsubscribe() {}};
     });
   }

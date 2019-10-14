@@ -29,14 +29,19 @@ body {
 }
 
 .container {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   justify-self: center;
   align-self: center;
   width: 100vw;
-  height: 80vh;
+  height: 100vh;
   overflow: hidden;
+  z-index: 999;
+  background-color: map-get($colors, light-opaque-background);
   animation-delay: 1s;
 }
 

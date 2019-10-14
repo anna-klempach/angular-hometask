@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { LoadingBlockService } from './services/loading-block.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,13 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-hometask';
+  displayed: boolean;
   pickABooActive = false;
+
+  constructor(private loadingService: LoadingBlockService) {
+    this.loadingService.displayed
+      .subscribe((value: boolean) => this.displayed = value);
+  }
 
   deleteItem() {
     this.pickABooActive = false;

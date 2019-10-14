@@ -13,11 +13,13 @@ import { AddCoursePageModule } from './add-course-page/add-course-page.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ConfigComponent } from './config/config/config.component';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
+import { PreloaderComponent } from './core/preloader/preloader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConfigComponent
+    ConfigComponent,
+    PreloaderComponent
   ],
   imports: [
     BrowserModule,
