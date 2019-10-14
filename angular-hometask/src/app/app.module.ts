@@ -11,8 +11,6 @@ import { LoginPageModule } from './login-page/login-page.module';
 import { AuthService } from './services/auth.service';
 import { AddCoursePageModule } from './add-course-page/add-course-page.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './services/in-memory-data.service';
 import { ConfigComponent } from './config/config/config.component';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
 

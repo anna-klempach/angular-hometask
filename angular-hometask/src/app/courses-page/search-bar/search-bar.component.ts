@@ -21,7 +21,6 @@ export class SearchBarComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     const searchBox = document.querySelector('.search-bar');
-    console.log('I am here');
     const typeahead = fromEvent(searchBox, 'keyup')
       .pipe(
         map((e: KeyboardEvent) => (e.target as HTMLInputElement).value),
