@@ -62,24 +62,8 @@
       "description": "A video yet to come.",
       "duration": 15,
       "id": 6,
-      "title": "Hello",
+      "title": "Video Six",
       "topRated": true
-    },
-    {
-      "id": 1570627353312,
-      "title": "Goodbye",
-      "duration": 23,
-      "description": "i have to go home",
-      "topRated": false,
-      "creationDate": "2019-10-09T00:00:00.000Z"
-    },
-    {
-      "id": 1570627360296,
-      "title": "One more video",
-      "creationDate": "2019-10-17T00:00:00.000Z",
-      "duration": 86,
-      "description": "A very interesting video",
-      "topRated": false
     },
     {
       "id": 1570711667899,
@@ -127,14 +111,6 @@
       "creationDate": "2019-10-01T00:00:00.000Z",
       "duration": 45,
       "description": "Not really",
-      "topRated": false
-    },
-    {
-      "id": 1570714014400,
-      "title": "Go away",
-      "creationDate": "2019-10-15T00:00:00.000Z",
-      "duration": 45,
-      "description": "Try to check the search stuff",
       "topRated": false
     },
     {

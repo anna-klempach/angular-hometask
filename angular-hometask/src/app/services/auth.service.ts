@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HandleError, HttpErrorHandler } from './http-error-handler.service';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { catchError, retry, map } from 'rxjs/operators';
 
 
@@ -20,6 +20,8 @@ export class AuthService {
   authToken = '';
   authentified = false;
   login = '';
+  userInfo = new BehaviorSubject('');
+  isAuthentified = new BehaviorSubject(false);
   private handleError: HandleError;
 
   constructor(
@@ -40,6 +42,8 @@ export class AuthService {
           this.authToken = res.accessToken;
           this.authentified = true;
           this.login = /.+(?=@)/.exec(email)[0];
+          this.userInfo.next(this.login);
+          this.isAuthentified.next(this.authentified);
         }
         return res;
       }),
@@ -59,6 +63,8 @@ export class AuthService {
           this.authToken = res.accessToken;
           this.authentified = true;
           this.login = /.+(?=@)/.exec(email)[0];
+          this.userInfo.next(this.login);
+          this.isAuthentified.next(this.authentified);
         }
         return res;
       }),
@@ -70,17 +76,10 @@ export class AuthService {
     return new Observable((observer) => {
       this.authToken = '';
       this.authentified = false;
+      this.isAuthentified.next(this.authentified);
       observer.next();
       return {unsubscribe() {}};
     });
-  }
-
-  public isAuthenticated(): boolean {
-    return this.authentified;
-  }
-
-  public getUserInfo(): string {
-    return this.login;
   }
 
   public getAuthorizationToken() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
@@ -8,9 +8,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) { }
+  login = '';
+  isAuthentified: boolean;
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   ngOnInit() {
+    this.authService.userInfo
+      .subscribe((value: string) => this.login = value);
+    this.authService.isAuthentified
+      .subscribe((value: boolean) => this.isAuthentified = value);
   }
 
   handleLogOut(): void {
@@ -21,5 +28,4 @@ export class HeaderComponent implements OnInit {
         }
       });
   }
-
 }
