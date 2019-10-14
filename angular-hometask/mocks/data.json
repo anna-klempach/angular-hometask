@@ -4,6 +4,16 @@
       "email": "123@gmail.com",
       "password": "$2a$10$95YCP0a.aFgfF0vZQ/B0D.DKnwa4Jval8Qq.jKPUMUKT7OYsX89bm",
       "id": 1
+    },
+    {
+      "email": "12345@gmail.com",
+      "password": "$2a$10$qQ2ODEoxCAUBaCO1FQLcmOlFnA7CnGpdLbXD75rqNVQ09nqRtSpSy",
+      "id": 2
+    },
+    {
+      "email": "12@gmail.com",
+      "password": "$2a$10$53HUjzz89DO/sfOUy98QdOXQNAvuVmqvG3MLv20rfToLdluKtpa.S",
+      "id": 3
     }
   ],
   "courses": [

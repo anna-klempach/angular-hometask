@@ -19,8 +19,11 @@ export class SearchBarComponent implements OnInit {
     this.searchValue = '';
   }
 
-  onKey(value: string) {
+  onKey(event: KeyboardEvent, value: string) {
     this.searchValue = value;
+    if (this.searchValue.length >= 3 || event.key === 'Backspace') {
+      this.searchValueChange.emit(this.searchValue);
+    }
   }
 
 }
