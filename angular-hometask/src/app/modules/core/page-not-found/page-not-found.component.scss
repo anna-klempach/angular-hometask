@@ -1,9 +1,9 @@
-:host {
+.error-page {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    h2 {
+    &__heading {
         font-size: 50px;
         font-weight: bold;
     }
