@@ -1,3 +1,5 @@
+@import "./reset.scss";
+
 $colors: (
   primary: #f8e9a1,
   secondary: rgb(81, 133, 132),
@@ -27,8 +29,4 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-
-  ul {
-    list-style: none;
-  }
 }
