@@ -1,39 +1,39 @@
 @import "../../../styles.scss";
 
-:host {
+.breadcrumb-container {
   display: flex;
-  margin:0 5rem;
-  .breadcrumb-container {
+  margin: 0 5rem;
+  .breadcrumb {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: map-get($colors, secondary);
+    &:hover {
+      color: map-get($colors, hover);
+    }
+    &:active {
+      color: map-get($colors, hover);
+    }
+  }
+  &__list {
     display: flex;
     width: 100%;
     padding: 0;
     list-style: none;
-    .breadcrumb {
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      color: map-get($colors, secondary);
-      &:hover {
-        color: map-get($colors, hover);
-      }
-      &:active {
-        color: map-get($colors, hover);
-      }
-    }
 
-    .breadcrumb-list-item {
+    &--item {
       font-size: 18px;
       font-weight: bold;
       color: map-get($colors, secondary);
     }
-    .breadcrumb-list-item:after {
+    &--item:after {
       content: "/";
       margin: 0 0.5em;
       font-size: 18px;
       font-weight: bold;
       color: map-get($colors, secondary);
     }
-    .breadcrumb-list-item:last-child:after {
+    &--item:last-child:after {
       content: "";
     }
   }

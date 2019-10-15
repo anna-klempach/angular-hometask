@@ -1,6 +1,8 @@
-<ul class="breadcrumb-container">
-    <li class="breadcrumb-list-item"><a href="/" class="breadcrumb">Courses</a></li>
-    <li class="breadcrumb-list-item" *ngFor="let breadcrumb of breadcrumbs">
-        {{ breadcrumb.label }}
-    </li>
-</ul>
+<div class="breadcrumb-container">
+    <ul class="breadcrumb-container__list">
+        <li class="breadcrumb-container__list--item"><a href="/" class="breadcrumb">Courses</a></li>
+        <li class="breadcrumb-container__list--item" *ngFor="let breadcrumb of breadcrumbs">
+            {{ breadcrumb.label }}
+        </li>
+    </ul>
+</div>
