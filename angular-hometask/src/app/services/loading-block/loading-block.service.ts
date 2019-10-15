@@ -7,7 +7,7 @@ import { CoursesService } from '../courses/courses.service';
   providedIn: 'root'
 })
 export class LoadingBlockService {
-  displayed = new BehaviorSubject(false);
+  public displayed = new BehaviorSubject(false);
   constructor(
     private authService: AuthService,
     private coursesService: CoursesService) {
@@ -17,7 +17,7 @@ export class LoadingBlockService {
       .subscribe((value) => this.toggleLoading(value));
   }
 
-  toggleLoading(value: boolean) {
+  toggleLoading(value: boolean): void {
     this.displayed.next(value);
   }
 }

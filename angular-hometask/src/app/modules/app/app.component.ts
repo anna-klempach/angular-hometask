@@ -7,16 +7,16 @@ import { LoadingBlockService } from '../../services/loading-block/loading-block.
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-hometask';
-  displayed: boolean;
-  pickABooActive = false;
+  public title = 'angular-hometask';
+  public displayed: boolean;
+  public pickABooActive = false;
 
   constructor(private loadingService: LoadingBlockService) {
     this.loadingService.displayed
       .subscribe((value: boolean) => this.displayed = value);
   }
 
-  deleteItem() {
+  deleteItem(): void {
     this.pickABooActive = false;
   }
 }

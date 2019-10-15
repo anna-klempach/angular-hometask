@@ -5,11 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './preloader.component.html',
   styleUrls: ['./preloader.component.scss']
 })
-export class PreloaderComponent implements OnInit {
+export class PreloaderComponent {
   constructor() {
   }
-
-  ngOnInit() {
-  }
-
 }

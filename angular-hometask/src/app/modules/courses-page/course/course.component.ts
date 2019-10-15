@@ -16,7 +16,7 @@ export class CourseComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router, private service: CoursesService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.loaded = false;
     this.service.getItem(+id)
@@ -30,16 +30,16 @@ export class CourseComponent implements OnInit {
   editCourse(key: string, value: string | number): void {
     this.editedCourse[key] = value;
   }
-  editCourseDate(value: string) {
+  editCourseDate(value: string): void {
     this.editedCourse.creationDate = new Date(value);
   }
 
-  handleCancelClick() {
+  handleCancelClick(): void {
     this.router.navigate(['courses']);
     this.editedCourse = undefined;
   }
 
-  handleSaveClick() {
+  handleSaveClick(): void {
     this.service.updateItem(this.editedCourse)
       .subscribe((course) => {
         this.course = course;

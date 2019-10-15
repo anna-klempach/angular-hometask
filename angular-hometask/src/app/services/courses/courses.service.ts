@@ -14,9 +14,9 @@ const LIMIT = 5;
   providedIn: 'root'
 })
 export class CoursesService {
-  coursesUrl = 'http://localhost:3000/courses';
-  loadedPages = 1;
-  loading = new BehaviorSubject(false);
+  private coursesUrl = 'http://localhost:3000/courses';
+  private loadedPages = 1;
+  public loading = new BehaviorSubject(false);
   private handleError: HandleError;
 
   constructor(
@@ -25,11 +25,11 @@ export class CoursesService {
     this.handleError = httpErrorHandler.createHandleError('CoursesService');
   }
 
-  public increasePagesNumber() {
+  public increasePagesNumber(): void {
     this.loadedPages += 1;
   }
 
-  public discardPagesNumber() {
+  public discardPagesNumber(): void {
     this.loadedPages = 1;
   }
 

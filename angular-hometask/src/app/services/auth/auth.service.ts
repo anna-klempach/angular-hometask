@@ -16,14 +16,14 @@ export interface UserInfo {
   providedIn: 'root'
 })
 export class AuthService {
-  authUrl = 'http://localhost:3000';
-  authToken = '';
-  authentified = false;
-  login = '';
-  userInfo = new BehaviorSubject('');
-  isAuthentified = new BehaviorSubject(false);
+  private authUrl = 'http://localhost:3000';
+  public authToken = '';
+  private authentified = false;
+  private login = '';
+  public userInfo = new BehaviorSubject('');
+  public isAuthentified = new BehaviorSubject(false);
   private handleError: HandleError;
-  loading = new BehaviorSubject(false);
+  public loading = new BehaviorSubject(false);
 
   constructor(
     private http: HttpClient,

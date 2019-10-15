@@ -13,7 +13,7 @@ export class AddCoursePageComponent implements OnInit {
   public editCourse: ICoursesListItem;
   constructor(private service: CoursesService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.editCourse = new CoursesListEntry(new Date().valueOf(), '', undefined, 0, '', false); // we'll make id a current date
   }
 
@@ -25,7 +25,7 @@ export class AddCoursePageComponent implements OnInit {
     this.editCourse.description = value;
   }
 
-  handleDateInput(value: string): void { // string for now
+  handleDateInput(value: string): void {
     this.editCourse.creationDate = new Date(value);
   }
 
@@ -36,13 +36,13 @@ export class AddCoursePageComponent implements OnInit {
     }
   }
 
-  handleSave() {
+  handleSave(): void {
     this.service.createCourse(this.editCourse)
     .subscribe(() => {});
     this.router.navigate(['courses']);
   }
 
-  handleCancel() {
+  handleCancel(): void {
     this.editCourse = undefined;
     this.router.navigate(['courses']);
   }

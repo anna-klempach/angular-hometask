@@ -18,7 +18,7 @@ export class SearchBarComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.changedValue$
       .pipe(debounceTime(500))
       .subscribe(data => {
@@ -28,7 +28,7 @@ export class SearchBarComponent implements OnInit {
       });
   }
 
-  handleInputChange(e: KeyboardEvent) {
+  handleInputChange(e: KeyboardEvent): void {
     const value = (e.target as HTMLInputElement).value;
     if (value.length > 2 || e.key === 'Backspace') {
       this.changedValue$.next(value);

@@ -7,23 +7,20 @@ import { Router } from '@angular/router';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
 })
-export class LoginPageComponent implements OnInit {
-  emailValue = '';
-  passwordValue = '';
+export class LoginPageComponent {
+  private emailValue = '';
+  private passwordValue = '';
   constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit() {
-  }
-
-  handleEmailInput(value: string) {
+  handleEmailInput(value: string): void {
     this.emailValue = value;
   }
 
-  handlePasswordInput(value: string) {
+  handlePasswordInput(value: string): void {
     this.passwordValue = value;
   }
 
-  handleLogin() {
+  handleLogin(): void {
     this.authService.logIn(this.emailValue, this.passwordValue)
       .subscribe((res) => {
         if (res.accessToken) {
@@ -32,7 +29,7 @@ export class LoginPageComponent implements OnInit {
       });
   }
 
-  handleRegister() {
+  handleRegister(): void {
     this.authService.registerNewUser(this.emailValue, this.passwordValue)
       .subscribe((res) => {
         if (res.accessToken) {

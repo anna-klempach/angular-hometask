@@ -16,39 +16,39 @@ export class PickABooComponent implements
     console.log('Constructor has been called.');
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     console.log('OnInit.');
   }
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     console.log('OnChanges.');
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     console.log('OnDestroy.');
   }
 
-  ngDoCheck() {
+  ngDoCheck(): void {
     console.log('DoCheck.');
   }
 
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     console.log('AfterContentInit.');
   }
 
-  ngAfterContentChecked() {
+  ngAfterContentChecked(): void {
     console.log('AfterContentchecked.');
   }
 
-  ngAfterViewChecked() {
+  ngAfterViewChecked(): void {
     console.log('AfterViewChecked');
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     console.log('AfterviewInit.');
   }
 
-  handleDelete() {
+  handleDelete(): void {
     this.deleteRequest.emit();
   }
 

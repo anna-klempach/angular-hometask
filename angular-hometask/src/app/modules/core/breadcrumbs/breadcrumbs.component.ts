@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute, PRIMARY_OUTLET, Params, UrlSegment } from '@angular/router';
 import { IBreadcrumb } from 'src/app/interfaces/breadcrumb.model';
 
@@ -6,12 +6,14 @@ import { IBreadcrumb } from 'src/app/interfaces/breadcrumb.model';
   selector: 'app-breadcrumbs',
   templateUrl: './breadcrumbs.component.html',
   styleUrls: ['./breadcrumbs.component.scss']
+  /* changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None */
 })
 export class BreadcrumbsComponent implements OnInit {
   public breadcrumbs: IBreadcrumb[] = [];
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         const root: ActivatedRoute = this.activatedRoute.root;

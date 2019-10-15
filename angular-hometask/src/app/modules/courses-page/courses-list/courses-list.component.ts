@@ -10,21 +10,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./courses-list.component.scss']
 })
 export class CoursesListComponent implements OnInit {
-  courses: ICoursesListItem[] = [];
-  loaded = false;
-  searchValue = '';
-  delete = 'false';
-  deleteModalOpened = false;
-  itemToDelete: number | null = null;
+  public courses: ICoursesListItem[] = [];
+  public loaded = false;
+  public searchValue = '';
+  public delete = 'false';
+  public deleteModalOpened = false;
+  public itemToDelete: number | null = null;
 
   constructor(private coursesService: CoursesService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loaded = false;
     this.getCourses();
   }
 
-  searchCourses() {
+  searchCourses(): void {
     this.coursesService.discardPagesNumber();
     this.coursesService.getCourses(this.searchValue)
       .subscribe(courses => {
@@ -33,12 +33,12 @@ export class CoursesListComponent implements OnInit {
       });
   }
 
-  getMoreCourses() {
+  getMoreCourses(): void {
     this.coursesService.increasePagesNumber(); // add check on the number of courses
     this.getCourses();
   }
 
-  getCourses() {
+  getCourses(): void {
     this.coursesService.getCourses(this.searchValue)
       .subscribe(courses => {
         this.courses = this.courses.concat(courses);
@@ -46,12 +46,12 @@ export class CoursesListComponent implements OnInit {
       });
   }
 
-  deleteItem(id: number) {
+  deleteItem(id: number): void {
     this.deleteModalOpened = true;
     this.itemToDelete = id;
   }
 
-  handleDeleteItem(value: boolean) {
+  handleDeleteItem(value: boolean): void {
     if (value) {
       this.courses = this.courses.filter(c => c.id !== this.itemToDelete);
       this.coursesService
@@ -62,7 +62,7 @@ export class CoursesListComponent implements OnInit {
     this.deleteModalOpened = false;
   }
 
-  handleAddCourse() {
+  handleAddCourse(): void {
     this.router.navigate(['courses/new']);
   }
 
