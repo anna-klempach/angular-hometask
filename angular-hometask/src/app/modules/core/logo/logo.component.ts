@@ -8,10 +8,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class LogoComponent {
   @Input() login: string;
   @Output() logOut = new EventEmitter();
-  constructor() { }
 
   handleLogout(): void {
     this.logOut.emit();
   }
-
 }
