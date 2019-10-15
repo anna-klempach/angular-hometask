@@ -3,7 +3,7 @@
     <label for="#email">E-mail:</label>
     <input #emailBar id="email" (input)="handleEmailInput(emailBar.value)" placeholder="Enter your e-mail" required>
     <label for="#password">Password:</label>
-    <input #passwordBar id="password" (input)="handlePasswordInput(passwordBar.value)" placeholder="Enter password"
+    <input #passwordBar type="password" id="password" (input)="handlePasswordInput(passwordBar.value)" placeholder="Enter password"
         required>
     <div class="login-page__buttonset">
         <button class="login-page__button"

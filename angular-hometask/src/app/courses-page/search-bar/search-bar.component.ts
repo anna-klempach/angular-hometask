@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output, OnChanges } from '@angular/core';
-import { fromEvent, Observable } from 'rxjs';
+import { fromEvent, Observable, BehaviorSubject, observable } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 import { map, filter, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { CoursesService } from 'src/app/services/courses.service';
@@ -9,29 +9,29 @@ import { CoursesService } from 'src/app/services/courses.service';
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.scss']
 })
-export class SearchBarComponent implements OnInit, OnChanges {
+export class SearchBarComponent implements OnInit {
+
+  private changedValue$ = new BehaviorSubject('');
   @Input() searchValue: string;
   @Input() fieldDisabled: boolean;
   @Output() searchValueChange = new EventEmitter<string>();
-  constructor(private coursesService: CoursesService) { }
-
-
-  ngOnInit() {
+  constructor() {
   }
 
-  ngOnChanges() {
-    const searchBox = document.querySelector('.search-bar');
-    const typeahead = fromEvent(searchBox, 'keyup')
-      .pipe(
-        map((e: KeyboardEvent) => (e.target as HTMLInputElement).value),
-        filter(text => text.length > 2),
-        debounceTime(10),
-        distinctUntilChanged()
-      );
+  ngOnInit() {
+    this.changedValue$
+      .pipe(debounceTime(3000))
+      .subscribe(data => {
+        data
+          ? this.searchValueChange.emit(data)
+          : this.searchValueChange.emit('');
+      });
+  }
 
-    typeahead.subscribe((data) => {
-      this.searchValueChange.emit(data);
-    });
-
+  handleInputChange(e: KeyboardEvent) {
+    const value = (e.target as HTMLInputElement).value;
+    if (value.length > 2 || e.key === 'Backspace') {
+      this.changedValue$.next(value);
+    }
   }
 }
