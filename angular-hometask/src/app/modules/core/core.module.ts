@@ -7,23 +7,27 @@ import { LogoComponent } from './logo/logo.component';
 import { PickABooComponent } from './pick-a-boo/pick-a-boo.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+const declarations = [
+  HeaderComponent,
+  FooterComponent,
+  BreadcrumbsComponent,
+  LogoComponent,
+  PickABooComponent,
+  PageNotFoundComponent
+];
+
+const exports = [
+  PickABooComponent,
+  HeaderComponent,
+  FooterComponent,
+  BreadcrumbsComponent
+];
+
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    FooterComponent,
-    BreadcrumbsComponent,
-    LogoComponent,
-    PickABooComponent,
-    PageNotFoundComponent
-  ],
+  declarations,
   imports: [
     CommonModule
   ],
-  exports: [
-    PickABooComponent,
-    HeaderComponent,
-    FooterComponent,
-    BreadcrumbsComponent
-  ]
+  exports
 })
 export class CoreModule { }
