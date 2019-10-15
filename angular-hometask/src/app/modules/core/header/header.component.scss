@@ -1,0 +1,30 @@
+@import "../../../../styles.scss";
+
+:host {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+    color: map-get($colors, light-font);
+    background-color: map-get($colors, light-opaque-background);
+
+    h1 {
+      margin: 0 5rem;
+      padding: 0;
+      font-size: 1.5rem;
+    }
+  }
+
+  .log-in-header {
+    background: linear-gradient(to right, map-get($colors, dark-background), map-get($colors, secondary));
+  }
+}

@@ -1,5 +1,5 @@
 import { SortByPipe } from './sort-by.pipe';
-import { CoursesListEntry } from '../courses-page/courses-list-entry';
+import { CoursesListEntry } from '../modules/courses-page/courses-list-entry';
 const COURSES = [
   new CoursesListEntry(1, 'Video One', new Date('June 12, 2018 02:24:00'),
     20, 'A very interesting video about a very importatnt topic.', true),
