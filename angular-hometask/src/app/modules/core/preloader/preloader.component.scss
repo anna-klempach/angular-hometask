@@ -47,21 +47,21 @@ body {
 
 @for $i from 1 through 5 {
   .item-#{$i} {
-    width: 20px;
-    height: 20px;
+    width: 2rem;
+    height: 2rem;
     background: #f583a1;
     border-radius: 50%;
     @include anim();
     background-color: nth($color, $i);
-    margin: 7px;
+    margin: 0.7rem;
     display: flex;
     justify-content: center;
     align-items: center;
 
     &:before {
       content: "";
-      width: 20px;
-      height: 20px;
+      width: 2rem;
+      height: 2rem;
       border-radius: 50%;
       background-color: nth($color, $i);
       opacity: 0.7;

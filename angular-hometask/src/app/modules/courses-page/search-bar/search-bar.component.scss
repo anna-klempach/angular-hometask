@@ -5,7 +5,7 @@
   flex-direction: column;
   width: 100%;
   margin: 0;
-  padding: 6rem 5rem 0.5rem;
+  padding: 0.6rem 0.5rem 0.5rem;
   box-sizing: border-box;
   color: map-get($colors, light-font);
   background: linear-gradient(to right, map-get($colors, dark-background), map-get($colors, secondary));
@@ -20,10 +20,10 @@
     align-items: center;
     input {
       width: 40vw;
-      height: 2rem;
+      height: 2.5rem;
       margin-right: 2rem;
       padding-left: 0.5rem;
-      border: 1px solid map-get($colors, dark-background);
+      border: 0.1rem solid map-get($colors, dark-background);
       border-radius: 0.3rem;
     }
 

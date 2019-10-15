@@ -5,7 +5,7 @@
   margin: 0 5rem;
   .breadcrumb {
     text-decoration: none;
-    font-size: 18px;
+    font-size: 1.5rem;
     font-weight: bold;
     color: map-get($colors, secondary);
     &:hover {
@@ -21,14 +21,14 @@
     padding: 0;
 
     &--item {
-      font-size: 18px;
+      font-size: 1.5rem;
       font-weight: bold;
       color: map-get($colors, secondary);
     }
     &--item:after {
       content: "/";
       margin: 0 0.5em;
-      font-size: 18px;
+      font-size: 1.5rem;
       font-weight: bold;
       color: map-get($colors, secondary);
     }

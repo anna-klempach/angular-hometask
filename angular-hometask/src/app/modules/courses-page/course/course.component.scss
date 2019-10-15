@@ -14,8 +14,8 @@
     height: 70vh;
     padding: 2em;
     box-sizing: border-box;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px map-get($colors, dark-font);
+    border-radius: 0.5rem;
+    box-shadow: 0.2rem 0.2rem 0.5rem map-get($colors, dark-font);
 
     .duration-container {
       display: flex;
