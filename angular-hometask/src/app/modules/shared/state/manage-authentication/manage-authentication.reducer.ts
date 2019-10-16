@@ -7,10 +7,12 @@ export interface State {
     isAuthentified: boolean;
 }
 
+const { login: currentLogin, token: currentToken } = JSON.parse(window.localStorage.getItem('userInfo'));
+
 export const initialState: State = {
-    login: 'hello',
-    token: '',
-    isAuthentified: false,
+    login: currentLogin || '',
+    token: currentToken || '',
+    isAuthentified: !!currentToken,
 };
 
 const authenticationReducer = createReducer(
