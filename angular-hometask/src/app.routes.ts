@@ -1,10 +1,10 @@
 import { Route } from '@angular/router';
-import { CoursesListComponent } from './app/modules/courses-page/courses-list/courses-list.component';
+import { CoursesListComponent } from './app/modules/courses-page/components/courses-list/courses-list.component';
 import { LoginPageComponent } from './app/modules/login-page/login-page.component';
 import { AddCoursePageComponent } from './app/modules/add-course-page/add-course-page.component';
-import { PageNotFoundComponent } from './app/modules/core/page-not-found/page-not-found.component';
-import { CourseComponent } from './app/modules/courses-page/course/course.component';
-import { AuthGuard } from './app/auth/auth.guard';
+import { PageNotFoundComponent } from './app/modules/shared/components/page-not-found/page-not-found.component';
+import { CourseComponent } from './app/modules/courses-page/components/course/course.component';
+import { AuthGuard } from './app/guards/auth/auth.guard';
 
 export const ROUTES: Route[] = [
     { path: 'courses', component: CoursesListComponent,

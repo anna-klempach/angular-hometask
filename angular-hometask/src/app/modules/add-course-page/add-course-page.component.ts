@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ICoursesListItem } from 'src/app/interfaces/courses-list-item.model';
-import { CoursesListEntry } from 'src/app/modules/courses-page/courses-list-entry';
-import { CoursesService } from 'src/app/services/courses/courses.service';
+import { CoursesListEntry } from 'src/app/modules/courses-page/entities/classes/courses-list-entry';
+import { CoursesService } from 'src/app/modules/courses-page/services/courses/courses.service';
 import { Router } from '@angular/router';
 
 @Component({

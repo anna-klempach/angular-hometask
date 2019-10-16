@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddCoursePageComponent } from './add-course-page.component';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
-import { DurationDisplayPipe } from 'src/app/pipes/duration-display.pipe';
+import { DurationDisplayPipe } from 'src/app/modules/shared/pipes/duration-display.pipe';
 
 describe('AddCoursePageComponent', () => {
   let component: AddCoursePageComponent;

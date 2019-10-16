@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { AuthService } from '../../modules/shared/services/auth/auth.service';
-import { CoursesService } from '../../modules/courses-page/services/courses/courses.service';
+import { CoursesService } from 'src/app/modules/courses-page/services/courses/courses.service';
+import { AuthService } from '../auth/auth.service';
+
 
 @Injectable({
   providedIn: 'root'
