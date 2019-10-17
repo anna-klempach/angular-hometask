@@ -8,11 +8,31 @@ import * as CoursesActions from '../manage-courses-list.actions';
 @Injectable()
 export class CoursesEffects {
 
-  public loadMovies$ = createEffect(() => this.actions$.pipe(
+  public loadCourses$ = createEffect(() => this.actions$.pipe(
     ofType(CoursesActions.loadCourses),
     mergeMap(action => this.coursesService.getCourses(action.searchValue)
       .pipe(
         map(courses => (CoursesActions.setCourses({ courses }))),
+        catchError(() => EMPTY)
+      ))
+    )
+  );
+
+  public reloadCourses$ = createEffect(() => this.actions$.pipe(
+    ofType(CoursesActions.reloadCourses),
+    mergeMap(action => this.coursesService.resetCourses(action.searchValue)
+      .pipe(
+        map(courses => (CoursesActions.resetCourses({ courses }))),
+        catchError(() => EMPTY)
+      ))
+    )
+  );
+
+  public deleteCourse$ = createEffect(() => this.actions$.pipe(
+    ofType(CoursesActions.deleteCourse),
+    mergeMap(action => this.coursesService.removeItem(action.id)
+      .pipe(
+        map(() => (CoursesActions.reloadCourses({searchValue: action.searchValue}))),
         catchError(() => EMPTY)
       ))
     )

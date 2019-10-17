@@ -18,30 +18,6 @@
   ],
   "courses": [
     {
-      "creationDate": "2018-06-11T23:24:00.000Z",
-      "description": "A very interesting video about a very importatnt topic.",
-      "duration": 20,
-      "id": 1,
-      "title": "Video One",
-      "topRated": true
-    },
-    {
-      "creationDate": "2019-08-30T11:24:00.000Z",
-      "description": "Another very interesting video about an even more interesting topic.",
-      "duration": 40,
-      "id": 2,
-      "title": "Video Two",
-      "topRated": true
-    },
-    {
-      "creationDate": "2017-12-17T00:24:00.000Z",
-      "description": "Not a very interesting video but the topic is extremely important and you have to watch it, thanks God it is quite short.",
-      "duration": 15,
-      "id": 3,
-      "title": "Video Three",
-      "topRated": false
-    },
-    {
       "creationDate": "2018-02-18T02:24:00.000Z",
       "description": "An absolutely useless video, if you do not want you may not watch it.",
       "duration": 60,
@@ -58,76 +34,20 @@
       "topRated": true
     },
     {
-      "creationDate": "2019-12-29T11:24:00.000Z",
-      "description": "A video yet to come.",
-      "duration": 15,
-      "id": 6,
-      "title": "Video Six",
-      "topRated": true
-    },
-    {
-      "id": 1570711667899,
-      "title": "another video",
-      "creationDate": "2019-10-06T00:00:00.000Z",
-      "duration": 189,
-      "description": "I have so many interesting videos",
-      "topRated": false
-    },
-    {
-      "id": 1570711708146,
-      "title": "I love videos",
-      "creationDate": "2019-10-01T00:00:00.000Z",
-      "duration": 785,
-      "description": "Videos, videos, videos",
-      "topRated": false
-    },
-    {
-      "id": 1570711751353,
-      "title": "And another one",
-      "creationDate": "2019-08-06T00:00:00.000Z",
-      "duration": 45,
-      "description": "I can't help falling in love with videos",
-      "topRated": false
-    },
-    {
-      "id": 1570711794314,
-      "title": "And one more",
-      "creationDate": "2019-05-27T00:00:00.000Z",
-      "duration": 89,
-      "description": "I can add as many videos as i want",
-      "topRated": false
-    },
-    {
-      "id": 1570711853250,
-      "title": "Angluar is so cool",
-      "creationDate": "2019-10-01T00:00:00.000Z",
-      "duration": 45,
-      "description": "Not really",
-      "topRated": false
-    },
-    {
-      "id": 1570714198289,
-      "title": "Video next",
-      "creationDate": "2019-10-09T00:00:00.000Z",
-      "duration": 458,
-      "description": "Searching for this word",
-      "topRated": false
-    },
-    {
-      "id": 1571052817012,
-      "title": "Hello",
-      "creationDate": "2019-10-14T00:00:00.000Z",
-      "duration": 800,
-      "description": "I am very glad i have more or less finished task 9",
-      "topRated": false
-    },
-    {
       "id": 1571052888755,
       "title": "One more course",
       "creationDate": "2019-10-25T00:00:00.000Z",
       "duration": 45,
       "description": "Because I have deleted some",
       "topRated": false
+    },
+    {
+      "creationDate": "2019-12-29T11:24:00.000Z",
+      "description": "A video yet to come.",
+      "duration": 15,
+      "id": 6,
+      "title": "Video Six",
+      "topRated": true
     }
   ]
 }

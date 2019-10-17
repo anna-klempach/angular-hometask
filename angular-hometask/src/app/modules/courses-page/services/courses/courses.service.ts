@@ -23,8 +23,7 @@ export class CoursesService {
 
   constructor(
     private http: HttpClient,
-    httpErrorHandler: HttpErrorHandler,
-    private store: Store<ICoursesState>) {
+    httpErrorHandler: HttpErrorHandler) {
     this.handleError = httpErrorHandler.createHandleError('CoursesService');
   }
 
@@ -36,11 +35,11 @@ export class CoursesService {
     this.loadedPages = 1;
   }
 
-  public getCourses(searchValue: string): Observable<ICoursesListItem[]> {
+  private deliverCourses(url: string): Observable<ICoursesListItem[]> {
     this.loading.next(true);
     return this.http.get<ICoursesListItem[]>(
-      `${this.coursesUrl}?q=${searchValue}&_sort=creationDate&_order=desc&_page=${this.loadedPages}&_limit=${LIMIT}`
-      )
+      url
+    )
       .pipe(
         map(res => {
           if (res) {
@@ -52,13 +51,25 @@ export class CoursesService {
       );
   }
 
+  public resetCourses(searchValue: string): Observable<ICoursesListItem[]> {
+    return this.deliverCourses(
+      `${this.coursesUrl}?q=${searchValue}&_sort=creationDate&_order=desc&_start=0&_limit=${LIMIT * this.loadedPages}`
+    );
+  }
+
+  public getCourses(searchValue: string): Observable<ICoursesListItem[]> {
+    return this.deliverCourses(
+      `${this.coursesUrl}?q=${searchValue}&_sort=creationDate&_order=desc&_page=${this.loadedPages}&_limit=${LIMIT}`
+    );
+  }
+
   public createCourse(createdCourse: ICoursesListItem): Observable<ICoursesListItem> {
     this.loading.next(true);
-    const course: ICoursesListItem = {...createdCourse};
+    const course: ICoursesListItem = { ...createdCourse };
     return this.http.post<ICoursesListItem>(
       this.coursesUrl,
       course
-      )
+    )
       .pipe(
         map(res => {
           if (res) {

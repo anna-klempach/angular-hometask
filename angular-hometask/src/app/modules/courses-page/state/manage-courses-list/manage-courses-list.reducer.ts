@@ -15,6 +15,10 @@ const coursesReducer = createReducer(
     on(CoursesActions.setCourses, (state, { courses }) => ({
         ...state,
         courses: state.courses.concat(courses)
+    })),
+    on(CoursesActions.resetCourses, (state, { courses }) => ({
+        ...state,
+        courses
     }))
 );
 

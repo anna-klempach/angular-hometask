@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { selectCourses, IAppState } from '../../state/manage-courses-list/manage-courses-list.selectors';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { loadCourses, setCourses } from '../../state/manage-courses-list/manage-courses-list.actions';
+import { loadCourses, deleteCourse, reloadCourses } from '../../state/manage-courses-list/manage-courses-list.actions';
 
 
 @Component({
@@ -32,11 +32,7 @@ export class CoursesListComponent implements OnInit {
 
   searchCourses(): void {
     this.coursesService.discardPagesNumber();
-    this.coursesService.getCourses(this.searchValue)
-      .subscribe(courses => {
-        this.courses = courses;
-        this.loaded = true;
-      });
+    this.store.dispatch(reloadCourses({searchValue: this.searchValue}));
   }
 
   getMoreCourses(): void {
@@ -55,10 +51,7 @@ export class CoursesListComponent implements OnInit {
 
   handleDeleteItem(value: boolean): void {
     if (value) {
-      this.courses = this.courses.filter(c => c.id !== this.itemToDelete);
-      this.coursesService
-        .removeItem(this.itemToDelete)
-        .subscribe();
+      this.store.dispatch(deleteCourse({id: this.itemToDelete, searchValue: this.searchValue}));
     }
     this.itemToDelete = null;
     this.deleteModalOpened = false;

@@ -18,9 +18,10 @@
   .form {
     display: flex;
     align-items: center;
-    input {
+    .search-bar {
       width: 40vw;
       height: 2.5rem;
+      margin-top: 5rem;
       margin-right: 2rem;
       padding-left: 0.5rem;
       border: 0.1rem solid map-get($colors, dark-background);
