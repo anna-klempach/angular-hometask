@@ -38,6 +38,26 @@ export class CoursesEffects {
     )
   );
 
+  public addCourse$ = createEffect(() => this.actions$.pipe(
+    ofType(CoursesActions.addCourse),
+    mergeMap(action => this.coursesService.createCourse(action.course)
+      .pipe(
+        map(() => (CoursesActions.reloadCourses({searchValue: ''}))),
+        catchError(() => EMPTY)
+      ))
+    )
+  );
+
+  public editCourse$ = createEffect(() => this.actions$.pipe(
+    ofType(CoursesActions.editCourse),
+    mergeMap(action => this.coursesService.updateItem(action.course)
+      .pipe(
+        map(() => (CoursesActions.reloadCourses({searchValue: ''}))),
+        catchError(() => EMPTY)
+      ))
+    )
+  );
+
   constructor(
     private actions$: Actions,
     private coursesService: CoursesService

@@ -13,6 +13,7 @@ import { StoreModule } from '@ngrx/store';
 import * as coursesReducer from './state/manage-courses-list/manage-courses-list.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { CoursesEffects } from './state/manage-courses-list/effects/load-courses.effects';
+import { AddCoursePageComponent } from './components/add-course-page/add-course-page.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CoursesEffects } from './state/manage-courses-list/effects/load-courses
     OrderByPipe,
     SortByPipe,
     ModalDialogComponent,
-    CourseComponent
+    CourseComponent,
+    AddCoursePageComponent
   ],
   imports: [
     CommonModule,
@@ -37,6 +39,7 @@ import { CoursesEffects } from './state/manage-courses-list/effects/load-courses
   ],
   exports: [
     CoursesListComponent,
+    AddCoursePageComponent
   ]
 })
 export class CoursesPageModule { }

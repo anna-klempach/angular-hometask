@@ -27,7 +27,7 @@ export class CoursesListComponent implements OnInit {
               private store: Store<IAppState>) { }
 
   ngOnInit(): void {
-    this.store.dispatch(loadCourses({searchValue: this.searchValue}));
+    this.getCourses();
   }
 
   searchCourses(): void {

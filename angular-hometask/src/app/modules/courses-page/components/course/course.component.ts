@@ -3,6 +3,9 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { CoursesService } from 'src/app/modules/courses-page/services/courses/courses.service';
 import { ICoursesListItem } from '../../../../interfaces/courses-list-item.model';
 import { CoursesListEntry } from '../../entities/classes/courses-list-entry';
+import { Store } from '@ngrx/store';
+import { IAppState } from '../../state/manage-courses-list/manage-courses-list.selectors';
+import { editCourse } from '../../state/manage-courses-list/manage-courses-list.actions';
 
 @Component({
   selector: 'app-course',
@@ -14,7 +17,10 @@ export class CourseComponent implements OnInit {
   public loaded = false;
   private editedCourse: CoursesListEntry;
 
-  constructor(private route: ActivatedRoute, private router: Router, private service: CoursesService) { }
+  constructor(private route: ActivatedRoute,
+    private router: Router,
+    private service: CoursesService,
+    private store: Store<IAppState>) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -40,11 +46,7 @@ export class CourseComponent implements OnInit {
   }
 
   handleSaveClick(): void {
-    this.service.updateItem(this.editedCourse)
-      .subscribe((course) => {
-        this.course = course;
-        this.router.navigate(['courses']);
-      });
+    this.store.dispatch(editCourse({ course: this.editedCourse }));
+    this.router.navigate(['courses']); // should it be asynchronous?
   }
-
 }

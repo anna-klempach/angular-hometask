@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ICoursesListItem } from 'src/app/interfaces/courses-list-item.model';
 import { CoursesListEntry } from 'src/app/modules/courses-page/entities/classes/courses-list-entry';
-import { CoursesService } from 'src/app/modules/courses-page/services/courses/courses.service';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { IAppState } from '../../state/manage-courses-list/manage-courses-list.selectors';
+import { addCourse } from '../../state/manage-courses-list/manage-courses-list.actions';
 
 @Component({
   selector: 'app-add-course-page',
@@ -11,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class AddCoursePageComponent implements OnInit {
   public editCourse: ICoursesListItem;
-  constructor(private service: CoursesService, private router: Router) { }
+  constructor(private router: Router, private store: Store<IAppState>) { }
 
   ngOnInit(): void {
     this.editCourse = new CoursesListEntry(new Date().valueOf(), '', undefined, 0, '', false); // we'll make id a current date
@@ -37,8 +39,7 @@ export class AddCoursePageComponent implements OnInit {
   }
 
   handleSave(): void {
-    this.service.createCourse(this.editCourse)
-    .subscribe(() => {});
+    this.store.dispatch(addCourse({course: this.editCourse}));
     this.router.navigate(['courses']);
   }
 

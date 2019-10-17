@@ -11,13 +11,3 @@ export const selectCourses = createSelector(
     selectFeature,
     (state: ICoursesState) => state.courses
 );
-
-/* export const selectToken = createSelector(
-    selectFeature,
-    (state: AuthState) => state.token
-);
-
-export const selectIsAuthenticated = createSelector(
-    selectFeature,
-    (state: AuthState) => state.isAuthentified
-); */

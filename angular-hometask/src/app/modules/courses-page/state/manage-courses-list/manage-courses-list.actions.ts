@@ -11,4 +11,8 @@ export const reloadCourses = createAction('[Courses Page] Reload Courses',
     props<{ searchValue: string }>());
 export const deleteCourse = createAction('[Courses Page] Delete Course',
     props<{ id: number, searchValue: string }>());
+export const addCourse = createAction('[Courses Page] Add Course',
+    props<{ course: ICoursesListItem }>());
+export const editCourse = createAction('[Courses Page] Edit Course',
+    props<{ course: ICoursesListItem }>());
 

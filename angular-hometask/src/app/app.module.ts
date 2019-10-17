@@ -8,7 +8,6 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from 'src/app.routes';
 import { LoginPageModule } from './modules/login-page/login-page.module';
 import { AuthService } from './modules/shared/services/auth/auth.service';
-import { AddCoursePageModule } from './modules/add-course-page/add-course-page.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { PreloaderComponent } from './modules/shared/components/preloader/preloader.component';
@@ -31,7 +30,6 @@ import { AppEffects } from './app.effects';
     SharedModule,
     CoursesPageModule,
     LoginPageModule,
-    AddCoursePageModule,
     RouterModule.forRoot(ROUTES),
     StoreModule.forRoot(reducers, {
       metaReducers,
