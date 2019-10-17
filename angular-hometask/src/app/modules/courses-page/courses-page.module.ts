@@ -9,6 +9,10 @@ import { SortByPipe } from '../shared/pipes/sort-by.pipe';
 import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.component';
 import { SharedModule } from '../shared/shared.module';
 import { CourseComponent } from './components/course/course.component';
+import { StoreModule } from '@ngrx/store';
+import * as coursesReducer from './state/manage-courses-list/manage-courses-list.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { CoursesEffects } from './state/manage-courses-list/effects/load-courses.effects';
 
 
 @NgModule({
@@ -24,7 +28,12 @@ import { CourseComponent } from './components/course/course.component';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    StoreModule.forFeature(
+      coursesReducer.featureKey,
+      coursesReducer.reducer
+    ),
+    EffectsModule.forFeature([CoursesEffects])
   ],
   exports: [
     CoursesListComponent,

@@ -7,6 +7,8 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 import { HttpErrorHandler, HandleError } from '../../../shared/services/error-handler/http-error-handler.service';
+import { ICoursesState } from '../../state/manage-courses-list/manage-courses-list.reducer';
+import { Store } from '@ngrx/store';
 
 const LIMIT = 5;
 
@@ -21,7 +23,8 @@ export class CoursesService {
 
   constructor(
     private http: HttpClient,
-    httpErrorHandler: HttpErrorHandler) {
+    httpErrorHandler: HttpErrorHandler,
+    private store: Store<ICoursesState>) {
     this.handleError = httpErrorHandler.createHandleError('CoursesService');
   }
 

@@ -2,6 +2,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CoursesService } from '../../services/courses/courses.service';
 import { ICoursesListItem } from '../../../../interfaces/courses-list-item.model';
 import { Router } from '@angular/router';
+import { selectCourses, IAppState } from '../../state/manage-courses-list/manage-courses-list.selectors';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { loadCourses, setCourses } from '../../state/manage-courses-list/manage-courses-list.actions';
 
 
 @Component({
@@ -11,17 +15,19 @@ import { Router } from '@angular/router';
 })
 export class CoursesListComponent implements OnInit {
   public courses: ICoursesListItem[] = [];
+  public courses$: Observable<ICoursesListItem[]> = this.store.pipe(select(selectCourses));
   public loaded = false;
   public searchValue = '';
   public delete = 'false';
   public deleteModalOpened = false;
   public itemToDelete: number | null = null;
 
-  constructor(private coursesService: CoursesService, private router: Router) { }
+  constructor(private coursesService: CoursesService,
+              private router: Router,
+              private store: Store<IAppState>) { }
 
   ngOnInit(): void {
-    this.loaded = false;
-    this.getCourses();
+    this.store.dispatch(loadCourses({searchValue: this.searchValue}));
   }
 
   searchCourses(): void {
@@ -39,11 +45,7 @@ export class CoursesListComponent implements OnInit {
   }
 
   getCourses(): void {
-    this.coursesService.getCourses(this.searchValue)
-      .subscribe(courses => {
-        this.courses = this.courses.concat(courses);
-        this.loaded = true;
-      });
+    this.store.dispatch(loadCourses({searchValue: this.searchValue}));
   }
 
   deleteItem(id: number): void {

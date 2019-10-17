@@ -1,22 +1,19 @@
 <app-search-bar [(searchValue)]="searchValue" (searchValueChange)="searchCourses()"></app-search-bar>
-<div *ngIf="loaded" class="add-button-container">
+<div class="add-button-container">
     <button class="add-course-button" (click)="handleAddCourse()">
         <i class="material-icons">add</i>
         Add course
     </button>
 </div>
-<p *ngIf="loaded && courses.length === 0"
-    class="no-data-message">NO DATA, FEEL FREE TO ADD A NEW COURSE</p>
-<div *ngIf="loaded"
+<!-- <p *ngIf="courses.length === 0"
+    class="no-data-message">NO DATA, FEEL FREE TO ADD A NEW COURSE</p> -->
+<div
     class="list">
     <app-courses-list-item [ngClass]="{'top-background-color': course.topRated}" class="courses-list-item"
-        *ngFor="let course of (courses); let i = index" [course]="course" [index]="i + 1"
+        *ngFor="let course of courses$ | async; let i = index" [course]="course" [index]="i + 1"
         (deleteRequest)="deleteItem($event)" [appCoursePlateBorder]="course.creationDate">
     </app-courses-list-item>
 </div>
-<button class="load-more-button" *ngIf="loaded" (click)="getMoreCourses()">LOAD MORE</button>
+<button class="load-more-button" (click)="getMoreCourses()">LOAD MORE</button>
 <app-modal-dialog *ngIf="deleteModalOpened" (deleteItem)="handleDeleteItem($event)"></app-modal-dialog>
 <div class="blocking-window" *ngIf="deleteModalOpened"></div>
-
-<!-- && ((searchValue==='' && courses.length > 0) || (searchValue.length > 0 && (courses | sortBy: searchValue).length > 0))
-(searchValue==='' && courses.length === 0) || (searchValue.length > 0 && (courses | sortBy: searchValue).length === 0) -->
