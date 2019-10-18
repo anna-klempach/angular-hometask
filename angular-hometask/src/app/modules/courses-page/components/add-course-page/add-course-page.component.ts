@@ -17,9 +17,9 @@ export class AddCoursePageComponent implements OnInit {
   public addCourseForm = new FormGroup({
     title: new FormControl(''),
     description: new FormControl(''),
-    date: new FormControl(''),
+    creationDate: new FormControl(''),
     duration: new FormControl(''),
-    authors: new FormControl(''),
+    // authors: new FormControl(''),
   });
 
   constructor(private router: Router, private store: Store<IAppState>) { }
@@ -29,25 +29,41 @@ export class AddCoursePageComponent implements OnInit {
   }
 
   handleTitleInput(value: string): void {
-    this.editCourse.title = value;
+    this.addCourseForm.patchValue({
+      ...this.addCourseForm,
+      title: value
+    });
   }
 
   handleDescriptionInput(value: string): void {
-    this.editCourse.description = value;
+    this.addCourseForm.patchValue({
+      ...this.addCourseForm,
+      description: value
+    });
   }
 
   handleDateInput(value: string): void {
-    this.editCourse.creationDate = new Date(value);
+    this.addCourseForm.patchValue({
+      ...this.addCourseForm,
+      creationDate: value
+    });
   }
 
   handleDurationInput(value: string): void {
     const inputDuration = +value;
     if (inputDuration && typeof inputDuration === 'number' && inputDuration >= 0) {
-      this.editCourse.duration = inputDuration;
+      this.addCourseForm.patchValue({
+        ...this.addCourseForm,
+        duration: value
+      });
     }
   }
 
   handleSave(): void {
+    this.editCourse = {
+      ...this.editCourse,
+      ...this.addCourseForm.value
+    };
     this.store.dispatch(addCourse({course: this.editCourse}));
     this.router.navigate(['courses']);
   }

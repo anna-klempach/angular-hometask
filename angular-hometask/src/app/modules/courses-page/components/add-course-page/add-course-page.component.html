@@ -1,5 +1,5 @@
 <div class="add-course-page">
-    <form class="add-course-page__form" [formGroup]="addCourseForm">
+    <form class="add-course-page__form" [formGroup]="addCourseForm" (ngSubmit)="handleSave()">
         <h2 class="add-course-page__heading">Add course</h2>
         <label>Title:
             <input #title formControlName="title" (input)="handleTitleInput(title.value)" placeholder="Course title"
@@ -12,25 +12,25 @@
         </label>
 
         <label>Date:
-            <input #date formControlName="date" (input)="handleDateInput(date.value)" placeholder="Course creation date"
+            <input #date formControlName="creationDate" (input)="handleDateInput(date.value)" placeholder="Course creation date"
                 required>
         </label>
 
         <label>Duration:
             <div class="duration-container">
-                <input #durationBar formControlName="duration" type="number"
+                <input #durationBar formControlName="duration"
                     (input)="handleDurationInput(durationBar.value)" placeholder="Course duration" required>
                 <p class="duration-eval" *ngIf="duration >= 0">{{duration | durationDisplay}}</p>
             </div>
         </label>
 
-        <label>Authors:
+        <!-- <label>Authors:
             <input #authors formControlName="authors" (input)="handleAutorInput(date.value)" placeholder="Authors"
                 required>
-        </label>
+        </label> -->
     </form>
     <div class="add-course-page__buttons-block">
-        <button class="add-course-page__button" (click)="handleSave()">Save</button>
+        <button class="add-course-page__button" type="submit" (click)="handleSave()">Save</button>
         <button class="add-course-page__button" (click)="handleCancel()">Cancel</button>
     </div>
 </div>
