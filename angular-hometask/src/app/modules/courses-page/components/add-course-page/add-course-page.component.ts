@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { IAppState } from '../../state/manage-courses-list/manage-courses-list.selectors';
 import { addCourse } from '../../state/manage-courses-list/manage-courses-list.actions';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-course-page',
@@ -15,7 +15,10 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class AddCoursePageComponent implements OnInit {
   public editCourse: ICoursesListItem;
   public addCourseForm = new FormGroup({
-    title: new FormControl(''),
+    title: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(5)
+    ]),
     description: new FormControl(''),
     creationDate: new FormControl(''),
     duration: new FormControl(''),

@@ -30,7 +30,7 @@
         </label> -->
     </form>
     <div class="add-course-page__buttons-block">
-        <button class="add-course-page__button" type="submit" (click)="handleSave()">Save</button>
+        <button class="add-course-page__button" type="submit" [disabled]="!addCourseForm.valid" (click)="handleSave()">Save</button>
         <button class="add-course-page__button" (click)="handleCancel()">Cancel</button>
     </div>
 </div>
