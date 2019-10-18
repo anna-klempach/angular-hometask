@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { IAppState } from '../../state/manage-courses-list/manage-courses-list.selectors';
 import { addCourse } from '../../state/manage-courses-list/manage-courses-list.actions';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-add-course-page',
@@ -13,6 +14,14 @@ import { addCourse } from '../../state/manage-courses-list/manage-courses-list.a
 })
 export class AddCoursePageComponent implements OnInit {
   public editCourse: ICoursesListItem;
+  public addCourseForm = new FormGroup({
+    title: new FormControl(''),
+    description: new FormControl(''),
+    date: new FormControl(''),
+    duration: new FormControl(''),
+    authors: new FormControl(''),
+  });
+
   constructor(private router: Router, private store: Store<IAppState>) { }
 
   ngOnInit(): void {

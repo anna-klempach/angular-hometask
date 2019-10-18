@@ -1,16 +1,34 @@
 <div class="add-course-page">
-    <h2 class="add-course-page__heading">Add course</h2>
-    <label for="#title">Title:</label>
-    <input #title id="title" (input)="handleTitleInput(title.value)" placeholder="Course title" required>
-    <label for="#description">Description:</label>
-    <textarea #description id="description" (input)="handleDescriptionInput(description.value)" placeholder="Course description..."></textarea>
-    <label for="#date">Date:</label>
-    <input #date id="date" type="date" (input)="handleDateInput(date.value)" placeholder="Course creation date" required>
-    <label for="#duration">Duration:</label>
-    <div class="duration-container">
-        <input #durationBar id="durationBar" type="number" (input)="handleDurationInput(durationBar.value)" placeholder="Course duration" required>
-        <p class="duration-eval" *ngIf="duration >= 0">{{duration | durationDisplay}}</p>
-    </div>
+    <form class="add-course-page__form" [formGroup]="addCourseForm">
+        <h2 class="add-course-page__heading">Add course</h2>
+        <label>Title:
+            <input #title formControlName="title" (input)="handleTitleInput(title.value)" placeholder="Course title"
+                required>
+        </label>
+
+        <label>Description:
+            <textarea #description formControlName="description" (input)="handleDescriptionInput(description.value)"
+                placeholder="Course description..."></textarea>
+        </label>
+
+        <label>Date:
+            <input #date formControlName="date" (input)="handleDateInput(date.value)" placeholder="Course creation date"
+                required>
+        </label>
+
+        <label>Duration:
+            <div class="duration-container">
+                <input #durationBar formControlName="duration" type="number"
+                    (input)="handleDurationInput(durationBar.value)" placeholder="Course duration" required>
+                <p class="duration-eval" *ngIf="duration >= 0">{{duration | durationDisplay}}</p>
+            </div>
+        </label>
+
+        <label>Authors:
+            <input #authors formControlName="authors" (input)="handleAutorInput(date.value)" placeholder="Authors"
+                required>
+        </label>
+    </form>
     <div class="add-course-page__buttons-block">
         <button class="add-course-page__button" (click)="handleSave()">Save</button>
         <button class="add-course-page__button" (click)="handleCancel()">Cancel</button>

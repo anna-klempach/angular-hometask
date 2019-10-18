@@ -39,7 +39,7 @@ import { AppEffects } from './app.effects';
       }
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25}),
-    EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot([AppEffects]),
   ],
   providers: [
     AuthService,
