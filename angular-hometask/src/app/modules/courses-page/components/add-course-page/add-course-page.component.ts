@@ -19,7 +19,10 @@ export class AddCoursePageComponent implements OnInit {
       Validators.required,
       Validators.maxLength(5)
     ]),
-    description: new FormControl(''),
+    description: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(500)
+    ]),
     creationDate: new FormControl(''),
     duration: new FormControl(''),
     // authors: new FormControl(''),
@@ -68,6 +71,7 @@ export class AddCoursePageComponent implements OnInit {
       ...this.addCourseForm.value
     };
     this.store.dispatch(addCourse({course: this.editCourse}));
+    console.log(this.editCourse);
     this.router.navigate(['courses']);
   }
 

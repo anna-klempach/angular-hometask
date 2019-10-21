@@ -15,6 +15,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { CoursesEffects } from './state/manage-courses-list/effects/load-courses.effects';
 import { AddCoursePageComponent } from './components/add-course-page/add-course-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DateInputComponent } from './components/date-input/date-input.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SortByPipe,
     ModalDialogComponent,
     CourseComponent,
-    AddCoursePageComponent
+    AddCoursePageComponent,
+    DateInputComponent
   ],
   imports: [
     CommonModule,
