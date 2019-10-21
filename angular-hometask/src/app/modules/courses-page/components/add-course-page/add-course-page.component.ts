@@ -7,6 +7,7 @@ import { IAppState } from '../../state/manage-courses-list/manage-courses-list.s
 import { addCourse } from '../../state/manage-courses-list/manage-courses-list.actions';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { dateValidator } from '../../entities/validators/date-validator.directive';
+import { durationValidator } from '../../entities/validators/duration-validator.directive';
 
 @Component({
   selector: 'app-add-course-page',
@@ -28,7 +29,11 @@ export class AddCoursePageComponent implements OnInit {
       Validators.required,
       dateValidator
     ]),
-    duration: new FormControl(''),
+    duration: new FormControl('',
+    [
+      Validators.required,
+      durationValidator
+    ]),
     // authors: new FormControl(''),
   });
 

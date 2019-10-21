@@ -1,22 +1,21 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, OnInit, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 @Component({
-  selector: 'app-date-input',
-  templateUrl: './date-input.component.html',
-  styleUrls: ['./date-input.component.scss'],
+  selector: 'app-duration-input',
+  templateUrl: './duration-input.component.html',
+  styleUrls: ['./duration-input.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => DateInputComponent),
+    useExisting: forwardRef(() => DurationInputComponent),
     multi: true
   }]
 })
-export class DateInputComponent implements ControlValueAccessor {
-
+export class DurationInputComponent implements ControlValueAccessor {
   public value: string;
   public disabled = false;
-  private onChange = (value: any) => {};
-  private onTouched = () => {};
+  private onChange = (value: any) => { };
+  private onTouched = () => { };
 
   registerOnChange(fn: any) {
     this.onChange = fn;
@@ -28,10 +27,7 @@ export class DateInputComponent implements ControlValueAccessor {
 
   writeValue(outsideValue: string) {
     this.value = outsideValue;
-    if (this.value.length === 10) {
-      console.log('from writevalue:', this.value);
-      this.onChange(this.value);
-    }
+    this.onChange(this.value);
   }
 
   setDisabledState(isDisabled: boolean) {
