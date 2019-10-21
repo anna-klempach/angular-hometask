@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { IAppState } from '../../state/manage-courses-list/manage-courses-list.selectors';
 import { addCourse } from '../../state/manage-courses-list/manage-courses-list.actions';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { dateValidator } from '../../entities/validators/date-validator.directive';
 
 @Component({
   selector: 'app-add-course-page',
@@ -21,14 +22,21 @@ export class AddCoursePageComponent implements OnInit {
     ]),
     description: new FormControl('', [
       Validators.required,
-      Validators.maxLength(500)
+      Validators.maxLength(5)
     ]),
-    creationDate: new FormControl(''),
+    creationDate: new FormControl('', [
+      Validators.required,
+      dateValidator
+    ]),
     duration: new FormControl(''),
     // authors: new FormControl(''),
   });
 
-  constructor(private router: Router, private store: Store<IAppState>) { }
+  constructor(private router: Router,
+              private store: Store<IAppState>,
+              private fb: FormBuilder) { }
+
+  get title() { return this.addCourseForm.get('title'); }
 
   ngOnInit(): void {
     this.editCourse = new CoursesListEntry(new Date().valueOf(), '', undefined, 0, '', false); // we'll make id a current date
@@ -48,13 +56,6 @@ export class AddCoursePageComponent implements OnInit {
     });
   }
 
-  handleDateInput(value: string): void {
-    this.addCourseForm.patchValue({
-      ...this.addCourseForm,
-      creationDate: value
-    });
-  }
-
   handleDurationInput(value: string): void {
     const inputDuration = +value;
     if (inputDuration && typeof inputDuration === 'number' && inputDuration >= 0) {
@@ -65,7 +66,18 @@ export class AddCoursePageComponent implements OnInit {
     }
   }
 
+  private calculateDate() {
+    const currentDate = this.addCourseForm.value.creationDate;
+    const currentValue = currentDate.split('/');
+    return new Date(`${currentValue[1]}/${currentValue[0]}/${currentValue[2]}`);
+  }
+
   handleSave(): void {
+    const date = this.calculateDate();
+    this.addCourseForm.patchValue({
+      ...this.addCourseForm,
+      creationDate: date
+    });
     this.editCourse = {
       ...this.editCourse,
       ...this.addCourseForm.value

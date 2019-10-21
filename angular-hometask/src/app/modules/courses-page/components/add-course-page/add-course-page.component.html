@@ -34,4 +34,7 @@
         <button class="add-course-page__button" type="submit" (click)="handleSave()">Save</button>
         <button class="add-course-page__button" (click)="handleCancel()">Cancel</button>
     </div>
+    <div class="add-course-page__error-message" *ngIf="title.invalid && (title.dirty || title.touched)">
+            creation date is required
+          </div>
 </div>

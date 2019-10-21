@@ -16,6 +16,7 @@ import { CoursesEffects } from './state/manage-courses-list/effects/load-courses
 import { AddCoursePageComponent } from './components/add-course-page/add-course-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DateInputComponent } from './components/date-input/date-input.component';
+import { DateValidatorDirective } from './entities/validators/date-validator.directive';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { DateInputComponent } from './components/date-input/date-input.component
     ModalDialogComponent,
     CourseComponent,
     AddCoursePageComponent,
-    DateInputComponent
+    DateInputComponent,
+    DateValidatorDirective
   ],
   imports: [
     CommonModule,

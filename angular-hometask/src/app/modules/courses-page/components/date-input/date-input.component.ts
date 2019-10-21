@@ -31,7 +31,7 @@ export class DateInputComponent implements ControlValueAccessor {
     this.value = outsideValue;
     if (this.value.length === 10) {
       console.log('from writevalue:', this.value);
-      this.onChange(new Date(this.value)); // уведомить Forms API
+      this.onChange(this.value); // уведомить Forms API
     }
   }
 
@@ -41,7 +41,6 @@ export class DateInputComponent implements ControlValueAccessor {
 
   handleInput(event: KeyboardEvent) {
     this.value = (event.target as HTMLInputElement).value; // html
-    console.log('from insideValue:', this.value);
     this.writeValue(this.value);
     this.onTouched();
   }
