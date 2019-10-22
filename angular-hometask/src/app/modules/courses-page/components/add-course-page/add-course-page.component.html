@@ -32,11 +32,8 @@
             [errorStateMatcher]="matcher"></app-date-input>
         <app-duration-input formControlName="duration" [name]="addCourseForm?.controls?.duration"
             [errorStateMatcher]="matcher"></app-duration-input>
-
-        <!-- <label>Authors:
-            <input #authors formControlName="authors" (input)="handleAutorInput(date.value)" placeholder="Authors"
-                required>
-        </label> -->
+        <app-authors-input formControlName="authors" [name]="addCourseForm?.controls?.authors"
+        [errorStateMatcher]="matcher"></app-authors-input>
     </form>
     <div class="add-course-page__buttons-block">
         <button mat-raised-button color="primary" type="submit" (click)="handleSave()"

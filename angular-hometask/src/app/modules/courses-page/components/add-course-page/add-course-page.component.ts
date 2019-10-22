@@ -31,23 +31,24 @@ export class AddCoursePageComponent implements OnInit {
       dateValidator
     ]),
     duration: new FormControl('',
-    [
-      Validators.required,
-      durationValidator
-    ]),
-    // authors: new FormControl(''),
+      [
+        Validators.required,
+        durationValidator
+      ]),
+    authors: new FormControl([]),
   });
 
   public matcher = new CustomErrorStateMatcher();
 
-  constructor(private router: Router,
-              private store: Store<IAppState>,
-              private fb: FormBuilder) { }
+  constructor(
+    private router: Router,
+    private store: Store<IAppState>,
+    private fb: FormBuilder) { }
 
   get title() { return this.addCourseForm.get('title'); }
 
   ngOnInit(): void {
-    this.editCourse = new CoursesListEntry(new Date().valueOf(), '', undefined, 0, '', false); // we'll make id a current date
+    this.editCourse = new CoursesListEntry(new Date().valueOf(), '', undefined, 0, '', false, []); // we'll make id a current date
   }
 
   handleTitleInput(value: string): void {
@@ -64,16 +65,6 @@ export class AddCoursePageComponent implements OnInit {
     });
   }
 
-  handleDurationInput(value: string): void {
-    const inputDuration = +value;
-    if (inputDuration && typeof inputDuration === 'number' && inputDuration >= 0) {
-      this.addCourseForm.patchValue({
-        ...this.addCourseForm,
-        duration: value
-      });
-    }
-  }
-
   private calculateDate() {
     const currentDate = this.addCourseForm.value.creationDate;
     const currentValue = currentDate.split('/');
@@ -81,6 +72,7 @@ export class AddCoursePageComponent implements OnInit {
   }
 
   handleSave(): void {
+    console.log(this.addCourseForm.value);
     const date = this.calculateDate();
     this.addCourseForm.patchValue({
       ...this.addCourseForm,
@@ -90,7 +82,8 @@ export class AddCoursePageComponent implements OnInit {
       ...this.editCourse,
       ...this.addCourseForm.value
     };
-    this.store.dispatch(addCourse({course: this.editCourse}));
+    console.log(this.editCourse);
+    this.store.dispatch(addCourse({ course: this.editCourse }));
     console.log(this.editCourse);
     this.router.navigate(['courses']);
   }
