@@ -1,27 +1,37 @@
 <div class="add-course-page">
     <form class="add-course-page__form" [formGroup]="addCourseForm" (ngSubmit)="handleSave()">
         <h2 class="add-course-page__heading">Add course</h2>
-        <label>Title:
-            <input #title formControlName="title" (input)="handleTitleInput(title.value)" placeholder="Course title"
-                required>
-        </label>
-
-        <label>Description:
-            <textarea #description formControlName="description" (input)="handleDescriptionInput(description.value)"
-                placeholder="Course description..."></textarea>
-        </label>
-
-        <label>Date:
-            <app-date-input formControlName="creationDate"></app-date-input>
-        </label>
-
-        <label>Duration:
-            <div class="duration-container">
-                <input #durationBar formControlName="duration" (input)="handleDurationInput(durationBar.value)"
-                    placeholder="Course duration" required>
-                <p class="duration-eval" *ngIf="duration >= 0">{{duration | durationDisplay}}</p>
-            </div>
-        </label>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Course title</mat-label>
+            <input matInput #title placeholder="Course title" formControlName="title" [errorStateMatcher]="matcher"
+                (input)="handleTitleInput(title.value)">
+            <mat-hint>Enter video title</mat-hint>
+            <mat-error
+                *ngIf="addCourseForm?.controls?.title?.hasError('maxlength') && !addCourseForm?.controls?.title?.hasError('required')">
+                Maximum title length is 50 symbols
+            </mat-error>
+            <mat-error *ngIf="addCourseForm?.controls?.title?.hasError('required')">
+                Title is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Course description</mat-label>
+            <textarea matInput #description formControlName="description"
+                (input)="handleDescriptionInput(description.value)" placeholder="Course description..."
+                [errorStateMatcher]="matcher"></textarea>
+            <mat-hint>Enter video description</mat-hint>
+            <mat-error
+                *ngIf="addCourseForm?.controls?.description?.hasError('maxlength') && !addCourseForm?.controls?.description?.hasError('required')">
+                Maximum description length is 500 symbols
+            </mat-error>
+            <mat-error *ngIf="addCourseForm?.controls?.title?.hasError('required')">
+                Description is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <app-date-input formControlName="creationDate" [name]="addCourseForm?.controls?.creationDate"
+            [errorStateMatcher]="matcher"></app-date-input>
+        <app-duration-input formControlName="duration" [name]="addCourseForm?.controls?.duration"
+            [errorStateMatcher]="matcher"></app-duration-input>
 
         <!-- <label>Authors:
             <input #authors formControlName="authors" (input)="handleAutorInput(date.value)" placeholder="Authors"
@@ -29,10 +39,8 @@
         </label> -->
     </form>
     <div class="add-course-page__buttons-block">
-        <button mat-raised-button color="primary" type="submit" (click)="handleSave()" [disabled]="!addCourseForm.valid">Save</button>
+        <button mat-raised-button color="primary" type="submit" (click)="handleSave()"
+            [disabled]="!addCourseForm.valid">Save</button>
         <button mat-raised-button color="primary" (click)="handleCancel()">Cancel</button>
-    </div>
-    <div class="add-course-page__error-message" *ngIf="title.invalid && (title.dirty || title.touched)">
-        creation date is required
     </div>
 </div>

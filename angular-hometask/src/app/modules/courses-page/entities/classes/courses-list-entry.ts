@@ -1,6 +1,7 @@
 import { ICoursesListItem } from '../../../../interfaces/courses-list-item.model';
 
 export class CoursesListEntry implements ICoursesListItem {
+    authors: string[];
     id: number;
     title: string;
     creationDate: Date;

@@ -1,6 +1,6 @@
-import { Component, OnInit, forwardRef } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
   selector: 'app-duration-input',
@@ -13,6 +13,9 @@ import {MatInputModule} from '@angular/material/input';
   }]
 })
 export class DurationInputComponent implements ControlValueAccessor {
+  @Input() errorStateMatcher: ErrorStateMatcher;
+  @Input() name;
+
   public value: string;
   public disabled = false;
   private onChange = (value: any) => { };

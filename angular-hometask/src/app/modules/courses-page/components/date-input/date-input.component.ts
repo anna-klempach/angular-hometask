@@ -1,5 +1,6 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
   selector: 'app-date-input',
@@ -13,10 +14,12 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 })
 export class DateInputComponent implements ControlValueAccessor {
 
+  @Input() errorStateMatcher: ErrorStateMatcher;
+  @Input() name;
   public value: string;
   public disabled = false;
-  private onChange = (value: any) => {};
-  private onTouched = () => {};
+  private onChange = (value: any) => { };
+  private onTouched = () => { };
 
   registerOnChange(fn: any) {
     this.onChange = fn;
@@ -31,6 +34,7 @@ export class DateInputComponent implements ControlValueAccessor {
     if (this.value.length === 10) {
       console.log('from writevalue:', this.value);
       this.onChange(this.value);
+      console.log('from component', this.name.errors);
     }
   }
 

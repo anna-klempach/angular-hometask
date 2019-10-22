@@ -19,9 +19,6 @@
     border-radius: 0.5rem;
     box-shadow: 0.2rem 0.2rem 0.6rem map-get($colors, dark-font);
 
-    .ng-invalid:not(form)  {
-      border: 2px solid red; /* green */
-    }
     &__buttons-block {
       display: flex;
       justify-content: space-around;

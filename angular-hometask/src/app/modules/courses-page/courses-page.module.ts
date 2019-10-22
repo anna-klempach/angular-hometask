@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DateInputComponent } from './components/date-input/date-input.component';
 import { DurationInputComponent } from './components/duration-input/duration-input.component';
 import { CustomMaterialModule } from 'src/app/material';
+import { AuthorsInputComponent } from './components/authors-input/authors-input.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CustomMaterialModule } from 'src/app/material';
     CourseComponent,
     AddCoursePageComponent,
     DateInputComponent,
-    DurationInputComponent
+    DurationInputComponent,
+    AuthorsInputComponent
   ],
   imports: [
     CommonModule,

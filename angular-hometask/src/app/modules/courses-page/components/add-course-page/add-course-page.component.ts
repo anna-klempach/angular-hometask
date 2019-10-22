@@ -8,6 +8,7 @@ import { addCourse } from '../../state/manage-courses-list/manage-courses-list.a
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { dateValidator } from '../../entities/validators/date-validator.directive';
 import { durationValidator } from '../../entities/validators/duration-validator.directive';
+import { CustomErrorStateMatcher } from '../../entities/classes/error-state-matcher';
 
 @Component({
   selector: 'app-add-course-page',
@@ -19,11 +20,11 @@ export class AddCoursePageComponent implements OnInit {
   public addCourseForm = new FormGroup({
     title: new FormControl('', [
       Validators.required,
-      Validators.maxLength(5)
+      Validators.maxLength(50)
     ]),
     description: new FormControl('', [
       Validators.required,
-      Validators.maxLength(5)
+      Validators.maxLength(500)
     ]),
     creationDate: new FormControl('', [
       Validators.required,
@@ -36,6 +37,8 @@ export class AddCoursePageComponent implements OnInit {
     ]),
     // authors: new FormControl(''),
   });
+
+  public matcher = new CustomErrorStateMatcher();
 
   constructor(private router: Router,
               private store: Store<IAppState>,

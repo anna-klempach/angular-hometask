@@ -64,62 +64,6 @@
       "id": 6,
       "title": "Video Six",
       "topRated": true
-    },
-    {
-      "id": 1571052888755,
-      "title": "One more course",
-      "creationDate": "2019-10-25T00:00:00.000Z",
-      "duration": 45,
-      "description": "Because I have deleted some",
-      "topRated": false
-    },
-    {
-      "id": 1571311276319,
-      "title": "HELLO everyone",
-      "creationDate": "2019-10-15T00:00:00.000Z",
-      "duration": 56,
-      "description": "I am in a terrible mood today and this task really looks like my diary",
-      "topRated": false
-    },
-    {
-      "id": 1571311315099,
-      "title": "I have made adding a new course",
-      "creationDate": "2019-10-17T00:00:00.000Z",
-      "duration": 89,
-      "description": "it turned ort to be quite simple",
-      "topRated": false
-    },
-    {
-      "id": 1571396583138,
-      "title": "12345",
-      "creationDate": "12/12/12",
-      "duration": "456",
-      "description": "12345",
-      "topRated": false
-    },
-    {
-      "id": 1571645770365,
-      "title": "Monday",
-      "creationDate": "10/21/2019",
-      "duration": "56",
-      "description": "I still don't know how it works",
-      "topRated": false
-    },
-    {
-      "id": 1571646427344,
-      "title": "Hello world",
-      "creationDate": "2019-10-28T21:00:00.000Z",
-      "duration": "45",
-      "description": "zsdkdfask",
-      "topRated": false
-    },
-    {
-      "id": 1571729594338,
-      "title": "asdf",
-      "creationDate": "2011-11-10T21:00:00.000Z",
-      "duration": "45",
-      "description": "asdd",
-      "topRated": false
     }
   ]
 }
