@@ -29,8 +29,8 @@
         </label> -->
     </form>
     <div class="add-course-page__buttons-block">
-        <button class="add-course-page__button" type="submit" (click)="handleSave()">Save</button>
-        <button class="add-course-page__button" (click)="handleCancel()">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" (click)="handleSave()" [disabled]="!addCourseForm.valid">Save</button>
+        <button mat-raised-button color="primary" (click)="handleCancel()">Cancel</button>
     </div>
     <div class="add-course-page__error-message" *ngIf="title.invalid && (title.dirty || title.touched)">
         creation date is required

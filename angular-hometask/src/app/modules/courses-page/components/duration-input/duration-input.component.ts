@@ -1,5 +1,6 @@
 import { Component, OnInit, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-duration-input',

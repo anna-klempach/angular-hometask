@@ -17,6 +17,7 @@ import { AddCoursePageComponent } from './components/add-course-page/add-course-
 import { ReactiveFormsModule } from '@angular/forms';
 import { DateInputComponent } from './components/date-input/date-input.component';
 import { DurationInputComponent } from './components/duration-input/duration-input.component';
+import { CustomMaterialModule } from 'src/app/material';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { DurationInputComponent } from './components/duration-input/duration-inp
       coursesReducer.reducer
     ),
     EffectsModule.forFeature([CoursesEffects]),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CustomMaterialModule
   ],
   exports: [
     CoursesListComponent,

@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { StoreModule } from '@ngrx/store';
 import * as authenticationReducer from './state/manage-authentication/manage-authentication.reducer';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CustomMaterialModule } from 'src/app/material';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
       authenticationReducer.authFeatureKey,
       authenticationReducer.reducer
     ),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CustomMaterialModule
   ],
   exports: [
     DurationDisplayPipe,
