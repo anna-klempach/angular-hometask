@@ -11,8 +11,10 @@ import { SharedModule } from '../shared/shared.module';
 import { CourseComponent } from './components/course/course.component';
 import { StoreModule } from '@ngrx/store';
 import * as coursesReducer from './state/manage-courses-list/manage-courses-list.reducer';
+import * as authorsReducer from './state/manage-authors-list/manage-authors-list.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { CoursesEffects } from './state/manage-courses-list/effects/load-courses.effects';
+import { AuthorsEffects } from './state/manage-authors-list/load-authors.effects';
 import { AddCoursePageComponent } from './components/add-course-page/add-course-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DateInputComponent } from './components/date-input/date-input.component';
@@ -42,7 +44,11 @@ import { AuthorsInputComponent } from './components/authors-input/authors-input.
       coursesReducer.featureKey,
       coursesReducer.reducer
     ),
-    EffectsModule.forFeature([CoursesEffects]),
+    StoreModule.forFeature(
+      authorsReducer.featureKey,
+      authorsReducer.reducer
+    ),
+    EffectsModule.forFeature([CoursesEffects, AuthorsEffects]),
     ReactiveFormsModule,
     CustomMaterialModule
   ],

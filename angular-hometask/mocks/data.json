@@ -1,4 +1,24 @@
 {
+  "authors": [
+    {
+      "name": "Tony Stark"
+    },
+    {
+      "name": "Diane Prince"
+    },
+    {
+      "name": "Steve Rogers"
+    },
+    {
+      "name": "Bruce Banner"
+    },
+    {
+      "name": "Peter Parker"
+    },
+    {
+      "name": "Natasha Romanoff"
+    }
+  ],
   "users": [
     {
       "email": "123@gmail.com",
@@ -23,7 +43,10 @@
       "duration": 20,
       "id": 1,
       "title": "Video One",
-      "topRated": true
+      "topRated": true,
+      "authors": [
+        "Tony Stark"
+      ]
     },
     {
       "creationDate": "2019-08-30T11:24:00.000Z",
@@ -31,7 +54,10 @@
       "duration": 40,
       "id": 2,
       "title": "Video Two",
-      "topRated": true
+      "topRated": true,
+      "authors": [
+        "Steve Rogers"
+      ]
     },
     {
       "creationDate": "2017-12-17T00:24:00.000Z",
@@ -39,7 +65,10 @@
       "duration": 15,
       "id": 3,
       "title": "Video Three",
-      "topRated": false
+      "topRated": false,
+      "authors": [
+        "Natasha Romanoff"
+      ]
     },
     {
       "creationDate": "2018-02-18T02:24:00.000Z",
@@ -47,7 +76,10 @@
       "duration": 60,
       "id": 4,
       "title": "Video Four",
-      "topRated": false
+      "topRated": false,
+      "authors": [
+        "Bruce Banner"
+      ]
     },
     {
       "creationDate": "2019-09-29T11:24:00.000Z",
@@ -55,7 +87,10 @@
       "duration": 125,
       "id": 5,
       "title": "Video Five",
-      "topRated": true
+      "topRated": true,
+      "authors": [
+        "Steve Rogers"
+      ]
     },
     {
       "creationDate": "2019-12-29T11:24:00.000Z",
@@ -63,7 +98,10 @@
       "duration": 15,
       "id": 6,
       "title": "Video Six",
-      "topRated": true
+      "topRated": true,
+      "authors": [
+        "Peter Parker"
+      ]
     },
     {
       "id": 1571757020087,
@@ -127,6 +165,15 @@
         "Orange",
         "banana"
       ]
+    },
+    {
+      "id": 1571821317188,
+      "title": "1234",
+      "creationDate": "2012-12-11T21:00:00.000Z",
+      "duration": "45",
+      "description": "asddf",
+      "topRated": false,
+      "authors": "Peter Parker"
     }
   ]
 }

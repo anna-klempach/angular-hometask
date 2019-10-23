@@ -5,7 +5,11 @@ import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Observable } from 'rxjs';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { startWith, map } from 'rxjs/operators';
+import { AuthorsService } from '../../services/authors/authors.service';
+import { IAppAuthorsState, selectAuthors } from '../../state/manage-authors-list/manage-authors-list.selectors';
+import { Store, select } from '@ngrx/store';
+import { IAuthor } from 'src/app/interfaces/author.model';
+import { loadAuthors } from '../../state/manage-authors-list/manage-authors-list.actions';
 
 @Component({
   selector: 'app-authors-input',
@@ -29,19 +33,21 @@ export class AuthorsInputComponent implements OnInit, ControlValueAccessor {
   public removable = true;
   public addOnBlur = true;
   public separatorKeysCodes: number[] = [ENTER, COMMA];
-  public filteredAuthors: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
-  public authors: string[] = [];
-  public allAuthors: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
+  public authors: string[];
+  public allAuthors$: Observable<string[]> = this.store.pipe(select(selectAuthors));
+  public filteredAuthors: string[];
   public disabled = false;
   private onChange = (value: any) => { };
   private onTouched = () => { };
 
-  constructor() { }
+  constructor(
+    private authorsService: AuthorsService,
+    private store: Store<IAppAuthorsState>
+  ) { }
 
   ngOnInit() {
-    /* this.filteredAuthors = this.name.valueChanges.pipe(
-      startWith(null),
-      map((author: string | null) => author ? this._filter(author) : this.allAuthors.slice())); */
+    this.allAuthors$.subscribe(res => this.filteredAuthors = res);
+    this.store.dispatch(loadAuthors());
   }
 
   handleInput(event: KeyboardEvent) {
@@ -78,7 +84,7 @@ export class AuthorsInputComponent implements OnInit, ControlValueAccessor {
       const value = event.value;
       if ((value || '').trim()) {
         this.authors.push(value.trim());
-        this.allAuthors.push(value.trim());
+        // this.allAuthors.push(value.trim());
         this.onChange(this.authors);
       }
       if (input) {
@@ -97,14 +103,14 @@ export class AuthorsInputComponent implements OnInit, ControlValueAccessor {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.authors.push(event.option.viewValue);
+    // this.authors.push(event.option.viewValue);
     this.authorInput.nativeElement.value = '';
     // this.name.setValue(null);
   }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return this.allAuthors.filter(author => author.toLowerCase().indexOf(filterValue) === 0);
+    return this.filteredAuthors.filter(author => author.toLowerCase().indexOf(filterValue) === 0);
   }
 }
 
