@@ -17,10 +17,12 @@ export class CourseComponent implements OnInit {
   public loaded = false;
   private editedCourse: CoursesListEntry;
 
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private route: ActivatedRoute,
     private router: Router,
     private service: CoursesService,
-    private store: Store<IAppState>) { }
+    private store: Store<IAppState>
+    ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
