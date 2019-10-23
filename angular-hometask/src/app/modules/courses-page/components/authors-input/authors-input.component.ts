@@ -9,6 +9,7 @@ import { IAppAuthorsState, selectAuthors } from '../../state/manage-authors-list
 import { Store, select } from '@ngrx/store';
 import { loadAuthors, addAuthor } from '../../state/manage-authors-list/manage-authors-list.actions';
 import { IValueCheck } from 'src/app/interfaces/value-check.model';
+import { IAuthor } from 'src/app/interfaces/author.model';
 
 @Component({
   selector: 'app-authors-input',
@@ -66,7 +67,8 @@ export class AuthorsInputComponent implements OnInit, ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  writeValue() {
+  writeValue(value: string[]) {
+    this.authors = [...value];
   }
 
   setDisabledState(isDisabled: boolean) {

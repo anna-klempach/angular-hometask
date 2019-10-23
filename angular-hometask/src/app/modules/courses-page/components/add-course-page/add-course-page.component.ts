@@ -17,6 +17,7 @@ import { authorsListValidator } from '../../entities/validators/authors-list-siz
   styleUrls: ['./add-course-page.component.scss']
 })
 export class AddCoursePageComponent implements OnInit {
+  public loaded = true;
   public editCourse: ICoursesListItem;
   public addCourseForm = new FormGroup({
     title: new FormControl('', [
@@ -47,8 +48,8 @@ export class AddCoursePageComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private store: Store<IAppState>,
-    private fb: FormBuilder) { }
+    private store: Store<IAppState>
+    ) { }
 
   get title() { return this.addCourseForm.get('title'); }
 
