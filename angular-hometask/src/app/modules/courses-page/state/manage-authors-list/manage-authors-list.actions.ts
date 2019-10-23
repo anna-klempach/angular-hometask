@@ -7,4 +7,6 @@ export const resetAuthors = createAction('[Add Course Page] Reset Authors',
     props<{ authors: IAuthor[] }>());
 export const loadAuthors = createAction('[Add Course Page] Load Authors');
 export const reloadAuthors = createAction('[Add Course Page] Reload Authors');
+export const addAuthor = createAction('[Add Course Page] Add Author',
+props<{ author: IAuthor }>());
 

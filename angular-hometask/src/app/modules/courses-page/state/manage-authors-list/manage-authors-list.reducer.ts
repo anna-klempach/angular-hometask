@@ -14,10 +14,6 @@ const authorsReducer = createReducer(
     initialState,
     on(AuthorsActions.setAuthors, (state, { authors }) => ({
         ...state,
-        authors: state.authors.concat(authors)
-    })),
-    on(AuthorsActions.resetAuthors, (state, { authors }) => ({
-        ...state,
         authors
     }))
 );

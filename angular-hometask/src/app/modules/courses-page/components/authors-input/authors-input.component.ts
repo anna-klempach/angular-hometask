@@ -5,11 +5,9 @@ import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Observable } from 'rxjs';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { AuthorsService } from '../../services/authors/authors.service';
 import { IAppAuthorsState, selectAuthors } from '../../state/manage-authors-list/manage-authors-list.selectors';
 import { Store, select } from '@ngrx/store';
-import { IAuthor } from 'src/app/interfaces/author.model';
-import { loadAuthors } from '../../state/manage-authors-list/manage-authors-list.actions';
+import { loadAuthors, addAuthor } from '../../state/manage-authors-list/manage-authors-list.actions';
 
 @Component({
   selector: 'app-authors-input',
@@ -33,33 +31,31 @@ export class AuthorsInputComponent implements OnInit, ControlValueAccessor {
   public removable = true;
   public addOnBlur = true;
   public separatorKeysCodes: number[] = [ENTER, COMMA];
-  public authors: string[];
+  public authors: string[] = [];
   public allAuthors$: Observable<string[]> = this.store.pipe(select(selectAuthors));
-  public filteredAuthors: string[];
+  public filteredAuthors: string[] = [];
+  public allAuthors: string[];
   public disabled = false;
   private onChange = (value: any) => { };
   private onTouched = () => { };
 
   constructor(
-    private authorsService: AuthorsService,
     private store: Store<IAppAuthorsState>
   ) { }
 
   ngOnInit() {
-    this.allAuthors$.subscribe(res => this.filteredAuthors = res);
     this.store.dispatch(loadAuthors());
+    this.allAuthors$.subscribe(res => {
+      this.allAuthors = res;
+      this.filteredAuthors = [...this.allAuthors];
+      this.filterCourses();
+    });
   }
 
   handleInput(event: KeyboardEvent) {
     const value = (event.target as HTMLInputElement).value;
-    console.log(value);
     this.filteredAuthors = this.filteredAuthors.filter((author) => author.toLowerCase().includes(value.toLowerCase()));
-    this.onChange(this.authors);
     console.log(this.name);
-    /* console.log(this.filteredAuthors);
-    if (this.filteredAuthors.length === 0) {
-      this.filteredAuthors = this.allAuthors.slice();
-    } */
   }
 
   registerOnChange(fn: any) {
@@ -70,8 +66,7 @@ export class AuthorsInputComponent implements OnInit, ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  writeValue(outsideValue: string) {
-    // this.onChange(this.allAuthors);
+  writeValue() {
   }
 
   setDisabledState(isDisabled: boolean) {
@@ -84,13 +79,12 @@ export class AuthorsInputComponent implements OnInit, ControlValueAccessor {
       const value = event.value;
       if ((value || '').trim()) {
         this.authors.push(value.trim());
-        // this.allAuthors.push(value.trim());
+        this.store.dispatch(addAuthor({ author: { name: value, id: new Date().valueOf() } }));
         this.onChange(this.authors);
       }
       if (input) {
         input.value = '';
       }
-      // this.name.setValue(null);
     }
   }
 
@@ -99,18 +93,23 @@ export class AuthorsInputComponent implements OnInit, ControlValueAccessor {
 
     if (index >= 0) {
       this.authors.splice(index, 1);
+      this.filteredAuthors = [...this.allAuthors];
+      this.filterCourses();
     }
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    // this.authors.push(event.option.viewValue);
+    const value = event.option.viewValue;
+    this.authors.push(value);
+    const filterValue = value.toLowerCase();
+    this.filteredAuthors = this.allAuthors.filter(author => author.toLowerCase().indexOf(filterValue) !== 0);
+    this.filterCourses();
     this.authorInput.nativeElement.value = '';
-    // this.name.setValue(null);
+    this.onChange(this.authors);
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.filteredAuthors.filter(author => author.toLowerCase().indexOf(filterValue) === 0);
+  private filterCourses(): void {
+    this.filteredAuthors = this.filteredAuthors.filter((author) => this.authors.indexOf(author) < 0);
   }
 }
 

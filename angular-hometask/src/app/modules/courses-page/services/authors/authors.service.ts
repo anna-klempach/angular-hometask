@@ -36,4 +36,25 @@ export class AuthorsService {
         })
       );
   }
+
+  public createAuthor(author: IAuthor): Observable<IAuthor> {
+    this.loading.next(true);
+    console.log(author);
+    return this.http.post<IAuthor>(
+      this.authorsUrl,
+      author
+    )
+      .pipe(
+        map(res => {
+          if (res) {
+            this.loading.next(false);
+          }
+          return res;
+        }),
+        catchError((err) => {
+          console.error('Add course', err.message);
+          return throwError('Error thrown from catchError');
+        })
+      );
+  }
 }

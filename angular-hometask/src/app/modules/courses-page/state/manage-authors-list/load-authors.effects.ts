@@ -15,7 +15,17 @@ export class AuthorsEffects {
         map(authors => (AuthorsActions.setAuthors({ authors }))),
         catchError(() => EMPTY)
       ))
-    )
+  )
+  );
+
+  public addAuthor$ = createEffect(() => this.actions$.pipe(
+    ofType(AuthorsActions.addAuthor),
+    mergeMap(action => this.authorsService.createAuthor(action.author)
+      .pipe(
+        map(() => (AuthorsActions.loadAuthors())),
+        catchError(() => EMPTY)
+      ))
+  )
   );
 
   /* public reloadCourses$ = createEffect(() => this.actions$.pipe(
@@ -61,5 +71,5 @@ export class AuthorsEffects {
   constructor(
     private actions$: Actions,
     private authorsService: AuthorsService
-  ) {}
+  ) { }
 }
