@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
-import { CoursesService } from '../../../services/courses/courses.service';
-import * as CoursesActions from '../manage-courses-list.actions';
+import { CoursesService } from '../../services/courses/courses.service';
+import * as CoursesActions from './manage-courses-list.actions';
 
 @Injectable()
 export class CoursesEffects {

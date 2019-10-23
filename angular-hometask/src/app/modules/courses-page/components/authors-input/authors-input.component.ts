@@ -8,6 +8,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { IAppAuthorsState, selectAuthors } from '../../state/manage-authors-list/manage-authors-list.selectors';
 import { Store, select } from '@ngrx/store';
 import { loadAuthors, addAuthor } from '../../state/manage-authors-list/manage-authors-list.actions';
+import { IValueCheck } from 'src/app/interfaces/value-check.model';
 
 @Component({
   selector: 'app-authors-input',
@@ -55,7 +56,6 @@ export class AuthorsInputComponent implements OnInit, ControlValueAccessor {
   handleInput(event: KeyboardEvent) {
     const value = (event.target as HTMLInputElement).value;
     this.filteredAuthors = this.filteredAuthors.filter((author) => author.toLowerCase().includes(value.toLowerCase()));
-    console.log(this.name);
   }
 
   registerOnChange(fn: any) {
@@ -96,6 +96,7 @@ export class AuthorsInputComponent implements OnInit, ControlValueAccessor {
       this.filteredAuthors = [...this.allAuthors];
       this.filterCourses();
     }
+    this.onChange(this.authors);
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
@@ -106,6 +107,34 @@ export class AuthorsInputComponent implements OnInit, ControlValueAccessor {
     this.filterCourses();
     this.authorInput.nativeElement.value = '';
     this.onChange(this.authors);
+  }
+
+  private checkValue(valueToCheck: string): IValueCheck {
+    let present: boolean;
+    let selected: boolean;
+    let value: string;
+    const filteredValues = this.allAuthors.filter(author => author.toLowerCase() === valueToCheck.toLowerCase());
+    if (filteredValues.length === 1) {
+      present =  true;
+      value =  filteredValues[0];
+    } else if (filteredValues.length > 1) {
+      present =  true;
+      const filteredIndex = filteredValues.indexOf(value);
+      if (filteredIndex > 0) {
+        value = filteredValues[filteredIndex];
+      } else {
+        value = filteredValues[0];
+      }
+    } else {
+      present = false;
+      value = valueToCheck;
+    }
+    if (this.authors.filter(author => author.toLowerCase() === valueToCheck.toLowerCase()).length > 0) {
+      selected = true;
+    } else {
+      selected = false;
+    }
+    return {present, selected, value};
   }
 
   private filterCourses(): void {

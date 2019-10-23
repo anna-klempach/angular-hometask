@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IAuthor } from 'src/app/interfaces/author.model';
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
-import { HandleError, HttpErrorHandler } from 'src/app/modules/shared/services/error-handler/http-error-handler.service';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 
@@ -11,12 +10,7 @@ import { map, catchError } from 'rxjs/operators';
 export class AuthorsService {
   private authorsUrl = 'http://localhost:3000/authors';
   public loading = new BehaviorSubject(false);
-  private handleError: HandleError;
-
-  constructor(
-    private http: HttpClient,
-    httpErrorHandler: HttpErrorHandler
-  ) { }
+  constructor(private http: HttpClient) { }
 
   public getAuthors(): Observable<IAuthor[]> {
     return this.http.get<IAuthor[]>(

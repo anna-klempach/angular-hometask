@@ -9,6 +9,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { dateValidator } from '../../entities/validators/date-validator.directive';
 import { durationValidator } from '../../entities/validators/duration-validator.directive';
 import { CustomErrorStateMatcher } from '../../entities/classes/error-state-matcher';
+import { authorsListValidator } from '../../entities/validators/authors-list-size.directive';
 
 @Component({
   selector: 'app-add-course-page',
@@ -35,7 +36,11 @@ export class AddCoursePageComponent implements OnInit {
         Validators.required,
         durationValidator
       ]),
-    authors: new FormControl([]),
+    authors: new FormControl([],
+      [
+        Validators.required,
+        authorsListValidator
+      ]),
   });
 
   public matcher = new CustomErrorStateMatcher();

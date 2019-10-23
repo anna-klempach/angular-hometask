@@ -1,27 +1,23 @@
 <mat-form-field class="example-chip-list" appearance="outline">
-        <mat-chip-list #chipList aria-label="Author selection">
-          <mat-chip
-            *ngFor="let author of authors"
-            [selectable]="selectable"
-            [removable]="removable"
-            (removed)="remove(author)">
-            {{author}}
-            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-          </mat-chip>
-          <input
-          (input)="handleInput($event)"
-            placeholder="New author..."
-            #authorInput
-            [formControl]="name"
-            [matAutocomplete]="auto"
-            [matChipInputFor]="chipList"
-            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-            [matChipInputAddOnBlur]="addOnBlur"
-            (matChipInputTokenEnd)="add($event)">
-        </mat-chip-list>
-        <mat-autocomplete #auto="matAutocomplete"  (optionSelected)="selected($event)">
-          <mat-option *ngFor="let author of filteredAuthors" [value]="author">
-            {{author}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
+  <mat-label>Author(s):</mat-label>
+  <mat-chip-list #chipList aria-label="Author selection" [formControl]="name">
+    <mat-chip *ngFor="let author of authors" [selectable]="selectable" [removable]="removable"
+      (removed)="remove(author)">
+      {{author}}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+    <input (input)="handleInput($event)" placeholder="New author..." #authorInput [matAutocomplete]="auto"
+      [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+  </mat-chip-list>
+  <mat-hint>Select an author or input your own value.</mat-hint>
+  <mat-error *ngIf="this.name.hasError('listSize')">
+    At least one author is required!
+  </mat-error>
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)" multiple>
+    <mat-option *ngFor="let author of filteredAuthors" [value]="author">
+      {{author}}
+    </mat-option>
+  </mat-autocomplete>
+
+</mat-form-field>
