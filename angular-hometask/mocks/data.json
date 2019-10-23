@@ -141,7 +141,7 @@
       "description": "Fix it",
       "duration": 15,
       "id": 6,
-      "title": "Video Six",
+      "title": "Video Seven",
       "topRated": true,
       "authors": [
         "Bruce Banner",
@@ -183,6 +183,17 @@
       "authors": [
         "Peter Parker",
         "Diane Prince"
+      ]
+    },
+    {
+      "id": 1571843334255,
+      "title": "Video Eight",
+      "creationDate": "2019-10-22T21:00:00.000Z",
+      "duration": "56",
+      "description": "A very interesting video",
+      "topRated": false,
+      "authors": [
+        "Bruce Banner"
       ]
     }
   ]

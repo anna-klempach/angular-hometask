@@ -1,6 +1,6 @@
 <mat-card class="add-course-page" *ngIf="loaded">
     <mat-card-header>
-        <mat-card-title>Add course</mat-card-title>
+        <mat-card-title>{{pageTitle}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <form class="add-course-page__form" [formGroup]="addCourseForm" (ngSubmit)="handleSave()">

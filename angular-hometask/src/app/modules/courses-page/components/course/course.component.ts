@@ -11,27 +11,30 @@ import { dateValidator } from '../../entities/validators/date-validator.directiv
 import { durationValidator } from '../../entities/validators/duration-validator.directive';
 import { authorsListValidator } from '../../entities/validators/authors-list-size.directive';
 import { CustomErrorStateMatcher } from '../../entities/classes/error-state-matcher';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { AddCoursePageComponent } from '../add-course-page/add-course-page.component';
 
 @Component({
   selector: 'app-course',
   templateUrl: '../add-course-page/add-course-page.component.html',
   styleUrls: ['../add-course-page/add-course-page.component.scss']
 })
-export class CourseComponent implements OnInit {
+export class CourseComponent extends AddCoursePageComponent implements OnInit {
   public course: ICoursesListItem;
   public loaded = false;
-  private editCourse: CoursesListEntry;
+  public editCourse: CoursesListEntry;
   public addCourseForm: FormGroup;
+  public pageTitle = 'Edit Course';
 
   public matcher = new CustomErrorStateMatcher();
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
+    router: Router,
     private service: CoursesService,
-    private store: Store<IAppState>
-  ) { }
+    store: Store<IAppState>
+  ) {
+    super(router, store);
+  }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -70,13 +73,6 @@ export class CourseComponent implements OnInit {
       });
   }
 
-  handleTitleInput(value: string): void {
-    this.addCourseForm.patchValue({
-      ...this.addCourseForm,
-      title: value
-    });
-  }
-
   private formatDate(): string {
     const date = new Date(this.course.creationDate);
     return date.toLocaleDateString('en-GB', {
@@ -86,21 +82,7 @@ export class CourseComponent implements OnInit {
     });
   }
 
-  handleDescriptionInput(value: string): void {
-    this.addCourseForm.patchValue({
-      ...this.addCourseForm,
-      description: value
-    });
-  }
-
-  private calculateDate() {
-    const currentDate = this.addCourseForm.value.creationDate;
-    const currentValue = currentDate.split('/');
-    return new Date(`${currentValue[1]}/${currentValue[0]}/${currentValue[2]}`);
-  }
-
   handleSave(): void {
-    console.log(this.addCourseForm.value);
     const date = this.calculateDate();
     this.addCourseForm.patchValue({
       ...this.addCourseForm,
@@ -113,26 +95,4 @@ export class CourseComponent implements OnInit {
     this.store.dispatch(editCourse({ course: this.editCourse }));
     this.router.navigate(['courses']);
   }
-
-  handleCancel(): void {
-    this.editCourse = undefined;
-    this.router.navigate(['courses']);
-  }
-
-  /* editCourse(key: string, value: string | number): void {
-    this.editedCourse[key] = value;
-  }
-  editCourseDate(value: string): void {
-    this.editedCourse.creationDate = new Date(value);
-  }
-
-  handleCancelClick(): void {
-    this.router.navigate(['courses']);
-    this.editedCourse = undefined;
-  }
-
-  handleSaveClick(): void {
-    this.store.dispatch(editCourse({ course: this.editedCourse }));
-    this.router.navigate(['courses']); // should it be asynchronous?
-  } */
 }

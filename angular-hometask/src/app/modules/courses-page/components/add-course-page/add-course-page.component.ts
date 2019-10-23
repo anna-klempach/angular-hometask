@@ -19,6 +19,7 @@ import { authorsListValidator } from '../../entities/validators/authors-list-siz
 export class AddCoursePageComponent implements OnInit {
   public loaded = true;
   public editCourse: ICoursesListItem;
+  public pageTitle = 'Add Course';
   public addCourseForm = new FormGroup({
     title: new FormControl('', [
       Validators.required,
@@ -47,8 +48,8 @@ export class AddCoursePageComponent implements OnInit {
   public matcher = new CustomErrorStateMatcher();
 
   constructor(
-    private router: Router,
-    private store: Store<IAppState>
+    protected router: Router,
+    protected store: Store<IAppState>
     ) { }
 
   get title() { return this.addCourseForm.get('title'); }
@@ -71,7 +72,7 @@ export class AddCoursePageComponent implements OnInit {
     });
   }
 
-  private calculateDate() {
+  protected calculateDate() {
     const currentDate = this.addCourseForm.value.creationDate;
     const currentValue = currentDate.split('/');
     return new Date(`${currentValue[1]}/${currentValue[0]}/${currentValue[2]}`);
