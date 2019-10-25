@@ -10,7 +10,6 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [LoginPageComponent],
   imports: [
     CommonModule,
-    SharedModule,
     ReactiveFormsModule,
     CustomMaterialModule
   ],

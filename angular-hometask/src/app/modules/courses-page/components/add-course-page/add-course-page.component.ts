@@ -20,6 +20,8 @@ export class AddCoursePageComponent implements OnInit {
   public loaded = true;
   public editCourse: ICoursesListItem;
   public pageTitle = 'Add Course';
+  public matcher = new CustomErrorStateMatcher();
+  public color='white';
   public addCourseForm = new FormGroup({
     title: new FormControl('', [
       Validators.required,
@@ -44,8 +46,6 @@ export class AddCoursePageComponent implements OnInit {
         authorsListValidator
       ]),
   });
-
-  public matcher = new CustomErrorStateMatcher();
 
   constructor(
     protected router: Router,

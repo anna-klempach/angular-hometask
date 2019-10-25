@@ -1,39 +1,24 @@
 @import "../../../../styles/styles.scss";
 
-:host {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+.search-bar {
+  width: 100vw;
   margin: 0;
-  padding: 0.6rem 0.5rem 0.5rem;
-  box-sizing: border-box;
-  color: map-get($colors, light-font);
   background: linear-gradient(to right, map-get($colors, dark-background), map-get($colors, secondary));
+}
 
-  .heading {
-    margin: 0 0 0.5rem;
-    padding: 0;
-  }
+.mat-form-field-appearance-outline {
+  margin-top: 6rem;
+  width: 30rem;
+}
+.mat-form-field-appearance-outline input::placeholder {
+  color: white;
+  border-color: white;
+}
 
-  .form {
-    display: flex;
-    align-items: center;
-    .search-bar {
-      width: 40vw;
-      height: 2.5rem;
-      margin-top: 5rem;
-      margin-right: 2rem;
-      padding-left: 0.5rem;
-      border: 0.1rem solid map-get($colors, dark-background);
-      border-radius: 0.3rem;
-    }
+div.mat-form-field-infix{
+  background-color: white;
+}
 
-    button {
-      @include button();
-      &:hover {
-        cursor: pointer;
-        background-color: map-get($colors, hover);
-      }
-    }
-  }
+.search-bar__form--heading {
+  color: white;
 }

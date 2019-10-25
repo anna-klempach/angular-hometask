@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, EventEmitter, Output, OnChanges } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { FormControl, Validators } from '@angular/forms';
+import { CustomErrorStateMatcher } from '../../entities/classes/error-state-matcher';
 
 @Component({
   selector: 'app-search-bar',
@@ -12,6 +14,8 @@ export class SearchBarComponent implements OnInit {
   @Input() searchValue: string;
   @Input() fieldDisabled: boolean;
   @Output() searchValueChange = new EventEmitter<string>();
+  public searchBar = new FormControl('', Validators.minLength(3));
+  public matcher = new CustomErrorStateMatcher();
   private changedValue$ = new BehaviorSubject('');
   private unsubscribed = true;
   constructor() {
