@@ -88,6 +88,8 @@ export class AuthService {
   }
 
   public getAuthorizationToken(): string {
-    return JSON.parse(window.localStorage.getItem('userInfo')).token;
+    return JSON.parse(window.localStorage.getItem('userInfo'))
+    ? JSON.parse(window.localStorage.getItem('userInfo')).token
+    : '';
   }
 }
