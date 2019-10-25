@@ -1,35 +1,29 @@
 @import '../../styles/styles.scss';
-:host {
+.login-page {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100vh;
     background-color: map-get($colors, secondary-background);
-    .login-page {
+    &__card {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-around;
         width: 50rem;
         height: 30rem;
         padding: 2em;
-        background-color: white;
-        border-radius: 0.5rem;
-        box-shadow: 0.2rem 0.2rem 0.6rem map-get($colors, dark-font);
 
-        &__button {
-            align-self: center;
-            margin-top: 1em;
-            @include button;
-
-            &:hover {
-                cursor: pointer;
-                background-color: map-get($colors, hover);
-            } 
+        &--form {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          height: 15rem;
         }
-        &__buttonset {
-            display: flex;
-            justify-content: space-around;
+
+        &--buttonset {
+          display: flex;
+          justify-content: space-around;
         }
     }
 }

@@ -1,14 +1,45 @@
 <div class="login-page">
-    <h2 class="login-page__heading">Login</h2>
-    <label for="#email">E-mail:</label>
-    <input #emailBar id="email" (input)="handleEmailInput(emailBar.value)" placeholder="Enter your e-mail" required>
-    <label for="#password">Password:</label>
-    <input #passwordBar type="password" id="password" (input)="handlePasswordInput(passwordBar.value)" placeholder="Enter password"
-        required>
-    <div class="login-page__buttonset">
-        <button class="login-page__button"
-            (click)="handlePasswordInput(passwordBar.value); handleEmailInput(emailBar.value); handleLogin(); ">Login</button>
-        <button class="login-page__button"
-            (click)="handlePasswordInput(passwordBar.value); handleEmailInput(emailBar.value); handleRegister(); ">Register</button>
-    </div>
+  <mat-card class="login-page__card">
+    <mat-card-header>
+      <mat-card-title>Log in</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="login-page__card--form" [formGroup]="loginForm" (ngSubmit)="handleSave()">
+        <mat-form-field appearance="outline">
+          <mat-label>E-mail:</mat-label>
+          <input matInput #emailBar formControlName="email" [errorStateMatcher]="matcher"
+            (input)="handleEmailInput(emailBar.value)" placeholder="Enter your e-mail">
+          <mat-hint>Enter e-mail</mat-hint>
+          <mat-error
+            *ngIf="loginForm?.controls?.email?.hasError('email') && !loginForm?.controls?.loginForm?.hasError('required')">
+            Incorrect e-mail format
+          </mat-error>
+          <mat-error *ngIf="loginForm?.controls?.email?.hasError('required')">
+            Error is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password:</mat-label>
+          <input matInput #passwordBar type="password" formControlName="password"
+            (input)="handlePasswordInput(passwordBar.value)" placeholder="Enter password" [errorStateMatcher]="matcher">
+          <mat-hint>Enter password</mat-hint>
+          <mat-error
+            *ngIf="loginForm?.controls?.password?.hasError('minlength') && !loginForm?.controls?.password?.hasError('required')">
+            Minimum password length is 7 symbols
+          </mat-error>
+          <mat-error *ngIf="loginForm?.controls?.password?.hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="login-page__card--buttonset">
+      <button mat-raised-button color="primary" type="submit"
+        (click)="handlePasswordInput(passwordBar.value); handleEmailInput(emailBar.value); handleLogin();"
+        [disabled]="!loginForm.valid">Log In</button>
+      <button mat-raised-button color="primary"
+        (click)="handlePasswordInput(passwordBar.value); handleEmailInput(emailBar.value); handleRegister();"
+        [disabled]="!loginForm.valid">Register</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
