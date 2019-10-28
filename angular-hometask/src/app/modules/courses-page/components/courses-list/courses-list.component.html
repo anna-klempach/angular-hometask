@@ -7,13 +7,12 @@
 </div>
 <!-- <p *ngIf="courses.length === 0"
     class="no-data-message">NO DATA, FEEL FREE TO ADD A NEW COURSE</p> -->
-<div
-    class="list">
+<ul class="list">
     <app-courses-list-item [ngClass]="{'top-background-color': course.topRated}" class="courses-list-item"
         *ngFor="let course of courses$ | async; let i = index" [course]="course" [index]="i + 1"
         (deleteRequest)="deleteItem($event)" [appCoursePlateBorder]="course.creationDate">
     </app-courses-list-item>
-</div>
+</ul>
 <button class="load-more-button" (click)="getMoreCourses()">LOAD MORE</button>
 <app-modal-dialog *ngIf="deleteModalOpened" (deleteItem)="handleDeleteItem($event)"></app-modal-dialog>
 <div class="blocking-window" *ngIf="deleteModalOpened"></div>

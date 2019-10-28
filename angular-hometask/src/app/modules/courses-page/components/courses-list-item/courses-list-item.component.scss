@@ -1,6 +1,26 @@
 @import "../../../../styles/styles.scss";
 
-:host {
+.course-list-item {
+  width: 70vw;
+  min-height: 15vh;
+  &__card {
+    width: 60vw;
+    &--content {
+      &_info {
+        display: flex;
+        &_field {
+          display: flex;
+          align-items: center;
+        }
+      }
+      &_description{
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+/* :host {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr) 7rem;
@@ -43,12 +63,12 @@
       margin-right: 0.5rem;
       padding: 0;
       color: map-get($colors, button-background);
-      
+
     }
 
     &-creation {
       grid-area: date;
-      
+
     }
 
     &-duration, &-creation {
@@ -99,3 +119,4 @@
     }
   }
 }
+ */
