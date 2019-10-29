@@ -6,6 +6,7 @@
   left: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   width: 100vw;
 
@@ -13,10 +14,9 @@
     flex: 1 1 0;
     justify-content: space-between;
     align-items: center;
-    width: 80vw;
+    width: 100%;
     line-height: 3rem;
     color: map-get($colors, light-font);
-    // background-color: map-get($colors, light-opaque-background);
 
     h1 {
       font-size: 1.5rem;

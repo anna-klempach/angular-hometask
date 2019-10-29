@@ -1,24 +1,33 @@
 @import "../../../../styles/styles.scss";
 
-.search-bar {
+.search-bar-container{
+  display: flex;
+  justify-content: center;
   width: 100vw;
+}
+
+.search-bar {
+  width: 80vw;
   margin: 0;
-  background: linear-gradient(to right, map-get($colors, dark-background), map-get($colors, secondary));
 }
 
 .mat-form-field-appearance-outline {
   margin-top: 6rem;
   width: 30rem;
 }
-.mat-form-field-appearance-outline input::placeholder {
+
+.mat-search-bar {
+  width: 100vw;
+}
+/* .mat-form-field-appearance-outline input::placeholder {
   color: white;
   border-color: white;
-}
+} */
 
-div.mat-form-field-infix{
+/* div.mat-form-field-infix{
   background-color: white;
 }
 
 .search-bar__form--heading {
   color: white;
-}
+} */
