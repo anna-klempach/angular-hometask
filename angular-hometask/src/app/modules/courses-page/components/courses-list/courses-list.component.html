@@ -1,6 +1,6 @@
 <app-search-bar [(searchValue)]="searchValue" (searchValueChange)="searchCourses()"></app-search-bar>
 <div class="add-button-container">
-    <button class="add-course-button" (click)="handleAddCourse()">
+    <button mat-raised-button class="add-course-button" (click)="handleAddCourse()" color="accent">
         <i class="material-icons">add</i>
         Add course
     </button>
@@ -13,6 +13,6 @@
         (deleteRequest)="deleteItem($event)" [appCoursePlateBorder]="course.creationDate">
     </app-courses-list-item>
 </ul>
-<button class="load-more-button" (click)="getMoreCourses()">LOAD MORE</button>
+<button mat-raised-button class="load-more-button" (click)="getMoreCourses()" color="accent">LOAD MORE</button>
 <app-modal-dialog *ngIf="deleteModalOpened" (deleteItem)="handleDeleteItem($event)"></app-modal-dialog>
 <div class="blocking-window" *ngIf="deleteModalOpened"></div>

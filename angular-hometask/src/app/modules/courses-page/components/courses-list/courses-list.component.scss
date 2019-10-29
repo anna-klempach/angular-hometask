@@ -16,7 +16,7 @@
       align-self: center;
   }
 }
-.add-course-button,
+/* .add-course-button,
 .load-more-button {
   @include button();
   &:hover {
@@ -24,7 +24,7 @@
     background-color: map-get($colors, hover);
   }
 }
-
+ */
 .add-button-container {
     width: 80vw;
     display: flex;
