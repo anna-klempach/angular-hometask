@@ -1,34 +1,40 @@
 <li class="course-list-item">
   <mat-card class="course-list-item__card">
-    <mat-card-header>
-      <mat-card-title>{{index}}. {{course.title | uppercase}}</mat-card-title>
-      <mat-icon mat-card-avatar class="course-rating material-icons" *ngIf="course.topRated" color="warn">star</mat-icon>
+    <mat-card-header class="course-list-item__card--header">
+      <mat-card-title-group class="course-list-item__card--header_group">
+        <mat-card-title class="course-list-item__card--header_group_title">Video course {{index}}.
+          {{course.title | uppercase}}</mat-card-title>
+        <mat-icon class="course-list-item__card--rating material-icons" *ngIf="course.topRated" color="warn">star</mat-icon>
+      </mat-card-title-group>
+      <div class="course-list-item__card--header_info">
+        <div class="course-list-item__card--header_info_field course-duration">
+          <mat-icon class="course-list-item__card--header_info_field_icon" color="primary">schedule</mat-icon>
+          <p>
+            {{course.duration | durationDisplay }}
+          </p>
+        </div>
+        <div class="course-list-item__card--header_info_field course-creation">
+          <mat-icon class="course-list-item__card--header_info_field_icon" color="primary">date_range</mat-icon>
+          <p>
+            {{course.creationDate | date: 'd MMM, yyyy'}}
+          </p>
+        </div>
+      </div>
     </mat-card-header>
-    <mat-card-content class="course-list-item__card--content">
-      <p class="course-list-item__card--content_description">{{course.description}}</p>
-      <div class="course-list-item__card--content_info">
-        <div class="course-list-item__card--content_info_field course-duration">
-        <mat-icon color="primary">schedule</mat-icon>
-        <p>
-          <span>Duration: </span>{{course.duration | durationDisplay }}
-        </p>
+    <div class="course-list-item__card--content">
+      <div>
+        <p class="course-list-item__card--content_description">{{course.description}}</p>
       </div>
-      <div class="course-list-item__card--content_info_field course-creation">
-        <mat-icon color="primary">date_range</mat-icon>
-        <p>
-          <span>Date: </span>{{course.creationDate | date: 'd MMM, yyyy'}}
-        </p>
+    </div>
+    <div class="course-list-item__card--control">
+        <button mat-raised-button class="course-list-item__card--control_button" (click)="handleEditClick()" color="primary">
+          <mat-icon>create</mat-icon>
+          <span>Edit</span>
+        </button>
+        <button mat-raised-button class="course-list-item__card--control_button" (click)="handleDeleteClick()" color="primary">
+          <mat-icon>delete</mat-icon>
+          <span>Delete</span>
+        </button>
       </div>
-      </div>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-icon-button class="edit-button" (click)="handleEditClick()" color="primary">
-      <mat-icon>create</mat-icon>
-    </button>
-    <button mat-icon-button class="delete-button" (click)="handleDeleteClick()" color="primary">
-      <mat-icon>delete</mat-icon>
-    </button>
-    </mat-card-actions>
   </mat-card>
 </li>
-

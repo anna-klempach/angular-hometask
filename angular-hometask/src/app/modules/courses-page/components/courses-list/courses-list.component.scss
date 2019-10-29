@@ -3,6 +3,7 @@
 :host {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 100vw;
   height: auto;
   background-color: map-get($colors, primary-color);
