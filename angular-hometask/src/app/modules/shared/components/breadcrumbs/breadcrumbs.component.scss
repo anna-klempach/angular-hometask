@@ -2,12 +2,11 @@
 
 .breadcrumb-container {
   display: flex;
-  margin: 0 5rem;
   .breadcrumb {
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
-    color: map-get($colors, secondary);
+    color: map-get($colors, dark-font);
     &:hover {
       color: map-get($colors, hover);
     }
@@ -17,23 +16,39 @@
   }
   &__list {
     display: flex;
-    width: 100%;
+    flex-direction: row;
+    justify-content: start;
+    width: 80vw;
     padding: 0;
 
     &--item {
-      font-size: 1.5rem;
+      position: relative;
+      font-size: 1rem;
       font-weight: bold;
-      color: map-get($colors, secondary);
+      color: map-get($colors, dark-font);
     }
     &--item:after {
       content: "/";
+      position: absolute;
+    top: 35%;
+    right: -10%;
       margin: 0 0.5em;
-      font-size: 1.5rem;
+      font-size: 1rem;
       font-weight: bold;
-      color: map-get($colors, secondary);
+      color: map-get($colors, dark-font);
     }
     &--item:last-child:after {
       content: "";
     }
   }
+  .mat-list-base .mat-list-item {
+    width: auto;
+  }
+
+  .mat-list-text {
+    font-size: 1rem;
+    color: map-get($colors, dark-font);
+  }
+
+  
 }

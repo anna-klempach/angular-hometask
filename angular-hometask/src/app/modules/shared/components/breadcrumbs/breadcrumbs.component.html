@@ -1,8 +1,8 @@
 <div class="breadcrumb-container">
-    <ul class="breadcrumb-container__list">
-        <li class="breadcrumb-container__list--item"><a href="/" class="breadcrumb">Courses</a></li>
-        <li class="breadcrumb-container__list--item" *ngFor="let breadcrumb of breadcrumbs">
+    <mat-list class="breadcrumb-container__list">
+        <mat-list-item class="breadcrumb-container__list--item"><a href="/" class="breadcrumb">Courses</a></mat-list-item>
+        <mat-list-item class="breadcrumb-container__list--item" *ngFor="let breadcrumb of breadcrumbs">
             {{ breadcrumb.label }}
-        </li>
-    </ul>
+        </mat-list-item>
+    </mat-list>
 </div>
