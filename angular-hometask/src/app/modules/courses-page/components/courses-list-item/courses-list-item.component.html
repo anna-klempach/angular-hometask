@@ -1,5 +1,5 @@
 <li class="course-list-item">
-  <mat-card class="course-list-item__card">
+  <mat-card class="course-list-item__card" [ngClass]="{'top-background-color': course.topRated}">
     <mat-card-header class="course-list-item__card--header">
       <mat-card-title-group class="course-list-item__card--header_group">
         <mat-card-title class="course-list-item__card--header_group_title">Video course {{index}}.

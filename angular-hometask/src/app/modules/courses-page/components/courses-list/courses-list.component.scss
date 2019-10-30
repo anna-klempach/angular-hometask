@@ -1,9 +1,8 @@
 @import "../../../../styles/styles.scss";
 
-:host {
+.courses-list {
   display: flex;
   flex-direction: column;
-  flex: 1;
   justify-content: center;
   width: 100vw;
   height: auto;
@@ -32,11 +31,12 @@
 }
 
 .no-data-message {
-  border: 0.1rem solid map-get($colors, dark-background);
-}
-
-.top-background-color {
-  background-color: map-get($colors, light-font);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  height: 5vh;
+  margin: 5rem auto;
 }
 
 .blocking-window {
@@ -47,4 +47,10 @@
   width: 100vw;
   height: 100vh;
   background-color: map-get($colors, light-opaque-background);
+}
+
+@media only screen and (max-height: 900px) {
+  .courses-list {
+    margin-top: -5rem;
+  }
 }

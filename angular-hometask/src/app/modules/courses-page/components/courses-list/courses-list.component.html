@@ -1,18 +1,25 @@
-<app-search-bar [(searchValue)]="searchValue" (searchValueChange)="searchCourses()"></app-search-bar>
-<div class="add-button-container">
-    <button mat-raised-button class="add-course-button" (click)="handleAddCourse()" color="accent">
-        <i class="material-icons">add</i>
-        Add course
-    </button>
+<div class="courses-list">
+    <app-search-bar [(searchValue)]="searchValue" (searchValueChange)="searchCourses()"></app-search-bar>
+    <div class="add-button-container">
+        <button mat-raised-button class="add-course-button" (click)="handleAddCourse()" color="accent">
+            <i class="material-icons">add</i>
+            Add course
+        </button>
+    </div>
+    <mat-card class="no-data-message" *ngIf="(courses$ | async)?.length === 0">
+        <mat-card-title class="no-data-message__title">
+            NO DATA, FEEL FREE TO ADD A NEW COURSE
+        </mat-card-title>
+
+    </mat-card>
+    <ul class="list" *ngIf="(courses$ | async)?.length > 0">
+        <app-courses-list-item class="courses-list-item" *ngFor="let course of courses$ | async; let i = index"
+            [course]="course" [index]="i + 1" (deleteRequest)="deleteItem($event)"
+            [appCoursePlateBorder]="course.creationDate">
+        </app-courses-list-item>
+    </ul>
+    <button mat-raised-button class="load-more-button" *ngIf="(courses$ | async)?.length > 0" (click)="getMoreCourses()"
+        color="accent">LOAD MORE</button>
+    <app-modal-dialog *ngIf="deleteModalOpened" (deleteItem)="handleDeleteItem($event)"></app-modal-dialog>
+    <div class="blocking-window" *ngIf="deleteModalOpened"></div>
 </div>
-<!-- <p *ngIf="courses.length === 0"
-    class="no-data-message">NO DATA, FEEL FREE TO ADD A NEW COURSE</p> -->
-<ul class="list">
-    <app-courses-list-item [ngClass]="{'top-background-color': course.topRated}" class="courses-list-item"
-        *ngFor="let course of courses$ | async; let i = index" [course]="course" [index]="i + 1"
-        (deleteRequest)="deleteItem($event)" [appCoursePlateBorder]="course.creationDate">
-    </app-courses-list-item>
-</ul>
-<button mat-raised-button class="load-more-button" (click)="getMoreCourses()" color="accent">LOAD MORE</button>
-<app-modal-dialog *ngIf="deleteModalOpened" (deleteItem)="handleDeleteItem($event)"></app-modal-dialog>
-<div class="blocking-window" *ngIf="deleteModalOpened"></div>

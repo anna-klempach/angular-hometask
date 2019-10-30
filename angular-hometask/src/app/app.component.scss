@@ -12,12 +12,10 @@
     align-items:center;
     &--main {
       display: flex;
-      flex: 1 0 auto;
       align-items:center;
     }
     &--header {
       display: flex;
-      flex-grow: 1;
       align-items:center;
     }
   }

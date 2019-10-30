@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 7rem;
   background-color: map-get($colors, secondary-background);
   &__card {
     display: flex;
@@ -28,12 +29,11 @@
     }
   }
 }
-@media only screen and (max-height: 400px) {
+@media only screen and (max-height: 900px) {
   .login-page {
     margin-top: -2rem;
     &__card {
       width: 90vw;
-      height: 90vh;
     }
   }
 }

@@ -82,6 +82,10 @@
   display: none !important;
 }
 
+.top-background-color {
+  background-color: map-get($colors, light-font);
+}
+
 @media only screen and (max-width: 1200px) {
   .course-list-item__card--header {
     flex-direction: column;
