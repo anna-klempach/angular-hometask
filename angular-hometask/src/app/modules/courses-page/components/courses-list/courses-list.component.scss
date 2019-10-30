@@ -3,6 +3,7 @@
 :host {
   display: flex;
   flex-direction: column;
+  flex: 1;
   justify-content: center;
   width: 100vw;
   height: auto;
@@ -16,29 +17,13 @@
     align-self: center;
   }
 }
-/* .add-course-button,
-.load-more-button {
-  @include button();
-  &:hover {
-    cursor: pointer;
-    background-color: map-get($colors, hover);
-  }
-}
- */
 .add-button-container {
   width: 80vw;
   display: flex;
   justify-content: flex-end;
   align-self: center;
 }
-/* .add-course-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  i {
-    margin-right: 0.5rem;
-  }
-} */
+
 .load-more-button {
   align-self: center;
   margin-bottom: 5rem;

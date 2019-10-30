@@ -6,28 +6,18 @@
   width: 100vw;
 }
 
-.search-bar {
-  width: 80vw;
-  margin: 0;
-}
-
 .mat-form-field-appearance-outline {
   margin-top: 6rem;
-  width: 30rem;
+  width: 80vw;
 }
 
 .mat-search-bar {
-  width: 100vw;
-}
-/* .mat-form-field-appearance-outline input::placeholder {
-  color: white;
-  border-color: white;
-} */
-
-/* div.mat-form-field-infix{
-  background-color: white;
+  width: 100%;
+  margin: 0;
 }
 
-.search-bar__form--heading {
-  color: white;
-} */
+@media only screen and (max-width: 570px) {
+  .mat-form-field-appearance-outline {
+    margin-top: 8rem;
+  }
+}

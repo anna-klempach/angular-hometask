@@ -1,6 +1,13 @@
 <div class="container">
-    <app-header></app-header>
-    <router-outlet></router-outlet>
+    <div class="container__top">
+        <div class="container__top--header">
+            <app-header></app-header>
+        </div>
+        <div class="container__top--main">
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
     <app-footer></app-footer>
 </div>
 <app-preloader *ngIf="displayed"></app-preloader>

@@ -1,19 +1,11 @@
 <div class="header-container">
     <mat-toolbar class="header" color="primary">
         <span>
-            <h1>VIDEO COURSE</h1>
+            <h1 class="header__title">VIDEO COURSE</h1>
         </span>
         <span>
-            <app-logo *ngIf="isAuthentified$ | async" (logOut)="handleLogOut()" [login]="(login$ | async)"></app-logo>
+            <app-logo class="header__logo" *ngIf="isAuthentified$ | async" (logOut)="handleLogOut()" [login]="(login$ | async)"></app-logo>
         </span>
     </mat-toolbar>
     <app-breadcrumbs *ngIf="isAuthentified$ | async"></app-breadcrumbs>
 </div>
-
-<!-- <mat-toolbar class="header-container">
-    <div class="header" [ngClass]="{'log-in-header': !isAuthenticated }">
-    <h1>VIDEO COURSE</h1>
-    <app-logo *ngIf="isAuthentified$ | async" (logOut)="handleLogOut()" [login]="(login$ | async)"></app-logo>
-</div>
-<app-breadcrumbs *ngIf="isAuthentified$ | async"></app-breadcrumbs>
-</mat-toolbar> -->
