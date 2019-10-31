@@ -11,6 +11,7 @@ import { StoreModule } from '@ngrx/store';
 import * as authenticationReducer from './state/manage-authentication/manage-authentication.reducer';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CustomMaterialModule } from 'src/app/material';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CustomMaterialModule } from 'src/app/material';
     DurationDisplayPipe,
     HeaderComponent,
     FooterComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    TranslateModule
   ],
 })
 export class SharedModule { }

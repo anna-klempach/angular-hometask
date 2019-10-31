@@ -1,13 +1,11 @@
 <div class="date-container">
     <mat-form-field class="date-container__form-field" appearance="outline">
-    <mat-label>Creation date</mat-label>
-    <input matInput [formControl]="name" type="text" size="10" (input)="handleInput($event)">
-    <mat-hint>Enter video creation date in format "dd/MM/yyy"</mat-hint>
-    <mat-error *ngIf="this.name.errors && this.name.errors.forbiddenDateFormat">
-        Incorrect date format!.
-    </mat-error>
-    <mat-error *ngIf="this.name.errors && this.name.errors.required">
-        Creation date is <strong>required</strong>
-    </mat-error>
-</mat-form-field>
+        <mat-label [translate]="'DATE-LABEL'"></mat-label>
+        <input matInput [formControl]="name" type="text" size="10" (input)="handleInput($event)">
+        <mat-hint [translate]="'DATE-HINT'"></mat-hint>
+        <mat-error *ngIf="this.name.errors && this.name.errors.forbiddenDateFormat" [translate]="'DATE-ERROR'">
+        </mat-error>
+        <mat-error *ngIf="this.name.errors && this.name.errors.required" [translate]="'DATE-REQUIRED'">
+        </mat-error>
+    </mat-form-field>
 </div>

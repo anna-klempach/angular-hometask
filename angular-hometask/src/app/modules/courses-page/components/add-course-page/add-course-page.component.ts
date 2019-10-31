@@ -10,6 +10,7 @@ import { dateValidator } from '../../entities/validators/date-validator.directiv
 import { durationValidator } from '../../entities/validators/duration-validator.directive';
 import { CustomErrorStateMatcher } from '../../entities/classes/error-state-matcher';
 import { authorsListValidator } from '../../entities/validators/authors-list-size.directive';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-add-course-page',
@@ -49,8 +50,11 @@ export class AddCoursePageComponent implements OnInit {
 
   constructor(
     protected router: Router,
-    protected store: Store<IAppState>
-    ) { }
+    protected store: Store<IAppState>,
+    protected translate: TranslateService
+    ) {
+      this.translate.setDefaultLang('ru');
+    }
 
   get title() { return this.addCourseForm.get('title'); }
 

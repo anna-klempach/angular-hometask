@@ -12,6 +12,7 @@ import { durationValidator } from '../../entities/validators/duration-validator.
 import { authorsListValidator } from '../../entities/validators/authors-list-size.directive';
 import { CustomErrorStateMatcher } from '../../entities/classes/error-state-matcher';
 import { AddCoursePageComponent } from '../add-course-page/add-course-page.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-course',
@@ -31,9 +32,10 @@ export class CourseComponent extends AddCoursePageComponent implements OnInit {
     private route: ActivatedRoute,
     router: Router,
     private service: CoursesService,
-    store: Store<IAppState>
+    store: Store<IAppState>,
+    protected translate: TranslateService
   ) {
-    super(router, store);
+    super(router, store, translate);
   }
 
   ngOnInit(): void {

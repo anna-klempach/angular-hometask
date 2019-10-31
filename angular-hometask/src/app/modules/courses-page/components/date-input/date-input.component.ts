@@ -1,6 +1,7 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-date-input',
@@ -20,6 +21,10 @@ export class DateInputComponent implements ControlValueAccessor {
   public disabled = false;
   private onChange = (value: any) => { };
   private onTouched = () => { };
+
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang('ru');
+  }
 
   registerOnChange(fn: any) {
     this.onChange = fn;

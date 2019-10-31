@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from 'src/app.routes';
 import { LoginPageModule } from './modules/login-page/login-page.module';
 import { AuthService } from './modules/shared/services/auth/auth.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { PreloaderComponent } from './modules/shared/components/preloader/preloader.component';
 import { SharedModule } from './modules/shared/shared.module';
@@ -18,6 +18,12 @@ import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -42,6 +48,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     StoreDevtoolsModule.instrument({ maxAge: 25}),
     EffectsModule.forRoot([AppEffects]),
     BrowserAnimationsModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: (HttpLoaderFactory),
+          deps: [HttpClient]
+      }
+  })
   ],
   providers: [
     AuthService,

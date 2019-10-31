@@ -1,15 +1,14 @@
 <div class="duration-container">
     <mat-form-field class="duration-container__form-field" appearance="outline">
-        <mat-label>Duration</mat-label>
+        <mat-label [translate]="'DURATION-LABEL'"></mat-label>
         <input matInput [formControl]="name" type="text" size="10" (input)="handleInput($event)">
-        <span matSuffix>min.</span>
-        <mat-hint>Enter video duration in minutes</mat-hint>
-        <mat-error *ngIf="this.name.hasError('forbiddenDurationFormat') && !this.name.hasError('required')">
-            Incorrect duration format! Use only numbers!
+        <span matSuffix [translate]="'DURATION-LABEL-SUFFIX'"></span>
+        <mat-hint [translate]="'DURATION-HINT'"></mat-hint>
+        <mat-error *ngIf="this.name.hasError('forbiddenDurationFormat') && !this.name.hasError('required')"
+            [translate]="'DURATION-ERROR'">
         </mat-error>
-        <mat-error *ngIf="this.name.hasError('required')">
-            Duration is <strong>required</strong>
+        <mat-error *ngIf="this.name.hasError('required')" [translate]="'DURATION-REQUIRED'">
         </mat-error>
     </mat-form-field>
-    <p class="duration-eval" *ngIf="this.value > 0">{{this.value | durationDisplay}}</p>
+    <!-- <p class="duration-eval" *ngIf="+this.value > 0">{{+this.value | durationDisplay}}</p> -->
 </div>

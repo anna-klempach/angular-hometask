@@ -4,7 +4,7 @@
       <mat-card-title>Log in</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form class="login-page__card--form" [formGroup]="loginForm" (ngSubmit)="handleSave()">
+      <form class="login-page__card--form" [formGroup]="loginForm">
         <mat-form-field appearance="outline">
           <mat-label>E-mail:</mat-label>
           <input matInput #emailBar formControlName="email" [errorStateMatcher]="matcher"

@@ -10,6 +10,7 @@ import { Store, select } from '@ngrx/store';
 import { loadAuthors, addAuthor } from '../../state/manage-authors-list/manage-authors-list.actions';
 import { IValueCheck } from 'src/app/interfaces/value-check.model';
 import { IAuthor } from 'src/app/interfaces/author.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-authors-input',
@@ -42,8 +43,11 @@ export class AuthorsInputComponent implements OnInit, ControlValueAccessor {
   private onTouched = () => { };
 
   constructor(
-    private store: Store<IAppAuthorsState>
-  ) { }
+    private store: Store<IAppAuthorsState>,
+    private translate: TranslateService
+  ) {
+    this.translate.setDefaultLang('ru');
+  }
 
   ngOnInit() {
     this.store.dispatch(loadAuthors());

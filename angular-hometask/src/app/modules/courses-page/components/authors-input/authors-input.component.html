@@ -1,5 +1,5 @@
 <mat-form-field class="example-chip-list" appearance="outline">
-  <mat-label>Author(s):</mat-label>
+  <mat-label [translate]="'AUTHORS-LABEL'"></mat-label>
   <mat-chip-list #chipList aria-label="Author selection" [formControl]="name">
     <mat-chip *ngFor="let author of authors" [selectable]="selectable" [removable]="removable"
       (removed)="remove(author)">
@@ -10,9 +10,8 @@
       [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
       [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
   </mat-chip-list>
-  <mat-hint>Select an author or input your own value.</mat-hint>
-  <mat-error *ngIf="this.name.hasError('listSize')">
-    At least one author is required!
+  <mat-hint [translate]="'AUTHORS-HINT'"></mat-hint>
+  <mat-error *ngIf="this.name.hasError('listSize')" [translate]="'AUTHORS-ERROR'">
   </mat-error>
   <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)" multiple>
     <mat-option *ngFor="let author of filteredAuthors" [value]="author">
