@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { FormControl, Validators } from '@angular/forms';
 import { CustomErrorStateMatcher } from '../../entities/classes/error-state-matcher';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-search-bar',
@@ -18,7 +19,7 @@ export class SearchBarComponent implements OnInit {
   public matcher = new CustomErrorStateMatcher();
   private changedValue$ = new BehaviorSubject('');
   private unsubscribed = true;
-  constructor() {
+  constructor(private translate: TranslateService) {
   }
 
   ngOnInit(): void {

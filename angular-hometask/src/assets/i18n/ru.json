@@ -27,5 +27,8 @@
     "COURSES_LIST_LOAD_BUTTON": "ЗАГРУЗИТЬ ЕЩЕ",
     "CARD-TITLE": "Видео курс {{index}}.",
     "CARD_BUTTON_EDIT": "",
-    "CARD_BUTTON_DELETE": ""
+    "CARD_BUTTON_DELETE": "",
+    "SEARCH_BAR_LABEL": "Найти курсы...",
+    "SEARCH_BAR_HINT": "Начните ввод чтобы найти курсы...",
+    "SEARCH_BAR_ERROR": "Минимальная длина поискового запроса - 3 символа"
 }

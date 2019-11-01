@@ -1,12 +1,11 @@
 <div class="search-bar-container">
   <div class="search-bar">
     <mat-form-field class="search-bar__form" appearance="outline">
-      <mat-label class="search-bar__form--heading">Find or add angular courses ...</mat-label>
+      <mat-label class="search-bar__form--heading" [translate]="'SEARCH_BAR_LABEL'"></mat-label>
       <input matInput class="search-bar__form--input" [formControl]="searchBar" (keyup)="handleInputChange($event)"
-        placeholder="Search by name, description or date" [errorStateMatcher]="matcher">
-      <mat-hint>Start typing to search for videos...</mat-hint>
-      <mat-error *ngIf="searchBar.hasError('minLength')">
-        Minimum search value length is 3 symbols
+      [errorStateMatcher]="matcher">
+      <mat-hint [translate]="'SEARCH_BAR_HINT'"></mat-hint>
+      <mat-error *ngIf="searchBar.hasError('minLength')" [translate]="'SEARCH_BAR_ERROR'">
       </mat-error>
     </mat-form-field>
   </div>

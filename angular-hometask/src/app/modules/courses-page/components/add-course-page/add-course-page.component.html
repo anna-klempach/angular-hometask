@@ -22,13 +22,12 @@
           <textarea matInput #description formControlName="description"
             (input)="handleDescriptionInput(description.value)" placeholder="Course description..."
             [errorStateMatcher]="matcher"></textarea>
-          <mat-hint [translate]="'COURSE_DESCRIPTION_HINT'">Enter video description</mat-hint>
+          <mat-hint [translate]="'COURSE_DESCRIPTION_HINT'"></mat-hint>
           <mat-error
             *ngIf="addCourseForm?.controls?.description?.hasError('maxlength') && !addCourseForm?.controls?.description?.hasError('required')"
             [translate]="'COURSE_DESCRIPTION_ERROR'">
           </mat-error>
           <mat-error *ngIf="addCourseForm?.controls?.title?.hasError('required')" [translate]="'COURSE_DESCRIPTION_REQUIRED'">
-            Description is <strong>required</strong>
           </mat-error>
         </mat-form-field>
         <app-date-input formControlName="creationDate" [name]="addCourseForm?.controls?.creationDate"
