@@ -1,11 +1,22 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+const localeValues = {
+  ru: {
+    min: 'мин.',
+    h: 'ч.'
+  },
+  en: {
+    min: 'min.',
+    h: 'h.'
+  }
+};
+
 @Pipe({
   name: 'durationDisplay'
 })
 export class DurationDisplayPipe implements PipeTransform {
 
-  transform(value: number): string {
+  transform(value: number, locale?: string): string {
     let mins: string;
     let hours: string;
     if (value < 60) {
@@ -14,7 +25,7 @@ export class DurationDisplayPipe implements PipeTransform {
       } else {
         mins = `${value}`;
       }
-      return `${mins} min`;
+      return `${mins} ${localeValues[locale].min}`;
     }
     hours = `${Math.floor(value / 60)}`;
     const minsLeft = value % 60;
@@ -23,7 +34,6 @@ export class DurationDisplayPipe implements PipeTransform {
     } else {
       mins = `${minsLeft}`;
     }
-    return `${hours} h ${mins} min`;
+    return `${hours} ${localeValues[locale].h} ${mins} ${localeValues[locale].min}`;
   }
-
 }
