@@ -24,5 +24,8 @@
     "COURSE_PAGE_TITLE": "{{value}}",
     "COURSES_LIST_ADD_BUTTON": "Add course",
     "NO_DATA_MESSAGE_TITLE": "NO DATA, FEEL FREE TO ADD A NEW COURSE",
-    "COURSES_LIST_LOAD_BUTTON": "LOAD MORE"
+    "COURSES_LIST_LOAD_BUTTON": "LOAD MORE",
+    "CARD-TITLE": "Video course {{index}}.",
+    "CARD_BUTTON_EDIT": "Edit",
+    "CARD_BUTTON_DELETE": "Delete"
 }

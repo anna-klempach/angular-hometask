@@ -20,10 +20,16 @@ import { AppEffects } from './app.effects';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+import localeEn from '@angular/common/locales/en';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
+registerLocaleData(localeRu);
+registerLocaleData(localeEn);
 
 @NgModule({
   declarations: [

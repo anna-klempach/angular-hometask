@@ -8,6 +8,7 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-courses-list-item',
@@ -21,12 +22,14 @@ import {
 export class CoursesListItemComponent {
   public focusable: boolean;
   public focused: boolean;
-  private windowWidth: number;
+  private locale = 'ru';
   @Input() course: CoursesListEntry;
   @Input() index: number;
   @Output() deleteRequest: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private translate: TranslateService) {
   }
 
   handleDeleteClick(): void {

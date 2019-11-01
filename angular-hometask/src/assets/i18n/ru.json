@@ -24,5 +24,8 @@
     "COURSE_PAGE_TITLE": "{{value}}",
     "COURSES_LIST_ADD_BUTTON": "Добавить курс",
     "NO_DATA_MESSAGE_TITLE": "ДАННЫЕ ОТСУТСТВУЮТ. ДОБАВЬТЕ НОВЫЙ КУРС.",
-    "COURSES_LIST_LOAD_BUTTON": "ЗАГРУЗИТЬ ЕЩЕ"
+    "COURSES_LIST_LOAD_BUTTON": "ЗАГРУЗИТЬ ЕЩЕ",
+    "CARD-TITLE": "Видео курс {{index}}.",
+    "CARD_BUTTON_EDIT": "",
+    "CARD_BUTTON_DELETE": ""
 }

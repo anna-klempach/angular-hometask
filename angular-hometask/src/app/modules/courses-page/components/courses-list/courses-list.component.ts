@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CoursesService } from '../../services/courses/courses.service';
 import { ICoursesListItem } from '../../../../interfaces/courses-list-item.model';
 import { Router } from '@angular/router';
