@@ -3,12 +3,11 @@
     <div class="add-button-container">
         <button mat-raised-button class="add-course-button" (click)="handleAddCourse()" color="accent">
             <i class="material-icons">add</i>
-            Add course
+            <span [translate]="'COURSES_LIST_ADD_BUTTON'"></span>
         </button>
     </div>
     <mat-card class="no-data-message" *ngIf="(courses$ | async)?.length === 0">
-        <mat-card-title class="no-data-message__title">
-            NO DATA, FEEL FREE TO ADD A NEW COURSE
+        <mat-card-title class="no-data-message__title" [translate]="'NO_DATA_MESSAGE_TITLE'">
         </mat-card-title>
 
     </mat-card>
@@ -19,7 +18,9 @@
         </app-courses-list-item>
     </ul>
     <button mat-raised-button class="load-more-button" *ngIf="(courses$ | async)?.length > 0" (click)="getMoreCourses()"
-        color="accent">LOAD MORE</button>
+        color="accent">
+        <span [translate]="'COURSES_LIST_LOAD_BUTTON'"></span>
+    </button>
     <app-modal-dialog *ngIf="deleteModalOpened" (deleteItem)="handleDeleteItem($event)"></app-modal-dialog>
     <div class="blocking-window" *ngIf="deleteModalOpened"></div>
 </div>

@@ -21,5 +21,8 @@
     "DURATION_HINT": "Введите продолжительность видео в минутах",
     "DURATION_ERROR": "Неверный формат! Введите число.",
     "DURATION_REQUIRED": "Укажите продолжительность.",
-    "COURSE_PAGE_TITLE": "{{value}}"
+    "COURSE_PAGE_TITLE": "{{value}}",
+    "COURSES_LIST_ADD_BUTTON": "Добавить курс",
+    "NO_DATA_MESSAGE_TITLE": "ДАННЫЕ ОТСУТСТВУЮТ. ДОБАВЬТЕ НОВЫЙ КУРС.",
+    "COURSES_LIST_LOAD_BUTTON": "ЗАГРУЗИТЬ ЕЩЕ"
 }

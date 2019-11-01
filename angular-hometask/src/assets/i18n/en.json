@@ -21,5 +21,8 @@
     "DURATION_HINT": "Enter video duration in minutes",
     "DURATION_ERROR": "Incorrect duration format! Use only numbers!",
     "DURATION_REQUIRED": "Duration is <strong>required</strong>",
-    "COURSE_PAGE_TITLE": "{{value}}"
+    "COURSE_PAGE_TITLE": "{{value}}",
+    "COURSES_LIST_ADD_BUTTON": "Add course",
+    "NO_DATA_MESSAGE_TITLE": "NO DATA, FEEL FREE TO ADD A NEW COURSE",
+    "COURSES_LIST_LOAD_BUTTON": "LOAD MORE"
 }
