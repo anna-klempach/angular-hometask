@@ -35,5 +35,17 @@
     "MODAL_DIALOG_APPROVE_BUTTON": "Yes",
     "MODAL_DIALOG_DECLINE_BUTTON": "No",
     "FOOTER": "It was not me.",
-    "HEADER_TITLE": "VIDEO COURSE"
+    "HEADER_TITLE": "VIDEO COURSE",
+    "LOGO_LOGOUT_BUTTON": "Log Out",
+    "LOG_IN_TITLE": "Log in",
+    "LOG_IN_EMAIL": "E-mail:",
+    "LOG_IN_EMAIL_HINT": "Enter e-mail",
+    "LOG_IN_EMAIL_ERROR": "Incorrect e-mail format",
+    "LOG_IN_EMAIL_REQUIRED": "Email is required",
+    "LOG_IN_PASSWORD": "Password:",
+    "LOG_IN_PASSWORD_HINT": "Enter password",
+    "LOG_IN_PASSWORD_ERROR": "Minimum password length is 7 symbols",
+    "LOG_IN_PASSWORD_REQUIRED": "Password is required",
+    "BUTTON_LOG_IN": "Log In",
+    "BUTTON_REGISTER": "Register"
 }

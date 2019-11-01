@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/modules/shared/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomErrorStateMatcher } from '../courses-page/entities/classes/error-state-matcher';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login-page',
@@ -25,7 +26,10 @@ export class LoginPageComponent {
   public matcher = new CustomErrorStateMatcher();
   private emailValue = '';
   private passwordValue = '';
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private translate: TranslateService) { }
 
   handleEmailInput(value: string): void {
     this.emailValue = value;

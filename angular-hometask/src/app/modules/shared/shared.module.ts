@@ -12,6 +12,7 @@ import * as authenticationReducer from './state/manage-authentication/manage-aut
 import { ReactiveFormsModule } from '@angular/forms';
 import { CustomMaterialModule } from 'src/app/material';
 import { TranslateModule } from '@ngx-translate/core';
+import { LanguageSelectComponent } from './components/language-select/language-select.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FooterComponent,
     BreadcrumbsComponent,
     LogoComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LanguageSelectComponent
   ],
   imports: [
     CommonModule,

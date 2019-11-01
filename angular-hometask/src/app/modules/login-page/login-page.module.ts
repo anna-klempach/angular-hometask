@@ -11,7 +11,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    SharedModule
   ],
   exports: [LoginPageComponent],
 })

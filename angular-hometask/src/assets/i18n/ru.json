@@ -35,5 +35,17 @@
     "MODAL_DIALOG_APPROVE_BUTTON": "Да",
     "MODAL_DIALOG_DECLINE_BUTTON": "Нет",
     "FOOTER": "Когда я пришел, так уже было.",
-    "HEADER_TITLE": "ВИДЕО КУРС"
+    "HEADER_TITLE": "ВИДЕО КУРС",
+    "LOGO_LOGOUT_BUTTON": "Выйти",
+    "LOG_IN_TITLE": "Войти",
+    "LOG_IN_EMAIL": "Адрес электронной почты:",
+    "LOG_IN_EMAIL_HINT": "Введите адрес электронной почты",
+    "LOG_IN_EMAIL_ERROR": "Неверный формат адреса",
+    "LOG_IN_EMAIL_REQUIRED": "Укажите адрес электронной почты",
+    "LOG_IN_PASSWORD": "Пароль:",
+    "LOG_IN_PASSWORD_HINT": "Введите пароль",
+    "LOG_IN_PASSWORD_ERROR": "Пароль не может быть длиной менее 7 символов",
+    "LOG_IN_PASSWORD_REQUIRED": "Укажите пароль",
+    "BUTTON_LOG_IN": "Войти",
+    "BUTTON_REGISTER": "Зарегистрироваться"
 }

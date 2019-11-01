@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-logo',
@@ -8,6 +9,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class LogoComponent {
   @Input() login: string;
   @Output() logOut = new EventEmitter();
+
+  constructor(private translate: TranslateService) {}
 
   handleLogout(): void {
     this.logOut.emit();
