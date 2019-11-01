@@ -30,5 +30,8 @@
     "CARD_BUTTON_DELETE": "",
     "SEARCH_BAR_LABEL": "Найти курсы...",
     "SEARCH_BAR_HINT": "Начните ввод чтобы найти курсы...",
-    "SEARCH_BAR_ERROR": "Минимальная длина поискового запроса - 3 символа"
+    "SEARCH_BAR_ERROR": "Минимальная длина поискового запроса - 3 символа",
+    "MODAL_DIALOG_HEADING": "Вы уверены, что хотите удалить курс?",
+    "MODAL_DIALOG_APPROVE_BUTTON": "Да",
+    "MODAL_DIALOG_DECLINE_BUTTON": "Нет"
 }

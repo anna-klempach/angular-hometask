@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-modal-dialog',
@@ -8,7 +9,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 export class ModalDialogComponent{
   @Output() deleteItem = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor( private translate: TranslateService) { }
 
   handleDeleteClick(value: boolean): void {
     this.deleteItem.emit(value);
