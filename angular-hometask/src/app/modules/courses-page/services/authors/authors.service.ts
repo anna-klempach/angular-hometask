@@ -21,7 +21,6 @@ export class AuthorsService {
           if (res) {
             this.loading.next(false);
           }
-          console.log(res);
           return res;
         }),
         catchError((err) => {
@@ -33,7 +32,6 @@ export class AuthorsService {
 
   public createAuthor(author: IAuthor): Observable<IAuthor> {
     this.loading.next(true);
-    console.log(author);
     return this.http.post<IAuthor>(
       this.authorsUrl,
       author

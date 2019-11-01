@@ -23,7 +23,6 @@ export class DurationInputComponent implements ControlValueAccessor {
   private onTouched = () => { };
 
   constructor(private translate: TranslateService) {
-    this.translate.setDefaultLang('en');
   }
 
   registerOnChange(fn: any) {

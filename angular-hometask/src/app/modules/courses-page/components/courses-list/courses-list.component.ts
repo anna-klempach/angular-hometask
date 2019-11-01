@@ -6,6 +6,7 @@ import { selectCourses, IAppState } from '../../state/manage-courses-list/manage
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { loadCourses, deleteCourse, reloadCourses } from '../../state/manage-courses-list/manage-courses-list.actions';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -22,9 +23,12 @@ export class CoursesListComponent implements OnInit {
   public deleteModalOpened = false;
   public itemToDelete: number | null = null;
 
-  constructor(private coursesService: CoursesService,
-              private router: Router,
-              private store: Store<IAppState>) { }
+  constructor(
+    private coursesService: CoursesService,
+    private router: Router,
+    private store: Store<IAppState>,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit(): void {
     this.searchCourses();
@@ -32,7 +36,7 @@ export class CoursesListComponent implements OnInit {
 
   searchCourses(): void {
     this.coursesService.discardPagesNumber();
-    this.store.dispatch(reloadCourses({searchValue: this.searchValue}));
+    this.store.dispatch(reloadCourses({ searchValue: this.searchValue }));
   }
 
   getMoreCourses(): void {
@@ -41,7 +45,7 @@ export class CoursesListComponent implements OnInit {
   }
 
   getCourses(): void {
-    this.store.dispatch(loadCourses({searchValue: this.searchValue}));
+    this.store.dispatch(loadCourses({ searchValue: this.searchValue }));
   }
 
   deleteItem(id: number): void {
@@ -51,7 +55,7 @@ export class CoursesListComponent implements OnInit {
 
   handleDeleteItem(value: boolean): void {
     if (value) {
-      this.store.dispatch(deleteCourse({id: this.itemToDelete, searchValue: this.searchValue}));
+      this.store.dispatch(deleteCourse({ id: this.itemToDelete, searchValue: this.searchValue }));
     }
     this.itemToDelete = null;
     this.deleteModalOpened = false;

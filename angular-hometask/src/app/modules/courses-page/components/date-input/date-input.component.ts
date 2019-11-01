@@ -22,9 +22,7 @@ export class DateInputComponent implements ControlValueAccessor {
   private onChange = (value: any) => { };
   private onTouched = () => { };
 
-  constructor(private translate: TranslateService) {
-    this.translate.setDefaultLang('ru');
-  }
+  constructor(private translate: TranslateService) {}
 
   registerOnChange(fn: any) {
     this.onChange = fn;
@@ -37,9 +35,7 @@ export class DateInputComponent implements ControlValueAccessor {
   writeValue(outsideValue: string) {
     this.value = outsideValue;
     if (this.value.length === 10) {
-      console.log('from writevalue:', this.value);
       this.onChange(this.value);
-      console.log('from component', this.name.errors);
     }
   }
 

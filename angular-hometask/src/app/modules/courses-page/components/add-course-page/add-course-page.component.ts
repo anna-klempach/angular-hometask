@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICoursesListItem } from 'src/app/interfaces/courses-list-item.model';
+import { ICoursesListItem, ITranslateValue, ITranslateParams } from 'src/app/interfaces/courses-list-item.model';
 import { CoursesListEntry } from 'src/app/modules/courses-page/entities/classes/courses-list-entry';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -10,7 +10,12 @@ import { dateValidator } from '../../entities/validators/date-validator.directiv
 import { durationValidator } from '../../entities/validators/duration-validator.directive';
 import { CustomErrorStateMatcher } from '../../entities/classes/error-state-matcher';
 import { authorsListValidator } from '../../entities/validators/authors-list-size.directive';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+
+const TRANSLATE_PARAMS = {
+  RU: 'Добавить курс',
+  EN: 'Add course'
+};
 
 @Component({
   selector: 'app-add-course-page',
@@ -20,9 +25,9 @@ import { TranslateService } from '@ngx-translate/core';
 export class AddCoursePageComponent implements OnInit {
   public loaded = true;
   public editCourse: ICoursesListItem;
-  public pageTitle = 'Add Course';
+  public translateParams: ITranslateValue = { value: ''};
   public matcher = new CustomErrorStateMatcher();
-  public color='white';
+  public color = 'white';
   public addCourseForm = new FormGroup({
     title: new FormControl('', [
       Validators.required,
@@ -52,14 +57,30 @@ export class AddCoursePageComponent implements OnInit {
     protected router: Router,
     protected store: Store<IAppState>,
     protected translate: TranslateService
-    ) {
-      this.translate.setDefaultLang('ru');
-    }
+  ) {
+  }
 
   get title() { return this.addCourseForm.get('title'); }
 
   ngOnInit(): void {
+    this.setTranslateParams(this.translate.defaultLang, TRANSLATE_PARAMS);
     this.editCourse = new CoursesListEntry(new Date().valueOf(), '', undefined, 0, '', false, []); // we'll make id a current date
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.setTranslateParams(event.lang, TRANSLATE_PARAMS);
+    });
+  }
+
+  protected setTranslateParams(lang: string, params: ITranslateParams): void {
+    switch (lang) {
+        case 'en':
+          this.translateParams.value = params.EN;
+          break;
+        case 'ru':
+          this.translateParams.value = params.RU;
+          break;
+        default:
+          break;
+      }
   }
 
   handleTitleInput(value: string): void {
@@ -83,7 +104,6 @@ export class AddCoursePageComponent implements OnInit {
   }
 
   handleSave(): void {
-    console.log(this.addCourseForm.value);
     const date = this.calculateDate();
     this.addCourseForm.patchValue({
       ...this.addCourseForm,
@@ -93,9 +113,7 @@ export class AddCoursePageComponent implements OnInit {
       ...this.editCourse,
       ...this.addCourseForm.value
     };
-    console.log(this.editCourse);
     this.store.dispatch(addCourse({ course: this.editCourse }));
-    console.log(this.editCourse);
     this.router.navigate(['courses']);
   }
 

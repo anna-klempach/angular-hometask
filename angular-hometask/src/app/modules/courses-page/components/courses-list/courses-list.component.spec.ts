@@ -79,7 +79,6 @@ describe('CoursesListComponent', () => {
     spyOn(component, 'deleteItem');
     const cmp = item.componentInstance;
     cmp.deleteRequest.emit(1);
-    console.log(cmp.deleteRequest);
     fixture.detectChanges();
     component.deleteItem(1);
     expect(component.deleteItem).toHaveBeenCalledWith(1);

@@ -26,17 +26,6 @@ export class CoursesListItemComponent {
   @Input() index: number;
   @Output() deleteRequest: EventEmitter<number> = new EventEmitter<number>();
 
-  private checkWindowSize() {
-    this.windowWidth = window.innerWidth;
-    if (this.windowWidth > 1000) {
-      this.focusable = true;
-      this.focused = false;
-    } else {
-      this.focusable = false;
-      this.focused = true;
-    }
-    console.log(this.windowWidth, this.focusable, this.focused);
-  }
   constructor(private router: Router) {
   }
 

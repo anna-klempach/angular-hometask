@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CoursesService } from 'src/app/modules/courses-page/services/courses/courses.service';
-import { ICoursesListItem } from '../../../../interfaces/courses-list-item.model';
+import { ICoursesListItem, ITranslateValue } from '../../../../interfaces/courses-list-item.model';
 import { CoursesListEntry } from '../../entities/classes/courses-list-entry';
 import { Store } from '@ngrx/store';
 import { IAppState } from '../../state/manage-courses-list/manage-courses-list.selectors';
@@ -12,7 +12,12 @@ import { durationValidator } from '../../entities/validators/duration-validator.
 import { authorsListValidator } from '../../entities/validators/authors-list-size.directive';
 import { CustomErrorStateMatcher } from '../../entities/classes/error-state-matcher';
 import { AddCoursePageComponent } from '../add-course-page/add-course-page.component';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+
+const TRANSLATE_PARAMS = {
+  RU: 'Редактировать курс',
+  EN: 'Edit course'
+};
 
 @Component({
   selector: 'app-course',
@@ -24,21 +29,21 @@ export class CourseComponent extends AddCoursePageComponent implements OnInit {
   public loaded = false;
   public editCourse: CoursesListEntry;
   public addCourseForm: FormGroup;
-  public pageTitle = 'Edit Course';
-
+  public translateParams: ITranslateValue = {value: ''};
   public matcher = new CustomErrorStateMatcher();
 
   constructor(
     private route: ActivatedRoute,
-    router: Router,
+    protected router: Router,
     private service: CoursesService,
-    store: Store<IAppState>,
+    protected store: Store<IAppState>,
     protected translate: TranslateService
   ) {
     super(router, store, translate);
   }
 
   ngOnInit(): void {
+    this.setTranslateParams(this.translate.defaultLang, TRANSLATE_PARAMS);
     const id = this.route.snapshot.paramMap.get('id');
     this.loaded = false;
     this.service.getItem(+id)
@@ -73,6 +78,9 @@ export class CourseComponent extends AddCoursePageComponent implements OnInit {
         });
         this.loaded = true;
       });
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.setTranslateParams(event.lang, TRANSLATE_PARAMS);
+    });
   }
 
   private formatDate(): string {

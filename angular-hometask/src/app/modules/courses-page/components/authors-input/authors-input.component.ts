@@ -45,9 +45,7 @@ export class AuthorsInputComponent implements OnInit, ControlValueAccessor {
   constructor(
     private store: Store<IAppAuthorsState>,
     private translate: TranslateService
-  ) {
-    this.translate.setDefaultLang('ru');
-  }
+  ) {}
 
   ngOnInit() {
     this.store.dispatch(loadAuthors());

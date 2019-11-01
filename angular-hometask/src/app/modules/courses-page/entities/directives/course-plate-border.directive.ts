@@ -15,7 +15,6 @@ export class CoursePlateBorderDirective implements OnChanges {
     const currCreationDate = new Date(this.creationDate).valueOf() / 1000 / 60 / 60 / 24;
     if (currCreationDate < currentDate && currCreationDate >= currentDate - 14) {
       this.el.nativeElement.firstChild.children[0].style.border = '0.1rem solid rgb(77, 201, 160)';
-      console.log(this.el);
     } else if (currCreationDate > currentDate) {
       this.el.nativeElement.firstChild.children[0].style.border = '0.1rem solid #374785';
     }

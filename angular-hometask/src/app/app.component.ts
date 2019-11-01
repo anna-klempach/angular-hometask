@@ -1,5 +1,6 @@
 import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { LoadingBlockService } from './services/loading-block/loading-block.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,12 @@ export class AppComponent implements OnInit {
   public title = 'angular-hometask';
   public displayed: boolean;
 
-  constructor(private loadingService: LoadingBlockService, private cdRef: ChangeDetectorRef) {
-
+  constructor(
+    private loadingService: LoadingBlockService,
+    private cdRef: ChangeDetectorRef,
+    private translate: TranslateService
+    ) {
+this.translate.setDefaultLang('ru');
   }
   ngOnInit(): void {
     this.loadingService.displayed
