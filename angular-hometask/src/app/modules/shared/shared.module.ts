@@ -29,7 +29,8 @@ import { TranslateModule } from '@ngx-translate/core';
       authenticationReducer.reducer
     ),
     ReactiveFormsModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    TranslateModule
   ],
   exports: [
     DurationDisplayPipe,

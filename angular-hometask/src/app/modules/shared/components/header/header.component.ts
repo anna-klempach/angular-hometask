@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { selectLogin, AppState, selectIsAuthenticated } from '../../state/manage-authentication/manage-authentication.selectors';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -14,9 +15,11 @@ export class HeaderComponent implements OnInit {
 
   public login$: Observable<string>;
   public isAuthentified$: Observable<boolean>;
-  constructor(private authService: AuthService,
-              private router: Router,
-              private store: Store<AppState>) {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private store: Store<AppState>,
+    private translate: TranslateService) {
   }
   ngOnInit(): void {
     this.login$ = this.store.pipe(select(selectLogin));

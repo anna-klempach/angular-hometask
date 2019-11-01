@@ -33,5 +33,7 @@
     "SEARCH_BAR_ERROR": "Minimum search value length is 3 symbols",
     "MODAL_DIALOG_HEADING": "Are you sure you want to delete the course?",
     "MODAL_DIALOG_APPROVE_BUTTON": "Yes",
-    "MODAL_DIALOG_DECLINE_BUTTON": "No"
+    "MODAL_DIALOG_DECLINE_BUTTON": "No",
+    "FOOTER": "It was not me.",
+    "HEADER_TITLE": "VIDEO COURSE"
 }

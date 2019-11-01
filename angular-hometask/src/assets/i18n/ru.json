@@ -33,5 +33,7 @@
     "SEARCH_BAR_ERROR": "Минимальная длина поискового запроса - 3 символа",
     "MODAL_DIALOG_HEADING": "Вы уверены, что хотите удалить курс?",
     "MODAL_DIALOG_APPROVE_BUTTON": "Да",
-    "MODAL_DIALOG_DECLINE_BUTTON": "Нет"
+    "MODAL_DIALOG_DECLINE_BUTTON": "Нет",
+    "FOOTER": "Когда я пришел, так уже было.",
+    "HEADER_TITLE": "ВИДЕО КУРС"
 }

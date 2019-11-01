@@ -1,7 +1,7 @@
 <div class="header-container">
     <mat-toolbar class="header" color="primary">
         <span>
-            <h1 class="header__title">VIDEO COURSE</h1>
+            <h1 class="header__title" [translate]="'HEADER_TITLE'"></h1>
         </span>
         <span>
             <app-logo class="header__logo" *ngIf="isAuthentified$ | async" (logOut)="handleLogOut()" [login]="(login$ | async)"></app-logo>
