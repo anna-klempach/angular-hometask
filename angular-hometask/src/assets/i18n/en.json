@@ -47,5 +47,6 @@
     "LOG_IN_PASSWORD_ERROR": "Minimum password length is 7 symbols",
     "LOG_IN_PASSWORD_REQUIRED": "Password is required",
     "BUTTON_LOG_IN": "Log In",
-    "BUTTON_REGISTER": "Register"
+    "BUTTON_REGISTER": "Register",
+    "LANGUAGE_LABEL": "Language"
 }

@@ -47,5 +47,6 @@
     "LOG_IN_PASSWORD_ERROR": "Пароль не может быть длиной менее 7 символов",
     "LOG_IN_PASSWORD_REQUIRED": "Укажите пароль",
     "BUTTON_LOG_IN": "Войти",
-    "BUTTON_REGISTER": "Зарегистрироваться"
+    "BUTTON_REGISTER": "Зарегистрироваться",
+    "LANGUAGE_LABEL": "Язык"
 }

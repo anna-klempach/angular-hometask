@@ -3,8 +3,12 @@
         <span>
             <h1 class="header__title" [translate]="'HEADER_TITLE'"></h1>
         </span>
+        <span class="header__language-select">
+            <app-language-select></app-language-select>
+        </span>
         <span>
-            <app-logo class="header__logo" *ngIf="isAuthentified$ | async" (logOut)="handleLogOut()" [login]="(login$ | async)"></app-logo>
+            <app-logo class="header__logo" *ngIf="isAuthentified$ | async" (logOut)="handleLogOut()"
+                [login]="(login$ | async)"></app-logo>
         </span>
     </mat-toolbar>
     <app-breadcrumbs *ngIf="isAuthentified$ | async"></app-breadcrumbs>

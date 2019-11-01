@@ -23,7 +23,6 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 import localeEn from '@angular/common/locales/en';
-import { LanguageSelectComponent } from './app/modules/shared/language-select/language-select.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -35,8 +34,7 @@ registerLocaleData(localeEn);
 @NgModule({
   declarations: [
     AppComponent,
-    PreloaderComponent,
-    LanguageSelectComponent
+    PreloaderComponent
   ],
   imports: [
     BrowserModule,
