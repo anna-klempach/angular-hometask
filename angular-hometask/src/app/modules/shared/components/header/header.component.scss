@@ -30,15 +30,15 @@
   }
 }
 
-@media only screen and (max-width: 570px) {
+@media only screen and (max-width: 640px) {
   .header-container {
     .header {
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 8rem;
+      justify-content: space-between;
+      align-items: space-around;
+      height: 14rem;
       &__title {
-        margin-left: 0;
+        margin: 1rem 0;
       }
     }
   }
