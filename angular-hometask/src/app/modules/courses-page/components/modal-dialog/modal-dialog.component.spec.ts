@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModalDialogComponent } from './modal-dialog.component';
+import { TranslateService } from '@ngx-translate/core';
 
 describe('ModalDialogComponent', () => {
   let component: ModalDialogComponent;
@@ -8,9 +9,10 @@ describe('ModalDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalDialogComponent ]
+      declarations: [ModalDialogComponent],
+      providers: [{provide: TranslateService, useValue: {}}],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

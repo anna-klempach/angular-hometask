@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './modal-dialog.component.html',
   styleUrls: ['./modal-dialog.component.scss']
 })
-export class ModalDialogComponent{
+export class ModalDialogComponent {
   @Output() deleteItem = new EventEmitter<boolean>();
 
   constructor( private translate: TranslateService) { }

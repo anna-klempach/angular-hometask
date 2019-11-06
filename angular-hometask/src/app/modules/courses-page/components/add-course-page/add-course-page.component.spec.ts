@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddCoursePageComponent } from './add-course-page.component';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { DurationDisplayPipe } from 'src/app/modules/shared/pipes/duration-display.pipe';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('AddCoursePageComponent', () => {
   let component: AddCoursePageComponent;
@@ -10,7 +11,8 @@ describe('AddCoursePageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddCoursePageComponent, DurationDisplayPipe ]
+      declarations: [ AddCoursePageComponent, DurationDisplayPipe ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));

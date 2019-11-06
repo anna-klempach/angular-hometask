@@ -9,35 +9,51 @@ import { SortByPipe } from 'src/app/modules/shared/pipes/sort-by.pipe';
 import { OrderByPipe } from 'src/app/modules/shared/pipes/order-by.pipe';
 import { DurationDisplayPipe } from 'src/app/modules/shared/pipes/duration-display.pipe';
 import { CoursesService } from '../../services/courses/courses.service';
+import { Observable } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
+import { State } from '@ngrx/store';
 
 describe('CoursesListComponent', () => {
   let component: CoursesListComponent;
   let fixture: ComponentFixture<CoursesListComponent>;
   let coursesService: CoursesService;
   let coursesServiceStub: Partial<CoursesService>;
+  let translateServiceStub: Partial<TranslateService>;
   let element: HTMLElement;
+  const courses = [
+    {
+      id: 1,
+      title: 'Hello!',
+      creationDate: new Date(),
+      duration: 30,
+      description: 'A very interesting video',
+      topRated: true,
+      authors: []
+    },
+    {
+      id: 2,
+      title: 'Goodbye!',
+      creationDate: new Date(),
+      duration: 40,
+      description: 'A very uninteresting video',
+      topRated: false,
+      authors: []
+    }
+  ];
 
   beforeEach(async(() => {
     coursesServiceStub = {
-      courses: [
-        {
-          id: 1,
-          title: 'Hello!',
-          creationDate: new Date(),
-          duration: 30,
-          description: 'A very interesting video',
-          topRated: true,
-        },
-        {
-          id: 2,
-          title: 'Goodbye!',
-          creationDate: new Date(),
-          duration: 40,
-          description: 'A very uninteresting video',
-          topRated: false,
-        }
-      ],
-      getCourses() { return this.courses; },
+      getCourses() { return new Observable((observer) => {
+        observer.next(this.courses);
+      }); },
+      resetCourses() { return this.courses; },
+    };
+    translateServiceStub = {
+      defaultLang: '',
+      setDefaultLang(lang: string): void {
+        this.defaultLang = lang;
+      }
     };
     TestBed.configureTestingModule({
       declarations: [
@@ -46,7 +62,10 @@ describe('CoursesListComponent', () => {
         SortByPipe,
         OrderByPipe,
         DurationDisplayPipe],
-      providers: [{ provide: CoursesService, useValue: coursesServiceStub }],
+      providers: [{ provide: CoursesService, useValue: coursesServiceStub },
+        { provide: TranslateService, useValue: translateServiceStub },
+        { provide: Router, useValue: {} },
+        { provide: State, useValue: {} }],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
@@ -69,7 +88,7 @@ describe('CoursesListComponent', () => {
   });
   it('should handle delete button click', () => {
     const button: HTMLElement = element.querySelector('.load-more-button');
-    const loadMoreSpy = spyOn(component, 'handleLoad');
+    const loadMoreSpy = spyOn(component, 'getMoreCourses');
     button.click();
     fixture.detectChanges();
     expect(loadMoreSpy).toHaveBeenCalled();

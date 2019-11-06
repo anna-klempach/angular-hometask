@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => DurationInputComponent),
     multi: true
-  }]
+  }],
 })
 export class DurationInputComponent implements ControlValueAccessor {
   @Input() errorStateMatcher: ErrorStateMatcher;

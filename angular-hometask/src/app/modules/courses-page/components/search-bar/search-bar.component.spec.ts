@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchBarComponent } from './search-bar.component';
-import { DebugElement } from '@angular/core';
+import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 describe('SearchBarComponent', () => {
   let component: SearchBarComponent;
@@ -11,7 +12,9 @@ describe('SearchBarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SearchBarComponent]
+      declarations: [SearchBarComponent],
+      providers: [{provide: TranslateService, useValue: {}}],
+      schemas: [NO_ERRORS_SCHEMA]
     })
       .compileComponents();
   }));

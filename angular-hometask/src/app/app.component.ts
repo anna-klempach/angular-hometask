@@ -15,8 +15,8 @@ export class AppComponent implements OnInit {
     private loadingService: LoadingBlockService,
     private cdRef: ChangeDetectorRef,
     private translate: TranslateService
-    ) {
-this.translate.setDefaultLang('en');
+  ) {
+    this.translate.setDefaultLang('en');
   }
   ngOnInit(): void {
     this.loadingService.displayed

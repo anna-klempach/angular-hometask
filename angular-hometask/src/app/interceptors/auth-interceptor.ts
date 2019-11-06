@@ -10,10 +10,10 @@ import { AuthService } from '../modules/shared/services/auth/auth.service';
 export class AuthInterceptor implements HttpInterceptor {
     constructor(private auth: AuthService) { }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const authToken = this.auth.getAuthorizationToken(); // take token from authservice
+        const authToken = this.auth.getAuthorizationToken();
         if (authToken) {
             const authReq = req.clone({
-                headers: req.headers.set('Authorization', authToken) // clone request & add token to the header of the request
+                headers: req.headers.set('Authorization', authToken)
             });
             return next.handle(authReq);
         }
