@@ -46,7 +46,7 @@ export class CourseComponent extends AddCoursePageComponent implements OnInit {
     this.setTranslateParams(this.translate.defaultLang, TRANSLATE_PARAMS);
     const id = this.route.snapshot.paramMap.get('id');
     this.isLoaded = false;
-    this.service.getItem(+id)
+    this.service.getItem(parseInt(id, 10))
       .subscribe(courses => {
         this.isLoaded = true;
         this.course = courses[0];
