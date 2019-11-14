@@ -10,5 +10,5 @@
         <mat-error *ngIf="this.name.hasError('required')" [translate]="'DURATION_REQUIRED'">
         </mat-error>
     </mat-form-field>
-    <!-- <p class="duration-eval" *ngIf="+this.value > 0">{{+this.value | durationDisplay}}</p> -->
+    <p class="duration-eval" *ngIf="parsedValue > 0">{{parsedValue | durationDisplay: locale}}</p>
 </div>

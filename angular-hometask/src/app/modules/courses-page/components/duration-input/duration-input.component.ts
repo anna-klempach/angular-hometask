@@ -1,7 +1,7 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-duration-input',
@@ -18,11 +18,17 @@ export class DurationInputComponent implements ControlValueAccessor {
   @Input() name;
 
   public value: string;
+  public parsedValue: number;
   public disabled = false;
+  private locale: string;
   private onChange = (value: any) => { };
   private onTouched = () => { };
 
   constructor(private translate: TranslateService) {
+    this.locale = this.translate.defaultLang;
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.locale = event.lang;
+    });
   }
 
   registerOnChange(fn: any) {
@@ -35,6 +41,7 @@ export class DurationInputComponent implements ControlValueAccessor {
 
   writeValue(outsideValue: string) {
     this.value = outsideValue;
+    this.parsedValue = this.value ? (parseInt(this.value, 10)) : 0;
     this.onChange(this.value);
   }
 
@@ -44,6 +51,7 @@ export class DurationInputComponent implements ControlValueAccessor {
 
   handleInput(event: KeyboardEvent) {
     this.value = (event.target as HTMLInputElement).value;
+    this.parsedValue = this.value ? (parseInt(this.value, 10)) : 0;
     this.writeValue(this.value);
     this.onTouched();
   }

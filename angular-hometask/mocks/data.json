@@ -221,7 +221,7 @@
       "id": 1572347552118,
       "title": "A brand new course",
       "creationDate": "2019-10-28T21:00:00.000Z",
-      "duration": "56",
+      "duration": "458",
       "description": "The functional API provided by the @angular/animations module provides a domain-specific language (DSL) for creating and controlling animations in Angular applications. See the API reference for a complete listing and syntax details of the core functions and related data structures.\nYou learned to add animation to a simple transition between two states, using style() and state() along with animate() for the timing.\n\nYou can learn about more advanced features in Angular animations under ",
       "topRated": false,
       "authors": [
