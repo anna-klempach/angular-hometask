@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ILanguage } from 'src/app/interfaces/language.model';
 import { MatSelectChange } from '@angular/material/select';
@@ -19,12 +19,9 @@ const LANGUAGES = [
   templateUrl: './language-select.component.html',
   styleUrls: ['./language-select.component.scss']
 })
-export class LanguageSelectComponent implements OnInit {
+export class LanguageSelectComponent {
   public languages: ILanguage[] = LANGUAGES;
   constructor(private translate: TranslateService) { }
-
-  ngOnInit() {
-  }
 
   handleChange(event: MatSelectChange) {
     this.translate.use(event.value);
