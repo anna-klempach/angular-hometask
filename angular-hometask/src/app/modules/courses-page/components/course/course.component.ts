@@ -28,9 +28,37 @@ export class CourseComponent extends AddCoursePageComponent implements OnInit {
   public course: ICoursesListItem;
   public isLoaded = false;
   public editCourse: CoursesListEntry;
-  public addCourseForm: FormGroup;
-  public translateParams: ITranslateValue = {value: ''};
+  public translateParams: ITranslateValue = { value: '' };
   public matcher = new CustomErrorStateMatcher();
+  public titleControl = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(50)
+  ]);
+  public descriptionControl = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(500)
+  ]);
+  public creationDateControl = new FormControl('', [
+    Validators.required,
+    dateValidator
+  ]);
+  public durationControl = new FormControl('',
+    [
+      Validators.required,
+      durationValidator
+    ]);
+  public authorsControl = new FormControl([],
+    [
+      Validators.required,
+      authorsListValidator
+    ]);
+  public addCourseForm = new FormGroup({
+    title: this.titleControl,
+    description: this.descriptionControl,
+    creationDate: this.creationDateControl,
+    duration: this.durationControl,
+    authors: this.authorsControl,
+  });
 
   constructor(
     private route: ActivatedRoute,
@@ -51,31 +79,11 @@ export class CourseComponent extends AddCoursePageComponent implements OnInit {
         this.isLoaded = true;
         this.course = courses[0];
         this.editCourse = { ...this.course };
-        this.addCourseForm = new FormGroup({
-          title: new FormControl(
-            this.course.title, [
-            Validators.required,
-            Validators.maxLength(50)
-          ]),
-          description: new FormControl(this.course.description, [
-            Validators.required,
-            Validators.maxLength(500)
-          ]),
-          creationDate: new FormControl(this.formatDate(), [
-            Validators.required,
-            dateValidator
-          ]),
-          duration: new FormControl(this.course.duration,
-            [
-              Validators.required,
-              durationValidator
-            ]),
-          authors: new FormControl(this.course.authors,
-            [
-              Validators.required,
-              authorsListValidator
-            ]),
-        });
+        this.titleControl.setValue(this.course.title);
+        this.descriptionControl.setValue(this.course.description);
+        this.creationDateControl.setValue(this.formatDate());
+        this.durationControl.setValue(this.course.duration);
+        this.authorsControl.setValue(this.course.authors);
         this.isLoaded = true;
       });
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {

@@ -44,7 +44,6 @@ export class AuthorsService {
           return res;
         }),
         catchError((err) => {
-          console.error('Add course', err.message);
           return throwError('Error thrown from catchError');
         })
       );

@@ -1,5 +1,5 @@
 import { Component, forwardRef, Input } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -16,7 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class DateInputComponent implements ControlValueAccessor {
 
   @Input() errorStateMatcher: ErrorStateMatcher;
-  @Input() name;
+  @Input() name: FormControl;
   public value: string;
   public disabled = false;
   private onChange = (value: any) => { };
@@ -34,7 +34,7 @@ export class DateInputComponent implements ControlValueAccessor {
 
   writeValue(outsideValue: string) {
     this.value = outsideValue;
-    if (this.value.length === 10) {
+    if (this.value && this.value.length === 10) {
       this.onChange(this.value);
     }
   }

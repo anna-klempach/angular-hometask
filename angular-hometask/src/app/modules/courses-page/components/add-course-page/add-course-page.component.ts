@@ -27,30 +27,34 @@ export class AddCoursePageComponent implements OnInit {
   public editCourse: ICoursesListItem;
   public translateParams: ITranslateValue = { value: ''};
   public matcher = new CustomErrorStateMatcher();
-  public color = 'white';
-  public addCourseForm = new FormGroup({
-    title: new FormControl('', [
+  public titleControl = new FormControl('', [
       Validators.required,
       Validators.maxLength(50)
-    ]),
-    description: new FormControl('', [
+    ]);
+  public descriptionControl = new FormControl('', [
       Validators.required,
       Validators.maxLength(500)
-    ]),
-    creationDate: new FormControl('', [
+    ]);
+  public creationDateControl = new FormControl('', [
       Validators.required,
       dateValidator
-    ]),
-    duration: new FormControl('',
+    ]);
+  public durationControl = new FormControl('',
       [
         Validators.required,
         durationValidator
-      ]),
-    authors: new FormControl([],
+      ]);
+  public authorsControl = new FormControl([],
       [
         Validators.required,
         authorsListValidator
-      ]),
+      ]);
+  public addCourseForm = new FormGroup({
+    title: this.titleControl,
+    description: this.descriptionControl,
+    creationDate: this.creationDateControl,
+    duration: this.durationControl,
+    authors: this.authorsControl,
   });
 
   constructor(

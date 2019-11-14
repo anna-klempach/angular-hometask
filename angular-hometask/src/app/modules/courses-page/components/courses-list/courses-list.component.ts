@@ -40,7 +40,7 @@ export class CoursesListComponent implements OnInit {
   }
 
   getMoreCourses(): void {
-    this.coursesService.increasePagesNumber(); // add check on the number of courses
+    this.coursesService.increasePagesNumber();
     this.getCourses();
   }
 
