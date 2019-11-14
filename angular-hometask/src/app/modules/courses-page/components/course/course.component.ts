@@ -26,7 +26,7 @@ const TRANSLATE_PARAMS = {
 })
 export class CourseComponent extends AddCoursePageComponent implements OnInit {
   public course: ICoursesListItem;
-  public loaded = false;
+  public isLoaded = false;
   public editCourse: CoursesListEntry;
   public addCourseForm: FormGroup;
   public translateParams: ITranslateValue = {value: ''};
@@ -45,10 +45,10 @@ export class CourseComponent extends AddCoursePageComponent implements OnInit {
   ngOnInit(): void {
     this.setTranslateParams(this.translate.defaultLang, TRANSLATE_PARAMS);
     const id = this.route.snapshot.paramMap.get('id');
-    this.loaded = false;
+    this.isLoaded = false;
     this.service.getItem(+id)
       .subscribe(courses => {
-        this.loaded = true;
+        this.isLoaded = true;
         this.course = courses[0];
         this.editCourse = { ...this.course };
         this.addCourseForm = new FormGroup({
@@ -76,7 +76,7 @@ export class CourseComponent extends AddCoursePageComponent implements OnInit {
               authorsListValidator
             ]),
         });
-        this.loaded = true;
+        this.isLoaded = true;
       });
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.setTranslateParams(event.lang, TRANSLATE_PARAMS);
