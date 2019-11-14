@@ -9,7 +9,7 @@ import { AuthService } from '../modules/shared/services/auth/auth.service';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
     constructor(private auth: AuthService) { }
-    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    intercept(req: HttpRequest<JSON>, next: HttpHandler): Observable<HttpEvent<JSON>> {
         const authToken = this.auth.getAuthorizationToken();
         if (authToken) {
             const authReq = req.clone({
