@@ -240,6 +240,19 @@
         "Charles",
         "Helen Mirren"
       ]
+    },
+    {
+      "id": 1573734249552,
+      "title": "A very interesting course",
+      "creationDate": "2019-11-14T21:00:00.000Z",
+      "duration": "457",
+      "description": "A very interesting course",
+      "topRated": false,
+      "authors": [
+        "Diane Prince",
+        "Natasha Romanoff",
+        "Helen"
+      ]
     }
   ]
 }
