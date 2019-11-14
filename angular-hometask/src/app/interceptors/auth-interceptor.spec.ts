@@ -38,7 +38,6 @@ describe('AuthInterceptor', () => {
     httpMock = TestBed.get(HttpTestingController);
   });
   it('should add a header to a request', () => {
-    console.log('*********************88888888888888888888888888888********************', service);
     service.logIn('123@gmail.com', '123').subscribe((res) => {
       expect(res).toBeTruthy();
     });
