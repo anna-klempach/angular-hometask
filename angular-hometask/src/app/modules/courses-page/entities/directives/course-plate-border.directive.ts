@@ -11,7 +11,7 @@ export class CoursePlateBorderDirective implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    const change = changes.creationDate;
+    const change: SimpleChange = changes.creationDate;
     if (change.currentValue !== change.previousValue) {
       const currentDate = Date.now() / 1000 / 60 / 60 / 24;
       const currCreationDate = new Date(this.creationDate).valueOf() / 1000 / 60 / 60 / 24;
