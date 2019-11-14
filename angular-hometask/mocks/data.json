@@ -82,6 +82,11 @@
       "email": "12@gmail.com",
       "password": "$2a$10$53HUjzz89DO/sfOUy98QdOXQNAvuVmqvG3MLv20rfToLdluKtpa.S",
       "id": 3
+    },
+    {
+      "email": "ann@gmail.com",
+      "password": "$2a$10$D6t69jyVg8DuMrgG7K2oRuQfo1Xedsz0W5m8pi8VdFSBHIWF9xMxW",
+      "id": 4
     }
   ],
   "courses": [

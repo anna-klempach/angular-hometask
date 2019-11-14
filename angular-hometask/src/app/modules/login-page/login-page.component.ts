@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/modules/shared/services/auth/auth.service';
+import { AuthService, UserInfo } from 'src/app/modules/shared/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomErrorStateMatcher } from '../courses-page/entities/classes/error-state-matcher';
 import { TranslateService } from '@ngx-translate/core';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login-page',
@@ -41,19 +42,17 @@ export class LoginPageComponent {
 
   handleLogin(): void {
     this.authService.logIn(this.emailValue, this.passwordValue)
-      .subscribe((res) => {
-        if (res.accessToken) {
-          this.router.navigate(['courses']);
-        }
-      });
+    .pipe(
+      filter((res: UserInfo) => !!res)
+      )
+    .subscribe(() => this.router.navigate(['courses']));
   }
 
   handleRegister(): void {
     this.authService.registerNewUser(this.emailValue, this.passwordValue)
-      .subscribe((res) => {
-        if (res.accessToken) {
-          this.router.navigate(['courses']);
-        }
-      });
+    .pipe(
+      filter((res: UserInfo) => !!res)
+      )
+    .subscribe(() => this.router.navigate(['courses']));
   }
 }
