@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ICoursesListItem, ITranslateValue, ITranslateParams } from 'src/app/interfaces/courses-list-item.model';
 import { CoursesListEntry } from 'src/app/modules/courses-page/entities/classes/courses-list-entry';
 import { Router } from '@angular/router';
@@ -11,6 +11,7 @@ import { durationValidator } from '../../entities/validators/duration-validator.
 import { CustomErrorStateMatcher } from '../../entities/classes/error-state-matcher';
 import { authorsListValidator } from '../../entities/validators/authors-list-size.directive';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 const TRANSLATE_PARAMS = {
   RU: 'Добавить курс',
@@ -22,7 +23,8 @@ const TRANSLATE_PARAMS = {
   templateUrl: './add-course-page.component.html',
   styleUrls: ['./add-course-page.component.scss']
 })
-export class AddCoursePageComponent implements OnInit {
+export class AddCoursePageComponent implements OnInit, OnDestroy {
+  public subscr: Subscription;
   public loaded = true;
   public editCourse: ICoursesListItem;
   public translateParams: ITranslateValue = { value: ''};
@@ -64,14 +66,16 @@ export class AddCoursePageComponent implements OnInit {
   ) {
   }
 
-  get title() { return this.addCourseForm.get('title'); }
-
   ngOnInit(): void {
     this.setTranslateParams(this.translate.defaultLang, TRANSLATE_PARAMS);
     this.editCourse = new CoursesListEntry(new Date().valueOf(), '', undefined, 0, '', false, []); // we'll make id a current date
-    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+    this.subscr = this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.setTranslateParams(event.lang, TRANSLATE_PARAMS);
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subscr.unsubscribe();
   }
 
   protected setTranslateParams(lang: string, params: ITranslateParams): void {
@@ -88,10 +92,7 @@ export class AddCoursePageComponent implements OnInit {
   }
 
   handleTitleInput(value: string): void {
-    this.addCourseForm.patchValue({
-      ...this.addCourseForm,
-      title: value
-    });
+    this.titleControl.setValue(value);
   }
 
   handleDescriptionInput(value: string): void {
@@ -101,7 +102,7 @@ export class AddCoursePageComponent implements OnInit {
     });
   }
 
-  protected calculateDate() {
+  public calculateDate() {
     const currentDate = this.addCourseForm.value.creationDate;
     const currentValue = currentDate.split('/');
     return new Date(`${currentValue[1]}/${currentValue[0]}/${currentValue[2]}`);
