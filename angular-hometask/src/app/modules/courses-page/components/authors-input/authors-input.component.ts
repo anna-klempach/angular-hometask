@@ -41,6 +41,8 @@ export class AuthorsInputComponent implements OnInit, ControlValueAccessor {
   public disabled = false;
   private onChange = (value: any) => { };
   private onTouched = () => { };
+  public get OnChange() {return this.onChange; }
+  public get OnTouched() {return this.onTouched; }
 
   constructor(
     private store: Store<IAppAuthorsState>,

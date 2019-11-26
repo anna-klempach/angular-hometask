@@ -115,7 +115,6 @@ class MockAuthorsInputComponent implements ControlValueAccessor {
   }
 }
 
-
 describe('AddCoursePageComponent', () => {
   let component: AddCoursePageComponent;
   let fixture: ComponentFixture<AddCoursePageComponent>;
