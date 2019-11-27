@@ -1,11 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DateInputComponent } from './date-input.component';
 import { NO_ERRORS_SCHEMA, DebugElement, EventEmitter, forwardRef } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { NG_VALUE_ACCESSOR, FormControl, Validators } from '@angular/forms';
 import { dateValidator } from '../../entities/validators/date-validator.directive';
-import { stringify } from 'querystring';
 import { By } from '@angular/platform-browser';
 
 describe('DateInputComponent', () => {
@@ -37,7 +35,6 @@ describe('DateInputComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DateInputComponent);
-    component = fixture.componentInstance;
     component = fixture.componentInstance;
     compDe = fixture.debugElement;
     compEl = compDe.nativeElement;
