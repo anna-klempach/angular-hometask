@@ -9,7 +9,6 @@ import { IAppAuthorsState, selectAuthors } from '../../state/manage-authors-list
 import { Store, select } from '@ngrx/store';
 import { loadAuthors, addAuthor } from '../../state/manage-authors-list/manage-authors-list.actions';
 import { IValueCheck } from 'src/app/interfaces/value-check.model';
-import { IAuthor } from 'src/app/interfaces/author.model';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -113,34 +112,6 @@ export class AuthorsInputComponent implements OnInit, ControlValueAccessor {
     this.filterCourses();
     this.authorInput.nativeElement.value = '';
     this.onChange(this.authors);
-  }
-
-  private checkValue(valueToCheck: string): IValueCheck {
-    let present: boolean;
-    let selected: boolean;
-    let value: string;
-    const filteredValues = this.allAuthors.filter(author => author.toLowerCase() === valueToCheck.toLowerCase());
-    if (filteredValues.length === 1) {
-      present =  true;
-      value =  filteredValues[0];
-    } else if (filteredValues.length > 1) {
-      present =  true;
-      const filteredIndex = filteredValues.indexOf(value);
-      if (filteredIndex > 0) {
-        value = filteredValues[filteredIndex];
-      } else {
-        value = filteredValues[0];
-      }
-    } else {
-      present = false;
-      value = valueToCheck;
-    }
-    if (this.authors.filter(author => author.toLowerCase() === valueToCheck.toLowerCase()).length > 0) {
-      selected = true;
-    } else {
-      selected = false;
-    }
-    return {present, selected, value};
   }
 
   private filterCourses(): void {
