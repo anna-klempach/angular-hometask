@@ -62,10 +62,10 @@ export class CourseComponent extends AddCoursePageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    protected router: Router,
+    router: Router,
     private service: CoursesService,
-    protected store: Store<IAppState>,
-    protected translate: TranslateService
+    store: Store<IAppState>,
+    translate: TranslateService
   ) {
     super(router, store, translate);
   }

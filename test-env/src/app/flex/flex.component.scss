@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    min-height: 100vh;
+
+    .block {
+        width: 100vw;
+        box-sizing: border-box;
+        border: 1px solid red;
+        margin: 0;
+        
+    }
+    .one {
+        background-color: yellow;
+    }
+
+    .two {
+        background-color: green;
+        height: 100vh;
+        flex: 1 0 auto;
+    }
+
+    .three {
+        background-color: blue;
+    }
+}
