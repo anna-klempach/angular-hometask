@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="get-data-container">
+        <button (click)="getData()">Get Data</button>
+        <ng-container *ngIf="data as result">
+            <ul class="data-list" *ngFor="let res of result">
+                <li>
+                    <app-data-display [customer]="res"></app-data-display>
+                </li>
+            </ul>
+        </ng-container>
+    </div>
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <label class="label">
+            <span>SSN:</span>
+           <input class="input" type="text" formControlName="ssn" (input)="handleInput($event, 'ssn')"  [appError]="ssn.invalid"> 
+        </label>
+        <p *ngIf="ssn.errors && ssn.errors.maxlength">The ssn is too long.</p>
+        <p *ngIf="ssn.errors && ssn.errors.required">The ssn is required.</p>
+        <label class="label">
+            <span>Name:</span>
+            
+          <input class="input" type="text" formControlName="name" (input)="handleInput($event, 'name')" [appError]="name.invalid">  
+        </label>
+        <label class="label">
+            <span>Age:</span>
+            
+           <input class="input" type="text" formControlName="age" (input)="handleInput($event, 'age')" [appError]="age.invalid"> 
+        </label>
+        <label class="label">
+            <span>E-mail:</span>
+            
+            <input class="input" type="email" formControlName="email" (input)="handleInput($event, 'email')" [appError]="email.invalid">
+        </label>
+        <button type="submit" [disabled]="!form.valid">Send</button>
+    </form>
+</div>

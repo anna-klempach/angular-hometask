@@ -1,6 +1,12 @@
-<app-header></app-header>
-<app-pick-a-boo class="pab" *ngIf="pickABooActive" (deleteRequest)="deleteItem($event)"></app-pick-a-boo>
 <div class="container">
-    <router-outlet></router-outlet>
+    <div class="container__top">
+        <div class="container__top--header">
+            <app-header></app-header>
+        </div>
+        <div class="container__top--main">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <app-footer></app-footer>
 </div>
-<app-footer></app-footer>
+<app-preloader *ngIf="displayed"></app-preloader>

@@ -1,0 +1,18 @@
+@import "../../../../styles/styles.scss";
+
+:host {
+   flex-shrink: 0; 
+}
+.footer-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    .footer {
+        width: 100%;
+        justify-content: center;
+        padding: 0;
+        &__title {
+            font-size: 1rem;
+        }
+    }
+}

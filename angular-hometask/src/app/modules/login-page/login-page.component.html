@@ -1,0 +1,48 @@
+<div class="login-page">
+  <mat-card class="login-page__card">
+    <mat-card-header>
+      <mat-card-title [translate]="'LOG_IN_TITLE'"></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="login-page__card--form" [formGroup]="loginForm">
+        <mat-form-field appearance="outline">
+          <mat-label [translate]="'LOG_IN_EMAIL'"></mat-label>
+          <input matInput #emailBar formControlName="email" [errorStateMatcher]="matcher"
+            (input)="handleEmailInput(emailBar.value)" placeholder="Enter your e-mail">
+          <mat-hint [translate]="'LOG_IN_EMAIL_HINT'"></mat-hint>
+          <mat-error
+            *ngIf="loginForm?.controls?.email?.hasError('email') && !loginForm?.controls?.loginForm?.hasError('required')"
+            [translate]="'LOG_IN_EMAIL_ERROR'">
+          </mat-error>
+          <mat-error *ngIf="loginForm?.controls?.email?.hasError('required')" [translate]="'LOG_IN_EMAIL_REQUIRED'">
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label [translate]="'LOG_IN_PASSWORD'"></mat-label>
+          <input matInput #passwordBar type="password" formControlName="password"
+            (input)="handlePasswordInput(passwordBar.value)" placeholder="Enter password" [errorStateMatcher]="matcher">
+          <mat-hint [translate]="'LOG_IN_PASSWORD_HINT'"></mat-hint>
+          <mat-error
+            *ngIf="loginForm?.controls?.password?.hasError('minlength') && !loginForm?.controls?.password?.hasError('required')"
+            [translate]="'LOG_IN_PASSWORD_ERROR'">
+          </mat-error>
+          <mat-error *ngIf="loginForm?.controls?.password?.hasError('required')"
+            [translate]="'LOG_IN_PASSWORD_REQUIRED'">
+          </mat-error>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="login-page__card--buttonset">
+      <button mat-raised-button color="primary" type="submit"
+        (click)="handlePasswordInput(passwordBar.value); handleEmailInput(emailBar.value); handleLogin();"
+        [disabled]="!loginForm.valid">
+        <span [translate]="'BUTTON_LOG_IN'"></span>
+      </button>
+      <button mat-raised-button color="primary"
+        (click)="handlePasswordInput(passwordBar.value); handleEmailInput(emailBar.value); handleRegister();"
+        [disabled]="!loginForm.valid">
+        <span [translate]="'BUTTON_REGISTER'"></span>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

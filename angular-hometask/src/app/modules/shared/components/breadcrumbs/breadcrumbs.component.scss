@@ -1,0 +1,54 @@
+@import "../../../../styles/styles.scss";
+
+.breadcrumb-container {
+  display: flex;
+  .breadcrumb {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: map-get($colors, dark-font);
+    &:hover {
+      color: map-get($colors, hover);
+    }
+    &:active {
+      color: map-get($colors, hover);
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 80vw;
+    padding: 0;
+
+    &--item {
+      position: relative;
+      font-size: 1rem;
+      font-weight: bold;
+      color: map-get($colors, dark-font);
+    }
+    &--item:after {
+      content: "/";
+      position: absolute;
+    top: 35%;
+    right: -10%;
+      margin: 0 0.5em;
+      font-size: 1rem;
+      font-weight: bold;
+      color: map-get($colors, dark-font);
+    }
+    &--item:last-child:after {
+      content: "";
+    }
+  }
+  .mat-list-base .mat-list-item {
+    width: auto;
+  }
+
+  .mat-list-text {
+    font-size: 1rem;
+    color: map-get($colors, dark-font);
+  }
+
+  
+}

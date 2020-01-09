@@ -1,0 +1,301 @@
+{
+  "authors": [
+    {
+      "name": "Tony Stark"
+    },
+    {
+      "name": "Diane Prince"
+    },
+    {
+      "name": "Steve Rogers"
+    },
+    {
+      "name": "Bruce Banner"
+    },
+    {
+      "name": "Peter Parker"
+    },
+    {
+      "name": "Natasha Romanoff"
+    },
+    {
+      "name": "Helen",
+      "id": 1571824949321
+    },
+    {
+      "name": "Jack",
+      "id": 1571824970904
+    },
+    {
+      "name": "Hanna",
+      "id": 1571825529765
+    },
+    {
+      "name": "John",
+      "id": 1571825880230
+    },
+    {
+      "name": "Charles",
+      "id": 1571825906182
+    },
+    {
+      "name": "Holly",
+      "id": 1571825970096
+    },
+    {
+      "name": "Helen Mirren",
+      "id": 1571825988647
+    },
+    {
+      "name": "jessica",
+      "id": 1571830770111
+    },
+    {
+      "name": "helem",
+      "id": 1571832594979
+    },
+    {
+      "name": "steve ",
+      "id": 1571834465068
+    },
+    {
+      "name": "Helen Petrova",
+      "id": 1571842783580
+    },
+    {
+      "name": "Марина Инванова",
+      "id": 1572593414582
+    },
+    {
+      "name": "Jennyfer",
+      "id": 1574839935533
+    },
+    {
+      "name": "Piotr",
+      "id": 1574840103221
+    },
+    {
+      "name": "Helen",
+      "id": 1574840147085
+    },
+    {
+      "name": "Nessie",
+      "id": 1574840162869
+    },
+    {
+      "name": "Piotr",
+      "id": 1574851304734
+    }
+  ],
+  "users": [
+    {
+      "email": "123@gmail.com",
+      "password": "$2a$10$95YCP0a.aFgfF0vZQ/B0D.DKnwa4Jval8Qq.jKPUMUKT7OYsX89bm",
+      "id": 1
+    },
+    {
+      "email": "12345@gmail.com",
+      "password": "$2a$10$qQ2ODEoxCAUBaCO1FQLcmOlFnA7CnGpdLbXD75rqNVQ09nqRtSpSy",
+      "id": 2
+    },
+    {
+      "email": "12@gmail.com",
+      "password": "$2a$10$53HUjzz89DO/sfOUy98QdOXQNAvuVmqvG3MLv20rfToLdluKtpa.S",
+      "id": 3
+    },
+    {
+      "email": "ann@gmail.com",
+      "password": "$2a$10$D6t69jyVg8DuMrgG7K2oRuQfo1Xedsz0W5m8pi8VdFSBHIWF9xMxW",
+      "id": 4
+    }
+  ],
+  "courses": [
+    {
+      "creationDate": "2018-06-11T23:24:00.000Z",
+      "description": "A very interesting video about a very importatnt topic.",
+      "duration": 20,
+      "id": 1,
+      "title": "Video One",
+      "topRated": true,
+      "authors": [
+        "Tony Stark"
+      ]
+    },
+    {
+      "creationDate": "2019-08-30T11:24:00.000Z",
+      "description": "Another very interesting video about an even more interesting topic.",
+      "duration": 40,
+      "id": 2,
+      "title": "Video Two",
+      "topRated": true,
+      "authors": [
+        "Steve Rogers"
+      ]
+    },
+    {
+      "creationDate": "2017-12-17T00:24:00.000Z",
+      "description": "Not a very interesting video but the topic is extremely important and you have to watch it, thanks God it is quite short.",
+      "duration": 15,
+      "id": 3,
+      "title": "Video Three",
+      "topRated": false,
+      "authors": [
+        "Natasha Romanoff"
+      ]
+    },
+    {
+      "creationDate": "2018-02-18T02:24:00.000Z",
+      "description": "I have changed it. An absolutely useless video, if you do not want you may not watch it.",
+      "duration": 60,
+      "id": 4,
+      "title": "Video Four",
+      "topRated": false,
+      "authors": [
+        "Bruce Banner"
+      ]
+    },
+    {
+      "creationDate": "2019-09-29T11:24:00.000Z",
+      "description": "A very interesting video that has been published recently.",
+      "duration": 125,
+      "id": 5,
+      "title": "Video Five",
+      "topRated": true,
+      "authors": [
+        "Steve Rogers"
+      ]
+    },
+    {
+      "creationDate": "2012-12-11T21:00:00.000Z",
+      "description": "Fix it",
+      "duration": 15,
+      "id": 6,
+      "title": "Video Seven",
+      "topRated": true,
+      "authors": [
+        "Bruce Banner",
+        "Helen Petrova"
+      ]
+    },
+    {
+      "id": 1571822996432,
+      "title": "1234",
+      "creationDate": "2012-12-11T21:00:00.000Z",
+      "duration": "45",
+      "description": "1234",
+      "topRated": false,
+      "authors": [
+        "Peter Parker",
+        "helen",
+        "Peter Parker",
+        "Natasha Romanoff"
+      ]
+    },
+    {
+      "id": 1571832682394,
+      "title": "12345",
+      "creationDate": "2012-12-11T21:00:00.000Z",
+      "duration": "45",
+      "description": "56",
+      "topRated": false,
+      "authors": [
+        "Bruce Banner"
+      ]
+    },
+    {
+      "id": 1571832728446,
+      "title": "dggdfdgf",
+      "creationDate": "2012-12-11T21:00:00.000Z",
+      "duration": "56",
+      "description": "asdg\\g",
+      "topRated": false,
+      "authors": [
+        "Peter Parker",
+        "Diane Prince"
+      ]
+    },
+    {
+      "id": 1571843334255,
+      "title": "Video Eight",
+      "creationDate": "2019-10-22T21:00:00.000Z",
+      "duration": "56",
+      "description": "A very interesting video",
+      "topRated": false,
+      "authors": [
+        "Bruce Banner"
+      ]
+    },
+    {
+      "id": 1572011784605,
+      "title": "Hello from home",
+      "creationDate": "2019-10-24T21:00:00.000Z",
+      "duration": "45",
+      "description": "A good video",
+      "topRated": false,
+      "authors": [
+        "Diane Prince",
+        "Natasha Romanoff"
+      ]
+    },
+    {
+      "id": 1572347552118,
+      "title": "A brand new course",
+      "creationDate": "2019-10-28T21:00:00.000Z",
+      "duration": "458",
+      "description": "The functional API provided by the @angular/animations module provides a domain-specific language (DSL) for creating and controlling animations in Angular applications. See the API reference for a complete listing and syntax details of the core functions and related data structures.\nYou learned to add animation to a simple transition between two states, using style() and state() along with animate() for the timing.\n\nYou can learn about more advanced features in Angular animations under ",
+      "topRated": false,
+      "authors": [
+        "Peter Parker"
+      ]
+    },
+    {
+      "id": 1572348185333,
+      "title": "Very very very very very very very very long title",
+      "creationDate": "2019-10-28T21:00:00.000Z",
+      "duration": "45",
+      "description": "A very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very long description",
+      "topRated": false,
+      "authors": [
+        "Tony Stark",
+        "Charles",
+        "Helen Mirren"
+      ]
+    },
+    {
+      "id": 1573734249552,
+      "title": "A very interesting course",
+      "creationDate": "2019-11-14T21:00:00.000Z",
+      "duration": "457",
+      "description": "A very interesting course",
+      "topRated": false,
+      "authors": [
+        "Diane Prince",
+        "Natasha Romanoff",
+        "Helen"
+      ]
+    },
+    {
+      "id": 1575017471270,
+      "title": "Hello",
+      "creationDate": "2019-11-28T21:00:00.000Z",
+      "duration": "34",
+      "description": "Hello",
+      "topRated": false,
+      "authors": [
+        "Tony Stark",
+        "Peter Parker"
+      ]
+    },
+    {
+      "id": 1575017744734,
+      "title": "Another course",
+      "creationDate": "2019-12-09T21:00:00.000Z",
+      "duration": "45",
+      "description": "Another course with different date",
+      "topRated": false,
+      "authors": [
+        "Diane Prince"
+      ]
+    }
+  ]
+}

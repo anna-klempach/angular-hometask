@@ -1,0 +1,56 @@
+@import "../../../../styles/styles.scss";
+
+.courses-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  height: auto;
+  background-color: map-get($colors, primary-color);
+
+  .binding-checker {
+    border: 0.1rem solid map-get($colors, hover);
+  }
+
+  .list {
+    align-self: center;
+  }
+}
+.add-button-container {
+  width: 80vw;
+  display: flex;
+  justify-content: flex-end;
+  align-self: center;
+}
+
+.load-more-button {
+  align-self: center;
+  margin-bottom: 5rem;
+  width: 50vw;
+  height: 3em;
+}
+
+.no-data-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  height: 5vh;
+  margin: 5rem auto;
+}
+
+.blocking-window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: map-get($colors, light-opaque-background);
+}
+
+@media only screen and (max-height: 900px) {
+  .courses-list {
+    margin-top: -5rem;
+  }
+}

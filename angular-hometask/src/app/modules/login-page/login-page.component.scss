@@ -1,0 +1,38 @@
+@import "../../styles/styles.scss";
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 7rem;
+  background-color: map-get($colors, secondary-background);
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-sizing: border-box;
+    width: 80vw;
+    height: 75vh;
+    padding: 2em;
+
+    &--form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 45vh;
+    }
+
+    &--buttonset {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}
+@media only screen and (max-height: 900px) {
+  .login-page {
+    &__card {
+      width: 90vw;
+    }
+  }
+}

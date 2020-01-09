@@ -1,0 +1,23 @@
+@import "../../../../styles/styles.scss";
+
+.search-bar-container{
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+.mat-form-field-appearance-outline {
+  margin-top: 6rem;
+  width: 80vw;
+}
+
+.mat-search-bar {
+  width: 100%;
+  margin: 0;
+}
+
+@media only screen and (max-width: 570px) {
+  .mat-form-field-appearance-outline {
+    margin-top: 13rem;
+  }
+}

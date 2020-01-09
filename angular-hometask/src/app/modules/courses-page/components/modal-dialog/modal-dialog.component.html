@@ -1,0 +1,9 @@
+<h2 class="heading" [translate]="'MODAL_DIALOG_HEADING'"></h2>
+<div class="dialog-buttons">
+    <button class="dialog-button" (click)="handleDeleteClick(true)">
+        <span [translate]="'MODAL_DIALOG_APPROVE_BUTTON'"></span>
+    </button>
+    <button class="dialog-button" (click)="handleDeleteClick(false)">
+        <span [translate]="'MODAL_DIALOG_DECLINE_BUTTON'"></span>
+    </button>
+</div>

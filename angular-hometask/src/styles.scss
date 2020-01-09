@@ -1,27 +1,2 @@
-$colors: (
-    primary: #F8E9A1,
-    secondary: #A8E0DF,
-    dark-background: #24325E,
-    button-background: #374785,
-    hover: #F76C6C,
-    dark-font:  rgb(24, 33, 63),
-    light-font: rgb(248, 244, 226),
-    light-opaque-background: rgba(248, 244, 226, 0.2)
-);
-
-@mixin button($width: 10rem, $height: 2rem, $background-color: map-get($colors, button-background)) {
-    outline: none;
-    width: $width;
-    height: $height;
-    font-size: 1.2rem;
-    color: map-get($colors, light-font);
-    background-color: $background-color;
-    border: none;
-    border-radius: 3px;
-    box-shadow: 1px 1px 4px black;  
-}
-
-body {
-    margin: 0;
-    padding: 0;
-}
+@import './app/styles/styles.scss';
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';

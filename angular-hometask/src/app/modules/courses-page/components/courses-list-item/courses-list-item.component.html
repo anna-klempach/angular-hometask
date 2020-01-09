@@ -1,0 +1,45 @@
+<li class="course-list-item">
+  <mat-card class="course-list-item__card" [ngClass]="{'top-background-color': course.topRated}">
+    <mat-card-header class="course-list-item__card--header">
+      <mat-card-title-group class="course-list-item__card--header_group">
+        <mat-card-subtitle class="course-list-item__card--header_group_title" [translate]="'CARD-TITLE'"
+          [translateParams]="{index: index}">
+        </mat-card-subtitle>
+        <mat-card-title>{{course.title | uppercase}}</mat-card-title>
+        <mat-icon class="course-list-item__card--rating material-icons" *ngIf="course.topRated" color="warn">star
+        </mat-icon>
+      </mat-card-title-group>
+      <div class="course-list-item__card--header_info">
+        <div class="course-list-item__card--header_info_field course-duration">
+          <mat-icon class="course-list-item__card--header_info_field_icon" color="primary">schedule</mat-icon>
+          <p>
+            {{course.duration | durationDisplay: locale }}
+          </p>
+        </div>
+        <div class="course-list-item__card--header_info_field course-creation">
+          <mat-icon class="course-list-item__card--header_info_field_icon" color="primary">date_range</mat-icon>
+          <p>
+            {{course.creationDate | date: 'd MMM, yyyy' : default: locale}}
+          </p>
+        </div>
+      </div>
+    </mat-card-header>
+    <div class="course-list-item__card--content">
+      <div>
+        <p class="course-list-item__card--content_description">{{course.description}}</p>
+      </div>
+    </div>
+    <div class="course-list-item__card--control">
+      <button mat-raised-button class="course-list-item__card--control_button" (click)="handleEditClick()"
+        color="primary">
+        <mat-icon>create</mat-icon>
+        <span [translate]="'CARD_BUTTON_EDIT'"></span>
+      </button>
+      <button mat-raised-button class="course-list-item__card--control_button" (click)="handleDeleteClick()"
+        color="primary">
+        <mat-icon>delete</mat-icon>
+        <span [translate]="'CARD_BUTTON_DELETE'"></span>
+      </button>
+    </div>
+  </mat-card>
+</li>

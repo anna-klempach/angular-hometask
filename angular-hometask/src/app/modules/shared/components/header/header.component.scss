@@ -1,0 +1,45 @@
+@import "../../../../styles/styles.scss";
+
+.header-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+
+  .header {
+    flex: 1 1 0;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    line-height: 3rem;
+    color: map-get($colors, light-font);
+
+    &__title {
+      margin-left: 10vw;
+      font-size: 1.5rem;
+    }
+  }
+
+  .log-in-header {
+    background: linear-gradient(to right, map-get($colors, dark-background), map-get($colors, secondary));
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .header-container {
+    .header {
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: space-around;
+      height: 14rem;
+      &__title {
+        margin: 1rem 0;
+      }
+    }
+  }
+}

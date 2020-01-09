@@ -1,0 +1,12 @@
+<mat-list class="logo-container">
+    <mat-list-item class="user-login" *ngIf="login">
+        <mat-icon matListIcon class="user-login__icon">face</mat-icon>
+        <p class="user-login__name">{{login}}</p>
+    </mat-list-item>
+    <mat-list-item>
+        <button mat-raised-button class="user-logoff" (click)="handleLogout()" color="accent">
+            <i class="material-icons">launch</i>
+            <span [translate]="'LOGO_LOGOUT_BUTTON'"></span>
+        </button>
+    </mat-list-item>
+</mat-list>

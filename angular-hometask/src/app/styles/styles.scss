@@ -1,0 +1,34 @@
+@import "./reset.scss";
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+$colors: (
+  primary: #f8e9a1,
+  secondary: rgb(186, 235, 236),
+  secondary-background: rgb(207, 219, 219),
+  dark-background: #5c678d,
+  button-background: #374785,
+  hover: #f76c6c,
+  dark-font: rgb(53, 63, 95),
+  light-font: rgb(243, 236, 207),
+  light-opaque-background: rgba(248, 244, 226, 0.2),
+  highlight: rgb(245, 216, 75)
+);
+
+@mixin button($width: 10rem, $height: 2rem, $background-color: map-get($colors, button-background)) {
+  outline: none;
+  width: $width;
+  height: $height;
+  font-size: 1.2rem;
+  color: map-get($colors, light-font);
+  background-color: $background-color;
+  border: none;
+  border-radius: 0.3rem;
+  box-shadow: 0.1rem 0.1rem 0.4rem black;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}

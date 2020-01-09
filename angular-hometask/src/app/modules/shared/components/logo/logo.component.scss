@@ -1,0 +1,28 @@
+@import "../../../../styles/styles.scss";
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-right: 9vw;
+  padding: 0;
+  .user {
+    &-login {
+      display: flex;
+      align-items: center;
+      color: map-get($colors, light-font);
+      &__name {
+        font-weight: bold;
+      }
+      &__icon {
+        width: auto;
+        height: auto;
+        padding: 0 0.5rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .logo-container {
+    margin: 0;
+  }
+}

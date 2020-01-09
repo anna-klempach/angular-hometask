@@ -1,0 +1,81 @@
+@import "../../../../styles/styles.scss";
+
+.add-course-page {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 8rem;
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 70vw;
+    height: 70vh;
+
+    &--form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 60vw;
+      height: 55vh;
+    }
+    &--buttons_block {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+    }
+  }
+
+  .duration-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 2rem;
+    input {
+      margin-right: 3em;
+    }
+    .duration-eval {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .add-course-page {
+    margin-top: 2rem;
+    &__card {
+      width: 85vw;
+      height: 90vh;
+
+      &--form {
+        width: 80vw;
+        height: 75vh;
+      }
+    }
+  }
+}
+
+@media only screen and (max-height: 800px) {
+  .add-course-page {
+    margin-top: 6rem;
+  }
+}
+
+@media only screen and (max-height: 450px) {
+  .add-course-page {
+    &__card {
+      width: 85vw;
+      height: 170vh;
+      padding: 0;
+      &--form {
+        width: 80vw;
+      }
+    }
+  }
+}

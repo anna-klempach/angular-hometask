@@ -1,0 +1,14 @@
+<div class="duration-container">
+    <mat-form-field class="duration-container__form-field" appearance="outline">
+        <mat-label [translate]="'DURATION_LABEL'"></mat-label>
+        <input matInput [formControl]="name" type="text" size="10" (input)="handleInput($event)">
+        <span matSuffix [translate]="'DURATION_LABEL_SUFFIX'"></span>
+        <mat-hint [translate]="'DURATION_HINT'"></mat-hint>
+        <mat-error *ngIf="this.name.hasError('forbiddenDurationFormat') && !this.name.hasError('required')"
+            [translate]="'DURATION_ERROR'">
+        </mat-error>
+        <mat-error *ngIf="this.name.hasError('required')" [translate]="'DURATION_REQUIRED'">
+        </mat-error>
+    </mat-form-field>
+    <p class="duration-eval" *ngIf="parsedValue > 0">{{parsedValue | durationDisplay: locale}}</p>
+</div>

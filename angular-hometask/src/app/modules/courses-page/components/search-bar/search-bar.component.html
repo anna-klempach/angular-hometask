@@ -1,0 +1,12 @@
+<div class="search-bar-container">
+  <div class="search-bar">
+    <mat-form-field class="search-bar__form" appearance="outline">
+      <mat-label class="search-bar__form--heading" [translate]="'SEARCH_BAR_LABEL'"></mat-label>
+      <input matInput class="search-bar__form--input" [formControl]="searchBar" (keyup)="handleInputChange($event)"
+      [errorStateMatcher]="matcher">
+      <mat-hint [translate]="'SEARCH_BAR_HINT'"></mat-hint>
+      <mat-error *ngIf="searchBar.hasError('minLength')" [translate]="'SEARCH_BAR_ERROR'">
+      </mat-error>
+    </mat-form-field>
+  </div>
+</div>

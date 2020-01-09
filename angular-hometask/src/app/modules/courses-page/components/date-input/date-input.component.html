@@ -1,0 +1,11 @@
+<div class="date-container">
+    <mat-form-field class="date-container__form-field" appearance="outline">
+        <mat-label [translate]="'DATE_LABEL'"></mat-label>
+        <input matInput [formControl]="name" type="text" size="10" (input)="handleInput($event)">
+        <mat-hint [translate]="'DATE_HINT'"></mat-hint>
+        <mat-error *ngIf="this.name.errors && this.name.errors.forbiddenDateFormat" [translate]="'DATE_ERROR'">
+        </mat-error>
+        <mat-error *ngIf="this.name.errors && this.name.errors.required" [translate]="'DATE_REQUIRED'">
+        </mat-error>
+    </mat-form-field>
+</div>
